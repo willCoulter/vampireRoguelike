@@ -125,8 +125,8 @@ GameObject:
   - component: {fileID: 277389980}
   - component: {fileID: 277389979}
   - component: {fileID: 277389983}
-  m_Layer: 0
-  m_Name: Knight_weapon
+  m_Layer: 8
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277389978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 3.38, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -281,6 +282,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f4bcd3ce4192e4182569bc40f01086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followTarget: {fileID: 277389978}
+  moveSpeed: 3
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -291,7 +306,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -307,7 +322,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.388689
+  orthographic size: 5.613646
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -351,7 +366,7 @@ GameObject:
   - component: {fileID: 785994821}
   - component: {fileID: 785994820}
   - component: {fileID: 785994819}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tilemap_Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1216,7 +1231,7 @@ GameObject:
   - component: {fileID: 1160262624}
   - component: {fileID: 1160262626}
   - component: {fileID: 1160262625}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tilemap_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2369,7 +2384,7 @@ GameObject:
   - component: {fileID: 1238327598}
   - component: {fileID: 1238327597}
   - component: {fileID: 1238327596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tilemap_Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
