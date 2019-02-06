@@ -27,11 +27,28 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+        ChangeDirection();
     }
 
     private bool CanMove(Vector3 direction, float distance)
     {
         return Physics2D.Raycast(transform.position, direction, distance).collider == null;
+    }
+
+    private void ChangeDirection()
+    {
+        //Change orientation based on mouse location
+        Vector3 playerScreenPoint = transform.position;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (mousePos.x < playerScreenPoint.x)
+        {
+            sr.flipX = true;
+        }
+        else
+        {
+            sr.flipX = false;
+        }
     }
 
     private void Move()
@@ -63,7 +80,6 @@ public class PlayerController : MonoBehaviour
         //Move character
         Vector3 moveDirection = new Vector3(moveX, moveY).normalized;
         transform.position += moveDirection * speed * Time.deltaTime;
-        
     }
 
     private void Dash()
