@@ -5,11 +5,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 7f;
-    public float dashDistance = 15f;
 
     private Vector2 direction;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+
+    private State state;
+    private Vector3 lastMoveDirection;
+    private float slideSpeed;
+
+    private enum State
+    {
+        Normal,
+        Dashing,
+    }
 
     void Awake()
     {
@@ -26,13 +35,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
-        ChangeDirection();
-    }
-
-    private bool CanMove(Vector3 direction, float distance)
-    {
-        return Physics2D.Raycast(transform.position, direction, distance).collider == null;
+        switch (state)
+        {
+            case State.Normal:
+                Move();
+                ChangeDirection();
+                HandleDash();
+                break;
+            case State.Dashing:
+                Dash();
+                break;
+        }
+        
     }
 
     private void ChangeDirection()
@@ -69,24 +83,39 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             moveX = -1f;
-            sr.flipX = true;
         }
         if (Input.GetKey(KeyCode.D))
         {
             moveX = 1f;
-            sr.flipX = false;
         }
 
         //Move character
         Vector3 moveDirection = new Vector3(moveX, moveY).normalized;
         transform.position += moveDirection * speed * Time.deltaTime;
+        lastMoveDirection = moveDirection;
+    }
+
+    private void HandleDash()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            state = State.Dashing;
+            slideSpeed = 17f;
+        }
     }
 
     private void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        //Slide player by slideSpeed amount
+        transform.position += lastMoveDirection * slideSpeed * Time.deltaTime;
+
+        //Reduce speed over time
+        slideSpeed -= slideSpeed * 5f * Time.deltaTime;
+
+        //If slow enough, change state back to normal
+        if(slideSpeed < 3f)
         {
-            
+            state = State.Normal;
         }
     }
 }
