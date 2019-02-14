@@ -67,12 +67,16 @@ public class PlayerController : MonoBehaviour
 
     private bool CanMove(Vector3 moveDirection)
     {
-        float width = GetComponent<Collider2D>().bounds.extents.x + 0.1f;
-        float height = GetComponent<Collider2D>().bounds.extents.y + 0.2f;
-        Collider2D hit = Physics2D.Raycast(transform.position + new Vector3(width, height), moveDirection, 0.5f).collider;
-        Debug.DrawRay(transform.position + new Vector3(width, height), moveDirection, Color.green);
-        print(hit);
-        return hit == null;
+        //Create layermask on player layer
+        int layerMask = 1 << 8;
+
+        //Invert layermask to all layers other than player
+        layerMask = ~layerMask;
+
+        //Raycast in movement direction to check for walls
+        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, moveDirection, speed * Time.deltaTime, layerMask);
+
+        return raycastHit.collider == null;
     }
 
     private void Move()
@@ -106,7 +110,6 @@ public class PlayerController : MonoBehaviour
             transform.position += moveDirection * speed * Time.deltaTime;
             lastMoveDirection = moveDirection;
         }
-
     }
 
     private void HandleDash()
