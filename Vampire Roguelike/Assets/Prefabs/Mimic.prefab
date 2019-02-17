@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7062521053650723138}
   - component: {fileID: 3728163576003900733}
   - component: {fileID: 8561643068078044459}
-  m_Layer: 0
+  - component: {fileID: 4920549247710452533}
+  m_Layer: 11
   m_Name: Mimic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,3 +97,31 @@ MonoBehaviour:
   damage: 2
   speed: 3
   sprite: {fileID: 3728163576003900733}
+  player: {fileID: 0}
+  bloodParticle: {fileID: 0}
+--- !u!61 &4920549247710452533
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4920549247710452532}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

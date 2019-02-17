@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &232948592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 232948593}
+  m_Layer: 0
+  m_Name: AttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &232948593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232948592}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.66654, y: 1.2944, z: 1.2944}
+  m_Children: []
+  m_Father: {fileID: 4782444987536739164}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4782444987536739160
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,6 +43,7 @@ GameObject:
   - component: {fileID: 4782444987536739166}
   - component: {fileID: 4782444987536739161}
   - component: {fileID: 4782444987536739165}
+  - component: {fileID: 277389984}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -30,7 +61,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 232948593}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -95,6 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  startHealth: 100
+  blood: 0
+  healthBar: {fileID: 0}
+  bloodBar: {fileID: 0}
 --- !u!50 &4782444987536739161
 Rigidbody2D:
   serializedVersion: 4
@@ -142,3 +178,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.9439993}
   m_EdgeRadius: 0
+--- !u!114 &277389984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782444987536739160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49dcc274c579de24f86264fcb27a5f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLag: 0.3
+  range: 0.42
+  damage: 1
+  finalHitDamage: 0
+  attackPos: {fileID: 232948592}
+  enemiesMask:
+    serializedVersion: 2
+    m_Bits: 2048

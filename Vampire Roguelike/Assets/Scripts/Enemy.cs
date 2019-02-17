@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public SpriteRenderer sprite;
     public GameObject player;
+    public GameObject bloodParticle;
 
     private Animator anim;
 
@@ -30,6 +31,7 @@ public class Enemy : MonoBehaviour
 
     public void takeDamage(int damage)
     {
+        Instantiate(bloodParticle, transform.position, Quaternion.identity);
         health -= damage;
         Debug.Log("Damage Taken");
         sprite.color = Color.red;
