@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public int damage;
     public float speed;
     public SpriteRenderer sprite;
+    public GameObject player;
 
     private Animator anim;
 
@@ -32,5 +33,6 @@ public class Enemy : MonoBehaviour
         health -= damage;
         Debug.Log("Damage Taken");
         sprite.color = Color.red;
+        player.GetComponent<PlayerController>().gainBlood(2);
     }
 }
