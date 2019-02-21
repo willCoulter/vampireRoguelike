@@ -1,14 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 7f;
+    public float startHealth = 100;
+    private float health;
+    public float blood = 0;
 
     private Vector2 direction;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+
+    public Image healthBar;
+    public Image bloodBar;
 
     private State state;
     private Vector3 lastMoveDirection;
@@ -29,7 +36,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = startHealth;   
     }
 
     // Update is called once per frame
@@ -117,5 +124,16 @@ public class PlayerController : MonoBehaviour
         {
             state = State.Normal;
         }
+    }
+
+    public void takeDamage()
+    {
+        healthBar.fillAmount = health / startHealth;
+    }
+
+    public void gainBlood(float bloodGained)
+    {
+        blood += bloodGained;
+        bloodBar.fillAmount = blood / 100f;
     }
 }
