@@ -72,6 +72,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private bool CanMove(Vector3 moveDirection)
+    {
+        //Create layermask on player layer
+        int layerMask = 1 << 8;
+
+        //Invert layermask to all layers other than player
+        layerMask = ~layerMask;
+
+        //Raycast in movement direction to check for walls
+        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, moveDirection, speed * Time.deltaTime, layerMask);
+
+        return raycastHit.collider == null;
+    }
+
     private void Move()
     {
         //Reset movement
@@ -98,8 +112,11 @@ public class PlayerController : MonoBehaviour
 
         //Move character
         Vector3 moveDirection = new Vector3(moveX, moveY).normalized;
-        transform.position += moveDirection * speed * Time.deltaTime;
-        lastMoveDirection = moveDirection;
+
+        if(CanMove(moveDirection)){
+            transform.position += moveDirection * speed * Time.deltaTime;
+            lastMoveDirection = moveDirection;
+        }
     }
 
     private void HandleDash()
