@@ -7,12 +7,14 @@ public class PlayerAttacks : MonoBehaviour
     private float attackLag;
     public float startLag;
 
-    public float range;
+    public float rangeX;
+    public float rangeY;
     public int damage;
     public int finalHitDamage;
     public GameObject attackPos;
     public LayerMask enemiesMask;
-    
+    private float angleBetween = 0.0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,12 +30,13 @@ public class PlayerAttacks : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Mouse0))
             {
-                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.transform.position, range, enemiesMask);
+                Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position, new Vector2(rangeX,rangeY), attackPos.transform.localRotation.z, enemiesMask);
                 for (int i = 0; i < enemies.Length; i++)
                 {
                     enemies[i].GetComponent<Enemy>().takeDamage(damage);
                 }
                 attackLag = startLag;
+             
             }
             
         }
@@ -42,20 +45,36 @@ public class PlayerAttacks : MonoBehaviour
             attackLag -= Time.deltaTime;
         }
     }
+
+   
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPos.transform.position, range);
+        Gizmos.DrawWireCube(transform.position, new Vector3(rangeX,rangeY, 1));
 
     }
     private void attackFacing()
     {
+        
         //Change orientation based on mouse location
         Vector3 playerScreenPoint = transform.position;
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 mouse = Input.mousePosition;
         Vector3 convert = Camera.main.ScreenToViewportPoint(mouse);
-        Debug.Log(convert);
+
+        Vector2 vector2 = mousePos - transform.position;
+        angleBetween = Mathf.Atan2(vector2.y, vector2.x) * Mathf.Rad2Deg;
+        Quaternion rotatation = Quaternion.AngleAxis(angleBetween, Vector3.forward);
+        Debug.Log(rotatation);
+        attackPos.transform.localRotation = rotatation;
+        
+
+//        Vector2 direction = new Vector2(
+//            mousePos.x - transform.position.x,
+//            mousePos.y - transform.position.y);
+
+
+        /**
         //Face Down
         if (mousePos.y < playerScreenPoint.y && convert.y > convert.x)
         {
@@ -78,6 +97,7 @@ public class PlayerAttacks : MonoBehaviour
             attackPos.transform.localPosition = new Vector3(0.63f, 0, 0);
             //Debug.Log("Faced Right");
         }
-        
+    **/
+
     }
 }

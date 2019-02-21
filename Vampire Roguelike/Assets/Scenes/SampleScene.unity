@@ -3427,6 +3427,22 @@ PrefabInstance:
       propertyPath: bloodBar
       value: 
       objectReference: {fileID: 1957458481}
+    - target: {fileID: 277389984, guid: d036e8a28654d3646b1d57618a56f978, type: 3}
+      propertyPath: rangeX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 277389984, guid: d036e8a28654d3646b1d57618a56f978, type: 3}
+      propertyPath: rangeY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 232948593, guid: d036e8a28654d3646b1d57618a56f978, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 232948593, guid: d036e8a28654d3646b1d57618a56f978, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d036e8a28654d3646b1d57618a56f978, type: 3}
 --- !u!1001 &5140177048605152093
