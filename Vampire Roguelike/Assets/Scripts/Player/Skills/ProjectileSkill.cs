@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Abilities/ProjectileAbility")]
-public class ProjectileAbility : Skill
+public class ProjectileSkill : Skill
 {
     public int damage = 10;
     public float speed = 1f;
@@ -13,7 +13,7 @@ public class ProjectileAbility : Skill
 
     }
 
-    public override void TriggerAbility()
+    public override void TriggerSkill()
     {
         Debug.Log(skillName + " triggered");
     }
