@@ -75,10 +75,10 @@ public class SkillCooldown : MonoBehaviour
         darkMask.enabled = true;
         cooldownTextDisplay.enabled = true;
 
-        if(skill.skillSound != null){
-            abilitySource.clip = skill.skillSound;
-            abilitySource.Play();
-        }
+        //if(skill.skillSound != null){
+        //    abilitySource.clip = skill.skillSound;
+        //    abilitySource.Play();
+        //}
 
         skill.TriggerSkill();
     }

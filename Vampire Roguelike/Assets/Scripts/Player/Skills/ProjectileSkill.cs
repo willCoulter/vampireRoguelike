@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Abilities/ProjectileAbility")]
+[CreateAssetMenu(menuName = "Abilities/ProjectileSkill")]
 public class ProjectileSkill : Skill
 {
     public int damage = 10;
