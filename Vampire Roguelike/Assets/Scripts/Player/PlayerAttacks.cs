@@ -65,7 +65,7 @@ public class PlayerAttacks : MonoBehaviour
         Vector2 vector2 = mousePos - transform.position;
         angleBetween = Mathf.Atan2(vector2.y, vector2.x) * Mathf.Rad2Deg;
         Quaternion rotatation = Quaternion.AngleAxis(angleBetween, Vector3.forward);
-        Debug.Log(rotatation);
+        //Debug.Log(rotatation);
         attackPos.transform.localRotation = rotatation;
         
 
