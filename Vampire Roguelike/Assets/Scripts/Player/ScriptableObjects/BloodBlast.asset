@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2206d191150e94ce9834a520970955df, type: 3}
   m_Name: BloodBlast
   m_EditorClassIdentifier: 
-  skillName: New Skill
-  skillSprite: {fileID: 0}
+  skillName: Blood Blast
+  skillSprite: {fileID: 21300544, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
   skillSound: {fileID: 0}
-  skillBaseCD: 1
-  skillBaseCost: 0
-  damage: 10
+  skillBaseCD: 8
+  skillBaseCost: 20
+  damage: 20
   radius: 1
-  spawnLocation: {fileID: 0}
