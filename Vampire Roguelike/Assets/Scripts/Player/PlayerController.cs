@@ -178,7 +178,7 @@ public class PlayerController : MonoBehaviour
         slideSpeed -= slideSpeed * 5f * Time.deltaTime;
 
         //If slow enough, change state back to normal
-        if(slideSpeed < 3f)
+        if (slideSpeed < 3f)
         {
             state = State.Normal;
         }

@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b3f0c64f9d9843048751fc1ce19de6f, type: 3}
-  m_Name: BloodBolt
+  m_Script: {fileID: 11500000, guid: 2206d191150e94ce9834a520970955df, type: 3}
+  m_Name: BloodBlast
   m_EditorClassIdentifier: 
-  skillName: Blood Bolt
-  skillSprite: {fileID: 21300668, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
+  name: Blood Blast
+  skillSprite: {fileID: 21300544, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
   skillSound: {fileID: 0}
-  skillBaseCD: 4
-  skillBaseCost: 10
-  damage: 10
-  speed: 1
+  baseCD: 1
+  baseCost: 0
+  damage: 20
+  radius: 1
