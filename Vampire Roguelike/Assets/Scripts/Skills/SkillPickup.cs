@@ -12,12 +12,18 @@ public class SkillPickup : MonoBehaviour
         if(col.tag == "Player")
         {
             PickUp();
-            Destroy(gameObject);
         }
     }
 
     void PickUp()
     {
         Debug.Log("Picked up " + skill.name);
+        bool wasPickedUp = SkillInventory.instance.Add(skill);
+
+        if (wasPickedUp)
+        {
+            Destroy(gameObject);
+        }
+
     }
 }

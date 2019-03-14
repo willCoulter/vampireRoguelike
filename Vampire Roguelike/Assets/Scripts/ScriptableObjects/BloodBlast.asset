@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Blood Blast
   skillSprite: {fileID: 21300544, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
   skillSound: {fileID: 0}
-  baseCD: 1
+  baseCD: 3
   baseCost: 0
   damage: 20
   radius: 1

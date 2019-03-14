@@ -5,11 +5,14 @@ using UnityEngine.UI;
 
 public class SkillCooldown : MonoBehaviour
 {
+
+    public SkillCooldown instance;
+
     public string abilityButtonAxisName = "Fire1";
     public Image darkMask;
     public Text cooldownTextDisplay;
 
-    [SerializeField] private Skill skill;
+    private Skill skill;
     [SerializeField] private GameObject player;
 
     private Image buttonImage;
@@ -19,9 +22,9 @@ public class SkillCooldown : MonoBehaviour
     private float cooldownTimeLeft;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        Initialize(skill, player);
+        instance = this;
     }
 
     // Update is called once per frame
