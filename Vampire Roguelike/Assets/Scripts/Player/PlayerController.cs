@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private bool CanMove(Vector3 moveDirection)
+    private bool CanMove(Vector3 moveDirection, float distance)
     {
         //Create layermask on player layer
         int layerMask = 1 << 8;
@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
         layerMask = ~layerMask;
 
         //Raycast in movement direction to check for walls
-        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, moveDirection, speed * Time.deltaTime, layerMask);
+        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, moveDirection, distance * Time.deltaTime, layerMask);
 
         return raycastHit.collider == null;
     }
@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (CanMove(moveDirection))
+            if (CanMove(moveDirection, speed))
             {
                 //Can move, did not collide
                 transform.position += moveDirection * speed * Time.deltaTime;
@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
                 Vector3 testMoveDirection = new Vector3(moveDirection.x, 0f).normalized;
                 Vector3 targetMovePosition = transform.position + testMoveDirection * speed * Time.deltaTime;
 
-                if (CanMove(testMoveDirection))
+                if (CanMove(testMoveDirection, speed))
                 {
                     //Can move horizontally
                     lastMoveDirection = testMoveDirection;
@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
                     testMoveDirection = new Vector3(0f, moveDirection.y).normalized;
                     targetMovePosition = transform.position + testMoveDirection * speed * Time.deltaTime;
 
-                    if (CanMove(testMoveDirection))
+                    if (CanMove(testMoveDirection, speed))
                     {
                         //Can move vertically
                         lastMoveDirection = testMoveDirection;
@@ -172,14 +172,26 @@ public class PlayerController : MonoBehaviour
     private void Dash()
     {
         //Slide player by slideSpeed amount
-        transform.position += lastMoveDirection * slideSpeed * Time.deltaTime;
+        if (CanMove(lastMoveDirection, slideSpeed))
+        {
+            transform.position += lastMoveDirection * slideSpeed * Time.deltaTime;
 
-        //Reduce speed over time
-        slideSpeed -= slideSpeed * 5f * Time.deltaTime;
+            sr.color = new Color(1f, 1f, 1f, .5f);
+
+            //Reduce speed over time
+            slideSpeed -= slideSpeed * 5f * Time.deltaTime;
+        }
+        else
+        {
+            sr.color = new Color(1f, 1f, 1f, 1f);
+            state = State.Normal;
+        }
+        
 
         //If slow enough, change state back to normal
         if (slideSpeed < 3f)
         {
+            sr.color = new Color(1f, 1f, 1f, 1f);
             state = State.Normal;
         }
     }
