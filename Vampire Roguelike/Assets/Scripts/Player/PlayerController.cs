@@ -113,10 +113,51 @@ public class PlayerController : MonoBehaviour
         //Move character
         Vector3 moveDirection = new Vector3(moveX, moveY).normalized;
 
-        if(CanMove(moveDirection)){
-            transform.position += moveDirection * speed * Time.deltaTime;
-            lastMoveDirection = moveDirection;
+        bool isIdle = moveX == 0 && moveY == 0;
+        if (isIdle)
+        {
+            //play idle animation
         }
+        else
+        {
+            if (CanMove(moveDirection))
+            {
+                //Can move, did not collide
+                transform.position += moveDirection * speed * Time.deltaTime;
+                lastMoveDirection = moveDirection;
+            }
+            else
+            {
+                //Cannot move, test horizontal
+                Vector3 testMoveDirection = new Vector3(moveDirection.x, 0f).normalized;
+                Vector3 targetMovePosition = transform.position + testMoveDirection * speed * Time.deltaTime;
+
+                if (CanMove(testMoveDirection))
+                {
+                    //Can move horizontally
+                    lastMoveDirection = testMoveDirection;
+                    transform.position = targetMovePosition;
+                }
+                else
+                {
+                    //Cannot move horizontally, test vertical
+                    testMoveDirection = new Vector3(0f, moveDirection.y).normalized;
+                    targetMovePosition = transform.position + testMoveDirection * speed * Time.deltaTime;
+
+                    if (CanMove(testMoveDirection))
+                    {
+                        //Can move vertically
+                        lastMoveDirection = testMoveDirection;
+                        transform.position = targetMovePosition;
+                    }
+                    else
+                    {
+                        //Cannot move, play idle animation
+                    }
+                }
+            }
+        }
+        
     }
 
     private void HandleDash()
@@ -137,7 +178,7 @@ public class PlayerController : MonoBehaviour
         slideSpeed -= slideSpeed * 5f * Time.deltaTime;
 
         //If slow enough, change state back to normal
-        if(slideSpeed < 3f)
+        if (slideSpeed < 3f)
         {
             state = State.Normal;
         }
