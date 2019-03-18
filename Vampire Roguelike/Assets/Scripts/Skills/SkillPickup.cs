@@ -6,12 +6,32 @@ public class SkillPickup : MonoBehaviour
 {
 
     public Skill skill;
+    private bool playerInPickupRange;
+
+    private void Update()
+    {
+        //If in range, and player presses e, pick up skill
+        if (playerInPickupRange && Input.GetKeyDown(KeyCode.E))
+        {
+            PickUp();
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == "Player")
+        if (col.tag == "Player")
         {
-            PickUp();
+            UIManager.instance.displaySkillPopup(skill, transform.position);
+            playerInPickupRange = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.tag == "Player")
+        {
+            UIManager.instance.hideSkillPopup();
+            playerInPickupRange = false;
         }
     }
 
@@ -22,8 +42,10 @@ public class SkillPickup : MonoBehaviour
 
         if (wasPickedUp)
         {
+            UIManager.instance.hideSkillPopup();
+            playerInPickupRange = false;
+
             Destroy(gameObject);
         }
-
     }
 }

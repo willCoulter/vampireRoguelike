@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class Skill : ScriptableObject
 {
     public string name = "New Skill";
+    public string desc = "New Desc";
     public Sprite skillSprite;
     public AudioClip skillSound;
 
