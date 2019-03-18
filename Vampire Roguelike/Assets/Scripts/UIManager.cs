@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -29,6 +30,22 @@ public class UIManager : MonoBehaviour
     private SkillCooldown skill2Script;
     private SkillCooldown skill3Script;
 
+    //Skill popup UI items
+    [SerializeField]
+    GameObject skillPopupBox;
+
+    [SerializeField]
+    GameObject skillName;
+
+    [SerializeField]
+    GameObject skillCost;
+
+    [SerializeField]
+    GameObject skillCD;
+
+    [SerializeField]
+    GameObject skillDesc;
+
     //Called in skill inventory
     public void UpdateSkillSlot(int slotId)
     {
@@ -47,5 +64,19 @@ public class UIManager : MonoBehaviour
                 return;
         }
     
+    }
+
+    public void displaySkillPopup(Skill skill, Vector3 popupPosition){
+        skillName.GetComponent<Text>().text = skill.name;
+        skillCost.GetComponent<Text>().text = "Cost: " + skill.baseCost;
+        skillCD.GetComponent<Text>().text = "Cooldown: " + skill.baseCD;
+        skillDesc.GetComponent<Text>().text = skill.desc;
+
+        skillPopupBox.SetActive(true);
+        UtilityMethods.MoveUiElementToWorldPosition(skillPopupBox.GetComponent<RectTransform>(), popupPosition);
+    }
+
+    public void hideSkillPopup(){
+        skillPopupBox.SetActive(false);
     }
 }
