@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HealthPercent
   m_EditorClassIdentifier: 
   name: New Item
-  desc: New Desc
+  desc: Increases max health by 25%
   itemSprite: {fileID: 0}
-  buffAmount: 0
+  buffPercent: 25
   buff: 0
