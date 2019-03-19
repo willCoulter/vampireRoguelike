@@ -46,6 +46,16 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject skillDesc;
 
+    //Item popup UI items;
+    [SerializeField]
+    GameObject itemPopupBox;
+
+    [SerializeField]
+    GameObject itemName;
+
+    [SerializeField]
+    GameObject itemDesc;
+
     //Called in skill inventory
     public void UpdateSkillSlot(int slotId)
     {
@@ -78,5 +88,18 @@ public class UIManager : MonoBehaviour
 
     public void hideSkillPopup(){
         skillPopupBox.SetActive(false);
+    }
+
+    public void displayItemPopup(Item item, Vector3 popupPosition){
+        itemName.GetComponent<Text>().text = item.name;
+        itemDesc.GetComponent<Text>().text = item.desc;
+
+        itemPopupBox.SetActive(true);
+        UtilityMethods.MoveUiElementToWorldPosition(itemPopupBox.GetComponent<RectTransform>(), popupPosition);
+    }
+
+    public void hideItemPopup()
+    {
+        itemPopupBox.SetActive(false);
     }
 }
