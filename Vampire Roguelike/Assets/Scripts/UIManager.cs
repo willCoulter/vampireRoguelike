@@ -91,7 +91,11 @@ public class UIManager : MonoBehaviour
     }
 
     public void displayItemPopup(Item item, Vector3 popupPosition){
+        itemName.GetComponent<Text>().text = item.name;
+        itemDesc.GetComponent<Text>().text = item.desc;
 
+        itemPopupBox.SetActive(true);
+        UtilityMethods.MoveUiElementToWorldPosition(itemPopupBox.GetComponent<RectTransform>(), popupPosition);
     }
 
     public void hideItemPopup()
