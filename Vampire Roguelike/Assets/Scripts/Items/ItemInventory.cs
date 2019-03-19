@@ -30,7 +30,6 @@ public class ItemInventory : MonoBehaviour
         }
 
         items.Add(item);
-        UIManager.instance.UpdateSkillSlot(items.Count);
 
         return true;
     }
