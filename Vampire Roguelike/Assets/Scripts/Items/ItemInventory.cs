@@ -30,6 +30,7 @@ public class ItemInventory : MonoBehaviour
         }
 
         items.Add(item);
+        item.Initialize();
 
         return true;
     }

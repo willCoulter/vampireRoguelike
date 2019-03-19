@@ -8,6 +8,6 @@ public abstract class Item : ScriptableObject
     public string desc = "New Desc";
     public Sprite itemSprite;
 
-    public abstract void Initialize(GameObject target);
+    public abstract void Initialize();
 
 }
