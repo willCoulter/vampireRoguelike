@@ -50,6 +50,12 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject itemPopupBox;
 
+    [SerializeField]
+    GameObject itemName;
+
+    [SerializeField]
+    GameObject itemDesc;
+
     //Called in skill inventory
     public void UpdateSkillSlot(int slotId)
     {

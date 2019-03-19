@@ -8,7 +8,10 @@ public class PlayerController : MonoBehaviour
     public float speed = 7f;
     public float maxHealth = 100;
     public float health;
+    public float maxBlood;
     public float blood;
+    public float attackDamage;
+    public float magicDamage;
 
     private Vector2 direction;
     private Rigidbody2D rb;
@@ -27,8 +30,14 @@ public class PlayerController : MonoBehaviour
         Dashing,
     }
 
+    public static PlayerController instance;
+
     void Awake()
     {
+        if(instance == null){
+            instance = this;
+        }
+
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         health = maxHealth;
