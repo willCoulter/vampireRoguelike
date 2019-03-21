@@ -17,44 +17,33 @@ public class UIManager : MonoBehaviour
         skill3Script = skill3Slot.GetComponent<SkillCooldown>();
     }
 
-    [SerializeField]
-    GameObject skill1Slot;
+    public GameObject skill1Slot;
 
-    [SerializeField]
-    GameObject skill2Slot;
+    public GameObject skill2Slot;
 
-    [SerializeField]
-    GameObject skill3Slot;
+    public GameObject skill3Slot;
 
     private SkillCooldown skill1Script;
     private SkillCooldown skill2Script;
     private SkillCooldown skill3Script;
 
     //Skill popup UI items
-    [SerializeField]
-    GameObject skillPopupBox;
+    public GameObject skillPopupBox;
 
-    [SerializeField]
-    GameObject skillName;
+    public GameObject skillName;
 
-    [SerializeField]
-    GameObject skillCost;
+    public GameObject skillCost;
 
-    [SerializeField]
-    GameObject skillCD;
+    public GameObject skillCD;
 
-    [SerializeField]
-    GameObject skillDesc;
+    public GameObject skillDesc;
 
     //Item popup UI items;
-    [SerializeField]
-    GameObject itemPopupBox;
+    public GameObject itemPopupBox;
 
-    [SerializeField]
-    GameObject itemName;
+    public GameObject itemName;
 
-    [SerializeField]
-    GameObject itemDesc;
+    public GameObject itemDesc;
 
     //Called in skill inventory
     public void UpdateSkillSlot(int slotId)
@@ -77,7 +66,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void displaySkillPopup(Skill skill, Vector3 popupPosition){
-        skillName.GetComponent<Text>().text = skill.name;
+        skillName.GetComponent<Text>().text = skill.skillName;
         skillCost.GetComponent<Text>().text = "Cost: " + skill.baseCost;
         skillCD.GetComponent<Text>().text = "Cooldown: " + skill.baseCD;
         skillDesc.GetComponent<Text>().text = skill.desc;
@@ -91,7 +80,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void displayItemPopup(Item item, Vector3 popupPosition){
-        itemName.GetComponent<Text>().text = item.name;
+        itemName.GetComponent<Text>().text = item.itemName;
         itemDesc.GetComponent<Text>().text = item.desc;
 
         itemPopupBox.SetActive(true);

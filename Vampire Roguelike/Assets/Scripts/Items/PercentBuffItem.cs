@@ -7,10 +7,9 @@ public class PercentBuffItem : Item
 {
     public float buffPercent;
 
-    [SerializeField]
-    PercentBuffType buff;
+    public PercentBuffType buff;
 
-    enum PercentBuffType{
+    public enum PercentBuffType{
         Health,
         Blood,
         AttackDamage,
