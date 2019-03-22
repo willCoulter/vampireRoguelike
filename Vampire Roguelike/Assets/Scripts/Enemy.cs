@@ -25,7 +25,9 @@ public class Enemy : MonoBehaviour
     {
         if(health <= 0)
         {
+            player.GetComponent<PlayerController>().gainGold(2);
             Destroy(gameObject);
+            
         }
     }
 
