@@ -12,6 +12,7 @@ public class PlayerAttacks : MonoBehaviour
     public int damage;
     public int finalHitDamage;
     public GameObject attackPos;
+    public GameObject sword;
     public LayerMask enemiesMask;
     private float angleBetween = 0.0f;
 
@@ -30,11 +31,15 @@ public class PlayerAttacks : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Mouse0))
             {
-                Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position, new Vector2(rangeX,rangeY), attackPos.transform.localRotation.z, enemiesMask);
-                for (int i = 0; i < enemies.Length; i++)
-                {
-                    enemies[i].GetComponent<Enemy>().takeDamage(damage);
-                }
+                //Collider2D[] enemies = Physics2D.OverlapBoxAll(sword.transform.right, new Vector2(rangeX,rangeY), sword.transform.localRotation.z, enemiesMask);
+               // for (int i = 0; i < enemies.Length; i++)
+               // {
+                   //' enemies[i].GetComponent<Enemy>().takeDamage(damage);
+                //}
+          
+
+               
+
                 attackLag = startLag;
              
             }
@@ -46,58 +51,25 @@ public class PlayerAttacks : MonoBehaviour
         }
     }
 
-   
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, new Vector3(rangeX,rangeY, 1));
+        Gizmos.DrawWireCube(sword.transform.localPosition, new Vector3(rangeX,rangeY, 1));
 
     }
+
+    //Rotates the sword towards the mouse
     private void attackFacing()
     {
-        
-        //Change orientation based on mouse location
-        Vector3 playerScreenPoint = transform.position;
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 mouse = Input.mousePosition;
-        Vector3 convert = Camera.main.ScreenToViewportPoint(mouse);
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        Vector2 vector2 = mousePos - transform.position;
-        angleBetween = Mathf.Atan2(vector2.y, vector2.x) * Mathf.Rad2Deg;
-        Quaternion rotatation = Quaternion.AngleAxis(angleBetween, Vector3.forward);
-        //Debug.Log(rotatation);
-        attackPos.transform.localRotation = rotatation;
-        
+       Vector2 direction = new Vector2(
+        mousePosition.x - transform.position.x,
+        mousePosition.y - transform.position.y
+        );
 
-//        Vector2 direction = new Vector2(
-//            mousePos.x - transform.position.x,
-//            mousePos.y - transform.position.y);
-
-
-        /**
-        //Face Down
-        if (mousePos.y < playerScreenPoint.y && convert.y > convert.x)
-        {
-            attackPos.transform.localPosition = new Vector3(0, -0.63f, 0);
-        }
-        //Face Up
-        else if (mousePos.y > playerScreenPoint.y && convert.y > convert.x)
-        {
-            attackPos.transform.localPosition = new Vector3(0, 0.63f, 0);
-        }
-        //Face Left
-        else if (mousePos.x < playerScreenPoint.x)
-        {
-            attackPos.transform.localPosition = new Vector3(-0.63f, 0, 0);
-           // Debug.Log("Faced Left");
-        }
-        //Face Right
-        else if  (mousePos.x > playerScreenPoint.x)
-        {
-            attackPos.transform.localPosition = new Vector3(0.63f, 0, 0);
-            //Debug.Log("Faced Right");
-        }
-    **/
+       sword.transform.right = direction;
 
     }
 }
