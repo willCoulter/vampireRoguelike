@@ -6,9 +6,14 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 7f;
-    public float startHealth = 100;
-    private float health;
-    public float blood = 0;
+    public float maxHealth = 100;
+    public float health;
+    public float maxBlood;
+    public float blood;
+    public float attackDamage;
+    public float magicDamage;
+    
+    
     public int gold = 0;
 
     public float interactRadius = 3f;
@@ -31,10 +36,17 @@ public class PlayerController : MonoBehaviour
         Dashing,
     }
 
+    public static PlayerController instance;
+
     void Awake()
     {
+        if(instance == null){
+            instance = this;
+        }
+
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        health = maxHealth;
     }
 
     // Start is called before the first frame update
@@ -79,7 +91,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private bool CanMove(Vector3 moveDirection)
+    private bool CanMove(Vector3 moveDirection, float distance)
     {
         //Create layermask on player layer
         int layerMask = 1 << 8;
@@ -88,7 +100,7 @@ public class PlayerController : MonoBehaviour
         layerMask = ~layerMask;
 
         //Raycast in movement direction to check for walls
-        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, moveDirection, speed * Time.deltaTime, layerMask);
+        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, moveDirection, distance * Time.deltaTime, layerMask);
 
         return raycastHit.collider == null;
     }
@@ -120,10 +132,51 @@ public class PlayerController : MonoBehaviour
         //Move character
         Vector3 moveDirection = new Vector3(moveX, moveY).normalized;
 
-        if(CanMove(moveDirection)){
-            transform.position += moveDirection * speed * Time.deltaTime;
-            lastMoveDirection = moveDirection;
+        bool isIdle = moveX == 0 && moveY == 0;
+        if (isIdle)
+        {
+            //play idle animation
         }
+        else
+        {
+            if (CanMove(moveDirection, speed))
+            {
+                //Can move, did not collide
+                transform.position += moveDirection * speed * Time.deltaTime;
+                lastMoveDirection = moveDirection;
+            }
+            else
+            {
+                //Cannot move, test horizontal
+                Vector3 testMoveDirection = new Vector3(moveDirection.x, 0f).normalized;
+                Vector3 targetMovePosition = transform.position + testMoveDirection * speed * Time.deltaTime;
+
+                if (CanMove(testMoveDirection, speed))
+                {
+                    //Can move horizontally
+                    lastMoveDirection = testMoveDirection;
+                    transform.position = targetMovePosition;
+                }
+                else
+                {
+                    //Cannot move horizontally, test vertical
+                    testMoveDirection = new Vector3(0f, moveDirection.y).normalized;
+                    targetMovePosition = transform.position + testMoveDirection * speed * Time.deltaTime;
+
+                    if (CanMove(testMoveDirection, speed))
+                    {
+                        //Can move vertically
+                        lastMoveDirection = testMoveDirection;
+                        transform.position = targetMovePosition;
+                    }
+                    else
+                    {
+                        //Cannot move, play idle animation
+                    }
+                }
+            }
+        }
+        
     }
 
     private void HandleDash()
@@ -138,21 +191,33 @@ public class PlayerController : MonoBehaviour
     private void Dash()
     {
         //Slide player by slideSpeed amount
-        transform.position += lastMoveDirection * slideSpeed * Time.deltaTime;
+        if (CanMove(lastMoveDirection, slideSpeed))
+        {
+            transform.position += lastMoveDirection * slideSpeed * Time.deltaTime;
 
-        //Reduce speed over time
-        slideSpeed -= slideSpeed * 5f * Time.deltaTime;
+            sr.color = new Color(1f, 1f, 1f, .5f);
+
+            //Reduce speed over time
+            slideSpeed -= slideSpeed * 5f * Time.deltaTime;
+        }
+        else
+        {
+            sr.color = new Color(1f, 1f, 1f, 1f);
+            state = State.Normal;
+        }
+        
 
         //If slow enough, change state back to normal
-        if(slideSpeed < 3f)
+        if (slideSpeed < 3f)
         {
+            sr.color = new Color(1f, 1f, 1f, 1f);
             state = State.Normal;
         }
     }
 
     public void takeDamage()
     {
-        healthBar.fillAmount = health / startHealth;
+        healthBar.fillAmount = health / maxHealth;
     }
 
     public void gainBlood(float bloodGained)
