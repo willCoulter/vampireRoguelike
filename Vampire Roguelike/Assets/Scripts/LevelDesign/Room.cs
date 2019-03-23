@@ -8,8 +8,8 @@ public class Room : MonoBehaviour
     //Needed to gaurantee an item on last few rooms if none have dropped yet
     static int chestsDropped;
 
-    [SerializeField]
-    List<GameObject> doors;
+    public List<GameObject> doors;
+    List<Door> doorScripts;
 
     List<Enemy> enemies;
     List<GameObject> spawnPoints;
@@ -22,7 +22,10 @@ public class Room : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Loop through doors in array and grab script for method calling
+        foreach(GameObject door in doors){
+            doorScripts.Add(door.GetComponent<Door>());
+        }
     }
 
     // Update is called once per frame
@@ -31,17 +34,51 @@ public class Room : MonoBehaviour
         //If all enemies cleared after being spawned
         if(enemiesSpawned == true && enemies.Count == 0){
             //Unlock doors
+            UnLockDoors();
+
             //Room is cleared
+            isCleared = true;
+
             //Spawn chest by chance or if last room and no chests found
+            SpawnChest();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //If player enters room, lock doors and spawn enemies
         if(collision.tag == "Player"){
             //Lock doors
-            //Spawn enemies
+            LockDoors();
 
+            //Spawn enemies
+            SpawnEnemies();
         }
+    }
+
+    private void SpawnEnemies(){
+        foreach(GameObject spawnPoint in spawnPoints){
+            //Spawn an enemy at spawn point
+        }
+
+        enemiesSpawned = true;
+    }
+
+    private void LockDoors(){
+        foreach (Door door in doorScripts)
+        {
+            door.LockDoor();
+        }
+    }
+
+    private void UnLockDoors()
+    {
+        foreach(Door door in doorScripts){
+            door.UnLockDoor();
+        }
+    }
+
+    void SpawnChest(){
+
     }
 }
