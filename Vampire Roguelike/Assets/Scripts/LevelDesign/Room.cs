@@ -9,10 +9,9 @@ public class Room : MonoBehaviour
     static int chestsDropped;
 
     public List<GameObject> doors;
-    List<Door> doorScripts;
+    public List<GameObject> spawnPoints;
 
     List<Enemy> enemies;
-    List<GameObject> spawnPoints;
 
     Transform chestLocation;
 
@@ -22,12 +21,7 @@ public class Room : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Loop through doors in array and grab script for method calling
-        foreach(GameObject door in doors){
-            Debug.Log(door);
-            doorScripts.Add(door.GetComponent<Door>());
-            Debug.Log(doorScripts);
-        }
+       
     }
 
     // Update is called once per frame
@@ -67,16 +61,17 @@ public class Room : MonoBehaviour
     }
 
     private void LockDoors(){
-        foreach (Door door in doorScripts)
+        foreach (GameObject door in doors)
         {
-            door.LockDoor();
+            door.GetComponent<Door>().LockDoor();
         }
     }
 
     private void UnLockDoors()
     {
-        foreach(Door door in doorScripts){
-            door.UnLockDoor();
+        foreach (GameObject door in doors)
+        {
+            door.GetComponent<Door>().UnLockDoor();
         }
     }
 
