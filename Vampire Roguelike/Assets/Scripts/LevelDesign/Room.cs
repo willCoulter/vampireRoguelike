@@ -8,10 +8,12 @@ public class Room : MonoBehaviour
     //Needed to gaurantee an item on last few rooms if none have dropped yet
     static int chestsDropped;
 
+    public int roomID;
+
     public List<GameObject> doors;
     public List<GameObject> spawnPoints;
 
-    List<Enemy> enemies;
+    List<GameObject> enemies;
 
     Transform chestLocation;
 
@@ -21,23 +23,23 @@ public class Room : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        enemiesSpawned = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         //If all enemies cleared after being spawned
-        if(enemiesSpawned == true && enemies.Count == 0){
-            //Unlock doors
-            UnLockDoors();
+        //if(isCleared == false && enemiesSpawned == true && enemies.Count == 0){
+        //    //Unlock doors
+        //    UnLockDoors();
 
-            //Room is cleared
-            isCleared = true;
+        //    //Room is cleared
+        //    isCleared = true;
 
-            //Spawn chest by chance or if last room and no chests found
-            SpawnChest();
-        }
+        //    //Spawn chest by chance or if last room and no chests found
+        //    SpawnChest();
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,7 +47,8 @@ public class Room : MonoBehaviour
         //If player enters room, lock doors and spawn enemies
         if(collision.tag == "Player"){
             //Lock doors
-            LockDoors();
+            Invoke("LockDoors", 0.2f);
+            Debug.Log("Room " + roomID + " doors locked");
 
             //Spawn enemies
             SpawnEnemies();
@@ -54,7 +57,8 @@ public class Room : MonoBehaviour
 
     private void SpawnEnemies(){
         foreach(GameObject spawnPoint in spawnPoints){
-            //Spawn an enemy at spawn point
+            //Spawn random enemy at spawn point, add to enemy array
+            spawnPoint.GetComponent<SpawnPoint>().spawnRandomEnemy(); 
         }
 
         enemiesSpawned = true;
