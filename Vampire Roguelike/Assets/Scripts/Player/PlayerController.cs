@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public LayerMask layerMask;
+
     public float speed = 7f;
     public float maxHealth = 100;
     public float health;
@@ -79,10 +81,10 @@ public class PlayerController : MonoBehaviour
     private bool CanMove(Vector3 moveDirection, float distance)
     {
         //Create layermask on player layer
-        int layerMask = 1 << 8;
+        //int layerMask = 1 << 8;
 
-        //Invert layermask to all layers other than player
-        layerMask = ~layerMask;
+        //Invert layermask to all layers other than s
+        //layerMask = ~layerMask;
 
         //Raycast in movement direction to check for walls
         RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, moveDirection, distance * Time.deltaTime, layerMask);

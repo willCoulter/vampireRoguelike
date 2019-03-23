@@ -24,7 +24,9 @@ public class Room : MonoBehaviour
     {
         //Loop through doors in array and grab script for method calling
         foreach(GameObject door in doors){
+            Debug.Log(door);
             doorScripts.Add(door.GetComponent<Door>());
+            Debug.Log(doorScripts);
         }
     }
 

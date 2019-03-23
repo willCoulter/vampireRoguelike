@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    GameObject door;
     BoxCollider2D doorCollider;
 
     bool isLocked;
 
     private void Start()
     {
+        isLocked = false;
+
         //If there is an attached door, grab box collider
-        if(door != null){
-            doorCollider = door.GetComponent<BoxCollider2D>();
+        if(gameObject != null){
+            doorCollider = gameObject.GetComponent<BoxCollider2D>();
         }
     }
 
     private void Update()
     {
-        //If door locked, disable collider
+        //If door locked, enable collider
         if(isLocked){
-            doorCollider.enabled = false;
-        //If not locked and not enabled, enable collider
-        }else if(doorCollider.enabled == false && isLocked == false){
             doorCollider.enabled = true;
+        //If not locked and enabled, disable collider
+        }else if(doorCollider.enabled == true && isLocked == false){
+            doorCollider.enabled = false;
         }
     }
 
