@@ -14,6 +14,11 @@ public class PlayerController : MonoBehaviour
     public float blood;
     public float attackDamage;
     public float magicDamage;
+    
+    
+    public int gold = 0;
+
+    public float interactRadius = 3f;
 
     private Vector2 direction;
     private Rigidbody2D rb;
@@ -21,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     public Image healthBar;
     public Image bloodBar;
+    public Text goldText;
 
     private State state;
     private Vector3 lastMoveDirection;
@@ -45,9 +51,18 @@ public class PlayerController : MonoBehaviour
         health = maxHealth;
     }
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        health = maxHealth;
+        goldText.text = "Gold :" + gold;
+
+    }
+
     // Update is called once per frame
     void Update()
     {
+        checkInteract();
         switch (state)
         {
             case State.Normal:
@@ -211,5 +226,22 @@ public class PlayerController : MonoBehaviour
     {
         blood += bloodGained;
         bloodBar.fillAmount = blood / 100f;
+    }
+
+    public void gainGold(int goldGained)
+    {
+        gold += goldGained;
+        goldText.text = "Gold :" + gold;
+    }
+    public void checkInteract()
+    {
+        if (Input.GetKey(KeyCode.E))
+        {
+            Collider2D[] things = Physics2D.OverlapCircleAll(transform.position, interactRadius);
+            if (things != null)
+            {
+                things[0].GetComponent<skillShop>().openShop();
+            }      
+        }
     }
 }

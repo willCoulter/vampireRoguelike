@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health;
+    public float health;
     public int damage;
     public float speed;
     public SpriteRenderer sprite;
@@ -25,11 +25,13 @@ public class Enemy : MonoBehaviour
     {
         if(health <= 0)
         {
+            player.GetComponent<PlayerController>().gainGold(2);
             Destroy(gameObject);
+            
         }
     }
 
-    public void takeDamage(int damage)
+    public void takeDamage(float damage)
     {
         Instantiate(bloodParticle, transform.position, Quaternion.identity);
         health -= damage;
