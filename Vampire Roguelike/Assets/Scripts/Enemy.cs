@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,13 +12,15 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     public GameObject bloodParticle;
 
-    private Animator anim;
+    public UnityEvent OnDestroy;
 
+    private Animator anim;
+    public Room room;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,8 +29,7 @@ public class Enemy : MonoBehaviour
         if(health <= 0)
         {
             player.GetComponent<PlayerController>().gainGold(2);
-            Destroy(gameObject);
-            
+            Die();
         }
     }
 
@@ -38,5 +40,13 @@ public class Enemy : MonoBehaviour
         Debug.Log("Damage Taken");
         sprite.color = Color.red;
         player.GetComponent<PlayerController>().gainBlood(2);
+    }
+
+    private void Die()
+    {
+        OnDestroy.Invoke();
+        OnDestroy.RemoveAllListeners();
+
+        Destroy(gameObject);
     }
 }
