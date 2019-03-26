@@ -231,6 +231,7 @@ public class PlayerController : MonoBehaviour
         gold += goldGained;
         goldText.text = "Gold :" + gold;
     }
+
     public void checkInteract()
     {
         if (Input.GetKey(KeyCode.E))

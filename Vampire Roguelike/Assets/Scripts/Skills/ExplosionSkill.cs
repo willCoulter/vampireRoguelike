@@ -9,43 +9,24 @@ public class ExplosionSkill : Skill
     public LayerMask enemiesMask;
     public float radius = 1f;
     private Transform spawnLocation;
-    public GameObject player;
-    public Transform playerPos;
-    Vector3 positionOfCircle;
+    private Bloodblast bloodblast;
 
     public override void Initialize(GameObject obj)
     {
+
+        bloodblast = PlayerController.instance.GetComponent<Bloodblast>();
+        //bloodblast = obj.GetComponent<Bloodblast>();
+
         if (obj != null)
         {
             spawnLocation = obj.transform;
         }
     }
 
-    void Update()
-    {
-        positionOfCircle = player.transform.position;
-        Debug.Log(playerPos.position);
-    }
-
     public override void TriggerSkill()
     {
-        Debug.Log(name + " triggered");
-        Debug.Log(playerPos.position);
-        //Vector3 positionOfCircle;
-        positionOfCircle = player.transform.position;
-        
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(positionOfCircle, radius, enemiesMask);
-        for (int i = 0; i < enemies.Length; i++)
-        {
-            Debug.Log("Enemy hit");
-            enemies[i].GetComponent<Enemy>().takeDamage(damage);
-        }
+        bloodblast.TriggerBlast();
     }
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(player.transform.position, radius);
 
-    }
 }
