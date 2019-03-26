@@ -14,7 +14,7 @@ public class Room : MonoBehaviour
     public List<GameObject> spawnPoints;
     public List<GameObject> enemies = new List<GameObject>();
 
-    public Transform chestLocation;
+    public GameObject chestSpawn;
 
     bool isCleared;
     bool enemiesSpawned;
@@ -102,6 +102,6 @@ public class Room : MonoBehaviour
     }
 
     void SpawnChest(){
-
+        chestSpawn.GetComponent<ChestSpawn>().SpawnChest();
     }
 }
