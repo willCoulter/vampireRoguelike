@@ -14,7 +14,7 @@ public class Room : MonoBehaviour
     public List<GameObject> spawnPoints;
     public List<GameObject> enemies = new List<GameObject>();
 
-    Transform chestLocation;
+    public Transform chestLocation;
 
     bool isCleared;
     bool enemiesSpawned;
@@ -54,7 +54,7 @@ public class Room : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         //If player enters room, lock doors and spawn enemies
-        if(collision.tag == "Player" && isCleared == false){
+        if(collision.tag == "Player" && enemiesSpawned == false){
             //Lock doors
             Invoke("LockDoors", 0.2f);
             Debug.Log("Room " + roomID + " doors locked");
@@ -71,8 +71,6 @@ public class Room : MonoBehaviour
             Enemy enemyScript = enemy.GetComponent<Enemy>();
 
             //Add listener to call enemyslain method when gameobject destroyed
-            //Delegate is used in addlistener to be able to pass parameters into the function
-            //Should invoke on enemy class line 47
             enemyScript.OnDestroy.AddListener(delegate{EnemySlain(enemyScript.gameObject);});
 
             //Add to enemy list
@@ -100,7 +98,6 @@ public class Room : MonoBehaviour
     //Will not call
     public void EnemySlain(GameObject enemy)
     {
-        Debug.Log("Enemy slain");
         enemies.Remove(enemy);
     }
 

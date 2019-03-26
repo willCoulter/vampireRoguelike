@@ -45,6 +45,9 @@ public class UIManager : MonoBehaviour
 
     public GameObject itemDesc;
 
+    //Chest popup UI items;
+    public GameObject chestPopupBox;
+
     //Called in skill inventory
     public void UpdateSkillSlot(int slotId)
     {
@@ -90,5 +93,15 @@ public class UIManager : MonoBehaviour
     public void hideItemPopup()
     {
         itemPopupBox.SetActive(false);
+    }
+
+    public void displayChestPopup(Vector3 popupPosition){
+        chestPopupBox.SetActive(true);
+        UtilityMethods.MoveUiElementToWorldPosition(chestPopupBox.GetComponent<RectTransform>(), popupPosition);
+    }
+
+    public void hideChestPopup()
+    {
+        chestPopupBox.SetActive(false);
     }
 }
