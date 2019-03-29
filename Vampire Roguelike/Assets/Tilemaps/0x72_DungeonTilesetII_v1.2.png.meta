@@ -9,6 +9,7 @@ TextureImporter:
     21300008: 0x72_DungeonTilesetII_v1.2_4
     21300010: 0x72_DungeonTilesetII_v1.2_5
     21300012: mage
+    21300012: horizontalDoor
     21300014: 0x72_DungeonTilesetII_v1.2_7
     21300016: 0x72_DungeonTilesetII_v1.2_8
     21300018: 0x72_DungeonTilesetII_v1.2_9
@@ -283,8 +284,8 @@ TextureImporter:
     21300556: 0x72_DungeonTilesetII_v1.2_278
     21300558: 0x72_DungeonTilesetII_v1.2_279
     21300560: 0x72_DungeonTilesetII_v1.2_280
-    21300562: 0x72_DungeonTilesetII_v1.2_281
-    21300564: 0x72_DungeonTilesetII_v1.2_282
+    21300562: door_closed_1
+    21300564: door_closed_2
     21300566: 0x72_DungeonTilesetII_v1.2_283
     21300568: 0x72_DungeonTilesetII_v1.2_284
     21300570: 0x72_DungeonTilesetII_v1.2_285
@@ -298,11 +299,11 @@ TextureImporter:
     21300586: 0x72_DungeonTilesetII_v1.2_293
     21300588: 0x72_DungeonTilesetII_v1.2_294
     21300590: 0x72_DungeonTilesetII_v1.2_295
-    21300592: 0x72_DungeonTilesetII_v1.2_296
-    21300594: 0x72_DungeonTilesetII_v1.2_297
-    21300596: 0x72_DungeonTilesetII_v1.2_298
-    21300598: 0x72_DungeonTilesetII_v1.2_299
-    21300600: 0x72_DungeonTilesetII_v1.2_300
+    21300592: door_closed_4
+    21300594: door_closed_5
+    21300596: door_closed_6
+    21300598: door_open_1
+    21300600: door_open_2
     21300602: 0x72_DungeonTilesetII_v1.2_301
     21300604: 0x72_DungeonTilesetII_v1.2_302
     21300606: 0x72_DungeonTilesetII_v1.2_303
@@ -312,12 +313,12 @@ TextureImporter:
     21300614: 0x72_DungeonTilesetII_v1.2_307
     21300616: 0x72_DungeonTilesetII_v1.2_308
     21300618: 0x72_DungeonTilesetII_v1.2_309
-    21300620: 0x72_DungeonTilesetII_v1.2_310
-    21300622: 0x72_DungeonTilesetII_v1.2_311
-    21300624: 0x72_DungeonTilesetII_v1.2_312
-    21300626: 0x72_DungeonTilesetII_v1.2_313
-    21300628: 0x72_DungeonTilesetII_v1.2_314
-    21300630: 0x72_DungeonTilesetII_v1.2_315
+    21300620: door_closed_7
+    21300622: door_closed_8
+    21300624: door_closed_9
+    21300626: door_closed_10
+    21300628: door_open_3
+    21300630: door_open_4
     21300632: 0x72_DungeonTilesetII_v1.2_316
     21300634: 0x72_DungeonTilesetII_v1.2_317
     21300636: 0x72_DungeonTilesetII_v1.2_318
@@ -2191,7 +2192,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_281
+      name: door_closed_1
       rect:
         serializedVersion: 2
         x: 32
@@ -2211,7 +2212,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_282
+      name: door_closed_2
       rect:
         serializedVersion: 2
         x: 48
@@ -2331,7 +2332,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_296
+      name: door_closed_4
       rect:
         serializedVersion: 2
         x: 32
@@ -2351,7 +2352,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_297
+      name: door_closed_5
       rect:
         serializedVersion: 2
         x: 48
@@ -2371,7 +2372,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_298
+      name: door_closed_6
       rect:
         serializedVersion: 2
         x: 64
@@ -2391,7 +2392,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_299
+      name: door_open_1
       rect:
         serializedVersion: 2
         x: 80
@@ -2411,7 +2412,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_300
+      name: door_open_2
       rect:
         serializedVersion: 2
         x: 96
@@ -2591,7 +2592,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_310
+      name: door_closed_7
       rect:
         serializedVersion: 2
         x: 16
@@ -2611,7 +2612,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_311
+      name: door_closed_8
       rect:
         serializedVersion: 2
         x: 32
@@ -2631,7 +2632,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_312
+      name: door_closed_9
       rect:
         serializedVersion: 2
         x: 48
@@ -2651,7 +2652,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_313
+      name: door_closed_10
       rect:
         serializedVersion: 2
         x: 64
@@ -2671,7 +2672,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_314
+      name: door_open_3
       rect:
         serializedVersion: 2
         x: 80
@@ -2691,7 +2692,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_315
+      name: door_open_4
       rect:
         serializedVersion: 2
         x: 96
@@ -2946,6 +2947,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: efb3abc3758ca254999c4f5503020e18
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontalDoor
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 256
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09acd098414434c9c98ad193b8dc4a20
       vertices: []
       indices: 
       edges: []
