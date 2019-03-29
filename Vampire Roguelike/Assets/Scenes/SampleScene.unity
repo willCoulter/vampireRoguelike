@@ -3658,7 +3658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &833460995
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4112,6 +4112,11 @@ MonoBehaviour:
   itemName: {fileID: 1445096649}
   itemDesc: {fileID: 1927816753}
   chestPopupBox: {fileID: 569525917}
+  pauseMenu: {fileID: 833460994}
+  LevelText: {fileID: 273855539}
+  EnemiesSlain: {fileID: 1243653954}
+  TimeText: {fileID: 1698256050}
+  pauseMenuEnabled: 0
 --- !u!1 &1014371574
 GameObject:
   m_ObjectHideFlags: 0

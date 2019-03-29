@@ -10,28 +10,6 @@ public class UIManager : MonoBehaviour
 
     private List<SkillCooldown> cooldownScriptList = new List<SkillCooldown>();
 
-    void Awake()
-    {
-        instance = this;
-
-        skill1Script = skill1Slot.GetComponent<SkillCooldown>();
-        skill2Script = skill2Slot.GetComponent<SkillCooldown>();
-        skill3Script = skill3Slot.GetComponent<SkillCooldown>();
-
-        cooldownScriptList.Add(skill1Script);
-        cooldownScriptList.Add(skill2Script);
-        cooldownScriptList.Add(skill3Script);
-    }
-
-    void Update()
-    {
-        if(cooldownScriptList.Count > 0)
-        {
-            UpdateSlotEnabled();
-        }
-        
-    }
-
     public GameObject skill1Slot;
 
     public GameObject skill2Slot;
@@ -62,6 +40,48 @@ public class UIManager : MonoBehaviour
 
     //Chest popup UI items;
     public GameObject chestPopupBox;
+
+    //Pause menu items
+    public GameObject pauseMenu;
+    public Text LevelText;
+    public Text EnemiesSlain;
+    public Text TimeText;
+
+    public bool pauseMenuEnabled;
+
+    void Awake()
+    {
+        instance = this;
+
+        skill1Script = skill1Slot.GetComponent<SkillCooldown>();
+        skill2Script = skill2Slot.GetComponent<SkillCooldown>();
+        skill3Script = skill3Slot.GetComponent<SkillCooldown>();
+
+        cooldownScriptList.Add(skill1Script);
+        cooldownScriptList.Add(skill2Script);
+        cooldownScriptList.Add(skill3Script);
+    }
+
+    void Update()
+    {
+        if (cooldownScriptList.Count > 0)
+        {
+            UpdateSlotEnabled();
+        }
+
+        //Pause menu
+        if (Input.GetButtonDown("Inventory") && pauseMenuEnabled == false)
+        {
+            pauseMenu.SetActive(true);
+            pauseMenuEnabled = true;
+            Time.timeScale = 0;
+        }else if(Input.GetButtonDown("Inventory") && pauseMenuEnabled == true)
+        {
+            pauseMenu.SetActive(false);
+            pauseMenuEnabled = false;
+            Time.timeScale = 1;
+        }
+    }
 
     //Called in skill inventory
     public void UpdateSkillSlot(int slotId)
