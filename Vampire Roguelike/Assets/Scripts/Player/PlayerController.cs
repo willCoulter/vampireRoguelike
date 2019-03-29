@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         health = maxHealth;
-        goldText.text = "Gold :" + gold;
+        goldText.text = "Gold: " + gold;
 
     }
 
@@ -231,7 +231,7 @@ public class PlayerController : MonoBehaviour
     public void gainGold(int goldGained)
     {
         gold += goldGained;
-        goldText.text = "Gold :" + gold;
+        goldText.text = "Gold: " + gold;
     }
     //public void checkInteract()
     //{

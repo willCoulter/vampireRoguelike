@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
 
     public static UIManager instance;
 
+    private List<SkillCooldown> cooldownScriptList = new List<SkillCooldown>();
+
     void Awake()
     {
         instance = this;
@@ -15,6 +17,19 @@ public class UIManager : MonoBehaviour
         skill1Script = skill1Slot.GetComponent<SkillCooldown>();
         skill2Script = skill2Slot.GetComponent<SkillCooldown>();
         skill3Script = skill3Slot.GetComponent<SkillCooldown>();
+
+        cooldownScriptList.Add(skill1Script);
+        cooldownScriptList.Add(skill2Script);
+        cooldownScriptList.Add(skill3Script);
+    }
+
+    void Update()
+    {
+        if(cooldownScriptList.Count > 0)
+        {
+            UpdateSlotEnabled();
+        }
+        
     }
 
     public GameObject skill1Slot;
@@ -66,6 +81,23 @@ public class UIManager : MonoBehaviour
                 return;
         }
     
+    }
+
+    public void UpdateSlotEnabled()
+    {
+        foreach(SkillCooldown skillScript in cooldownScriptList)
+        {
+            //if no skill is attached to slot, disable
+            if(skillScript.instance.skill == null)
+            {
+                skillScript.gameObject.SetActive(false);
+            }
+            //If there is a skill, and the slot is disabled, enable
+            else if(skillScript.instance.skill != null && skillScript.gameObject.activeSelf == false)
+            {
+                skillScript.gameObject.SetActive(true);
+            }
+        }
     }
 
     public void displaySkillPopup(Skill skill, Vector3 popupPosition){
