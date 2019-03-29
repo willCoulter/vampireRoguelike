@@ -8,7 +8,7 @@ TextureImporter:
     21300006: 0x72_DungeonTilesetII_v1.2_3
     21300008: 0x72_DungeonTilesetII_v1.2_4
     21300010: 0x72_DungeonTilesetII_v1.2_5
-    21300012: horizontalDoor
+    21300012: horizontalDoor_Closed
     21300014: 0x72_DungeonTilesetII_v1.2_7
     21300016: 0x72_DungeonTilesetII_v1.2_8
     21300018: 0x72_DungeonTilesetII_v1.2_9
@@ -469,6 +469,7 @@ TextureImporter:
     21300928: 0x72_DungeonTilesetII_v1.2_464
     21300930: 0x72_DungeonTilesetII_v1.2_465
     21300932: 0x72_DungeonTilesetII_v1.2_466
+    21300934: horizontalDoor_Open
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -2951,13 +2952,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horizontalDoor
+      name: horizontalDoor_Closed
       rect:
         serializedVersion: 2
-        x: 28
+        x: 32
         y: 256
-        width: 40
-        height: 35
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2966,6 +2967,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 09acd098414434c9c98ad193b8dc4a20
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontalDoor_Open
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f390063cf40519e408fde472120be299
       vertices: []
       indices: 
       edges: []
