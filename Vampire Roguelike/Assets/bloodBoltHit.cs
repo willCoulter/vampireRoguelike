@@ -24,7 +24,7 @@ public class bloodBoltHit : MonoBehaviour
             Destroy(arrowObject);
 
         }
-        else if (collision.gameObject.CompareTag("Player"))
+        else if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Sword"))
         {
 
         }
