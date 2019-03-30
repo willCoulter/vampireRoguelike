@@ -26,7 +26,8 @@ public class Enemy : MonoBehaviour
     {
         //Grab an active player from the scene
         player = GameObject.Find("Player");
-        target = PlayerController.instance.transform;
+        target = player.transform;
+        //target = PlayerController.instance.transform;
     }
 
     // Update is called once per frame

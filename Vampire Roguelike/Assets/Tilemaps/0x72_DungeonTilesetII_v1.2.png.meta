@@ -9,7 +9,6 @@ TextureImporter:
     21300008: 0x72_DungeonTilesetII_v1.2_4
     21300010: 0x72_DungeonTilesetII_v1.2_5
     21300012: mage
-    21300012: horizontalDoor
     21300014: 0x72_DungeonTilesetII_v1.2_7
     21300016: 0x72_DungeonTilesetII_v1.2_8
     21300018: 0x72_DungeonTilesetII_v1.2_9
@@ -470,6 +469,7 @@ TextureImporter:
     21300928: 0x72_DungeonTilesetII_v1.2_464
     21300930: 0x72_DungeonTilesetII_v1.2_465
     21300932: 0x72_DungeonTilesetII_v1.2_466
+    21300934: horizontalDoor
   externalObjects: {}
   serializedVersion: 9
   mipmaps:

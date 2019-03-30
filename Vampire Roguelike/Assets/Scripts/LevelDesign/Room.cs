@@ -33,7 +33,7 @@ public class Room : MonoBehaviour
         if(isCleared == false && enemiesSpawned == true){
 
             //Keep track of enemy count
-            Debug.Log(enemies.Count);
+            //Debug.Log(enemies.Count);
 
             //If all enemies dead
             if (enemies.Count == 0)
