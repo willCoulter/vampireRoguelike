@@ -55,14 +55,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         health = maxHealth;
-        goldText.text = "Gold :" + gold;
+        goldText.text = "Gold: " + gold;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        checkInteract();
+        //checkInteract();
         switch (state)
         {
             case State.Normal:
@@ -231,18 +231,17 @@ public class PlayerController : MonoBehaviour
     public void gainGold(int goldGained)
     {
         gold += goldGained;
-        goldText.text = "Gold :" + gold;
+        goldText.text = "Gold: " + gold;
     }
-
-    public void checkInteract()
-    {
-        if (Input.GetKey(KeyCode.E))
-        {
-            Collider2D[] things = Physics2D.OverlapCircleAll(transform.position, interactRadius);
-            if (things != null)
-            {
-                things[0].GetComponent<skillShop>().openShop();
-            }      
-        }
-    }
+    //public void checkInteract()
+    //{
+    //    if (Input.GetKey(KeyCode.E))
+    //    {
+    //        Collider2D[] things = Physics2D.OverlapCircleAll(transform.position, interactRadius);
+    //        if (things != null)
+    //        {
+    //            things[0].GetComponent<skillShop>().openShop();
+    //        }      
+    //    }
+    //}
 }

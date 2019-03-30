@@ -12,7 +12,7 @@ public class SkillCooldown : MonoBehaviour
     public Image darkMask;
     public Text cooldownTextDisplay;
 
-    private Skill skill;
+    public Skill skill;
     [SerializeField] private GameObject player;
 
     private Image buttonImage;

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3f0c64f9d9843048751fc1ce19de6f, type: 3}
   m_Name: BloodBolt
   m_EditorClassIdentifier: 
-  name: Blood Bolt
+  skillName: BloodBolt
+  desc: New Desc
   skillSprite: {fileID: 21300668, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
   skillSound: {fileID: 0}
   baseCD: 4

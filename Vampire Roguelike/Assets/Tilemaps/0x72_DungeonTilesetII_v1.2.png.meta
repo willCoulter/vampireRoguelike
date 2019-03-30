@@ -286,9 +286,9 @@ TextureImporter:
     21300562: door_closed_1
     21300564: door_closed_2
     21300566: 0x72_DungeonTilesetII_v1.2_283
-    21300568: 0x72_DungeonTilesetII_v1.2_284
-    21300570: 0x72_DungeonTilesetII_v1.2_285
-    21300572: 0x72_DungeonTilesetII_v1.2_286
+    21300568: chest_empty_1
+    21300570: chest_empty_2
+    21300572: chest_empty_3
     21300574: 0x72_DungeonTilesetII_v1.2_287
     21300576: 0x72_DungeonTilesetII_v1.2_288
     21300578: 0x72_DungeonTilesetII_v1.2_289
@@ -304,9 +304,9 @@ TextureImporter:
     21300598: door_open_1
     21300600: door_open_2
     21300602: 0x72_DungeonTilesetII_v1.2_301
-    21300604: 0x72_DungeonTilesetII_v1.2_302
-    21300606: 0x72_DungeonTilesetII_v1.2_303
-    21300608: 0x72_DungeonTilesetII_v1.2_304
+    21300604: chest_loot_1
+    21300606: chest_loot_2
+    21300608: chest_loot_3
     21300610: 0x72_DungeonTilesetII_v1.2_305
     21300612: 0x72_DungeonTilesetII_v1.2_306
     21300614: 0x72_DungeonTilesetII_v1.2_307
@@ -2252,7 +2252,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_284
+      name: chest_empty_1
       rect:
         serializedVersion: 2
         x: 240
@@ -2272,7 +2272,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_285
+      name: chest_empty_2
       rect:
         serializedVersion: 2
         x: 256
@@ -2292,7 +2292,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_286
+      name: chest_empty_3
       rect:
         serializedVersion: 2
         x: 272
@@ -2452,7 +2452,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_302
+      name: chest_loot_1
       rect:
         serializedVersion: 2
         x: 240
@@ -2472,7 +2472,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_303
+      name: chest_loot_2
       rect:
         serializedVersion: 2
         x: 256
@@ -2492,7 +2492,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_304
+      name: chest_loot_3
       rect:
         serializedVersion: 2
         x: 272

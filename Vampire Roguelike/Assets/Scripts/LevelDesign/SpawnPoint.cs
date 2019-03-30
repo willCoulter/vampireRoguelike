@@ -15,8 +15,8 @@ public class SpawnPoint : MonoBehaviour
 
         randomEnemy = Mimic;
 
-        Instantiate(randomEnemy, transform.position, transform.rotation);
+        GameObject returnEnemy = Instantiate(randomEnemy, transform.position, transform.rotation);
 
-        return randomEnemy;
+        return returnEnemy;
     }
 }
