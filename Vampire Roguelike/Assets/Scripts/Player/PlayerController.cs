@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    public GameObject sword;
 
     public Image healthBar;
     public Image bloodBar;
@@ -86,10 +87,12 @@ public class PlayerController : MonoBehaviour
         if (mousePos.x < playerScreenPoint.x)
         {
             sr.flipX = true;
+            sword.transform.localPosition = new Vector3(-0.292f, -0.117f);
         }
         else
         {
             sr.flipX = false;
+            sword.transform.localPosition = new Vector3(0.292f, -0.117f);
         }
     }
 
