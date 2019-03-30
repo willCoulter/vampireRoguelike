@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, miniumRange);
     }
 
-    private void Die()
+    public void Die()
     {
         OnDestroy.Invoke();
         OnDestroy.RemoveAllListeners();
