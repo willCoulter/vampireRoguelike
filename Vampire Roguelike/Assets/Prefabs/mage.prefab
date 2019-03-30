@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 2785528915872566287}
   - component: {fileID: 2785528915872566280}
   - component: {fileID: 2785528915872566281}
-  - component: {fileID: 2785528915872566282}
-  m_Layer: 0
+  - component: {fileID: 832984763}
+  m_Layer: 11
   m_Name: mage
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.875, y: 1.0625}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &2785528915872566281
 Rigidbody2D:
@@ -121,15 +121,15 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_LinearDrag: 1000
+  m_AngularDrag: 1000
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &2785528915872566282
+  m_Constraints: 4
+--- !u!114 &832984763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,13 +138,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2785528915872566283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0348a969d2a06a40a11875c69b2a18c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a5eedacb85541a47b70e6d49ab88588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 2
   damage: 1
   speed: 1
+  currentSpeed: 0
   sprite: {fileID: 2785528915872566287}
   player: {fileID: 0}
   bloodParticle: {fileID: 0}
-  agroRadius: 1.56
+  agroRadius: 5
+  miniumRange: 2
+  OnDestroy:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  room: {fileID: 0}

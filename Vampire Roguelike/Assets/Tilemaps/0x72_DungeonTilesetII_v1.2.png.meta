@@ -470,6 +470,9 @@ TextureImporter:
     21300930: 0x72_DungeonTilesetII_v1.2_465
     21300932: 0x72_DungeonTilesetII_v1.2_466
     21300934: horizontalDoor
+    21300936: orc0
+    21300938: orc1
+    21300940: 0x72_DungeonTilesetII_v1.2_6
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -2980,13 +2983,73 @@ TextureImporter:
         width: 14
         height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: ebab1ccd1ae3a45439f60dac450b345b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc0
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d11a5d6c7743d4bae1ea18779c9def
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc1
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0115f66bb22bcfd4d8d79206578ca137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0x72_DungeonTilesetII_v1.2_6
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12f2ff7e46ce3e948ba69f033a68f263
       vertices: []
       indices: 
       edges: []

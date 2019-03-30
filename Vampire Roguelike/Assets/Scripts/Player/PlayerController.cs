@@ -217,8 +217,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void takeDamage()
+    public void takeDamage(float damage)
     {
+        health -= damage;
         healthBar.fillAmount = health / maxHealth;
     }
 
