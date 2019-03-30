@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b0fa45ae2e484429c54051ba34adbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 0
+  maxHealth: 1
   damage: 1
   speed: 2
   currentSpeed: 0
@@ -120,6 +121,7 @@ MonoBehaviour:
   player: {fileID: 0}
   bloodParticle: {fileID: 78693775177663599, guid: fac58f2e99407224583b2884fae93699,
     type: 3}
+  healEffectParticle: {fileID: 0}
   agroRadius: 5.58
   miniumRange: 1.67
   OnDestroy:

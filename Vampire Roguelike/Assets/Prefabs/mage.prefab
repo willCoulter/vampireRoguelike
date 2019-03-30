@@ -141,13 +141,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5eedacb85541a47b70e6d49ab88588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 0
+  maxHealth: 3
   damage: 1
   speed: 1
   currentSpeed: 0
   sprite: {fileID: 2785528915872566287}
   player: {fileID: 0}
   bloodParticle: {fileID: 0}
+  healEffectParticle: {fileID: 0}
   agroRadius: 9.09
   miniumRange: 4.18
   OnDestroy:
@@ -160,3 +162,4 @@ MonoBehaviour:
   startLag: 7.56
   buffSpellRadius: 5
   spellFx: {fileID: 6360148462393092670, guid: 17edb0404bef6b94796e66cc206dbbb3, type: 3}
+  circleTime: 0

@@ -94,13 +94,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0348a969d2a06a40a11875c69b2a18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 0
+  maxHealth: 5
   damage: 2
   speed: 1
   currentSpeed: 0
   sprite: {fileID: 3728163576003900733}
   player: {fileID: 0}
   bloodParticle: {fileID: 78693775177663599, guid: fac58f2e99407224583b2884fae93699,
+    type: 3}
+  healEffectParticlePrefab: {fileID: 8031317950813113356, guid: de0792f8016b69b408266c5f4277235f,
     type: 3}
   agroRadius: 5.58
   miniumRange: 0
@@ -109,6 +112,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  target: {fileID: 0}
   room: {fileID: 0}
 --- !u!61 &4920549247710452533
 BoxCollider2D:

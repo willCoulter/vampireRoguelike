@@ -7,15 +7,17 @@ using UnityEngine.Events;
 public class Enemy : MonoBehaviour
 {
     public float health;
+    public float maxHealth;
     public int damage;
     public float speed;
     public float currentSpeed;
     public SpriteRenderer sprite;
-    public GameObject player;
+    private GameObject player;
     public GameObject bloodParticle;
+    public GameObject healEffectParticlePrefab;
     public float agroRadius;
     public float miniumRange;
-
+    private GameObject healingEffect;
     public UnityEvent OnDestroy;
 
     private Animator anim;
@@ -28,6 +30,8 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Init hp from maxHp
+        health = maxHealth;
         //Grab an active player from the scene
         player = GameObject.Find("Player");
         target = player.transform;
@@ -48,13 +52,13 @@ public class Enemy : MonoBehaviour
         {
             followPlayer();
         }
-        
+        particleStopper();
     }
     //Called by other gameobjects like the player accepts a damage amount of type float
     public void takeDamage(float damage)
     {
         //Spawn a bloodparticle
-        Instantiate(bloodParticle, transform.position, Quaternion.identity);
+        healingEffect = Instantiate(bloodParticle, transform.position, Quaternion.identity);
         //Decrease the health of the enemy by the players damage
         health -= damage;
         sprite.color = Color.red;
@@ -101,8 +105,26 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void effect()
+    public void heal(float healAmount)
     {
+        if (health < maxHealth)
+        {
+            health += healAmount;
+            Debug.Log("Healed");
+            healingEffect = Instantiate(healEffectParticlePrefab,transform.position,Quaternion.identity);
 
+            if(health >= maxHealth)
+            {
+                health = maxHealth;
+            }
+        }
+    }
+
+    public void particleStopper()
+    {
+        if (healingEffect != null && healingEffect.GetComponent<ParticleSystem>().isStopped)
+        {
+            Destroy(healingEffect);
+        }
     }
 }

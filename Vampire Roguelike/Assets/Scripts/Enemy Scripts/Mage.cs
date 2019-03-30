@@ -8,6 +8,9 @@ public class Mage : Enemy
     public float startLag;
     public float buffSpellRadius;
     public GameObject spellFx;
+    public float circleTime;
+    private float circleDur;
+    private GameObject buffCircle;
 
     private void FixedUpdate()
     {
@@ -18,19 +21,24 @@ public class Mage : Enemy
     {
         if (attackLag <= 0)
         {
-            Debug.Log("fired");
-            attackLag = startLag;
+            if (buffCircle != null)
+            {
+                Destroy(buffCircle);
+            }
+            buffCircle = Instantiate(spellFx, transform.position, Quaternion.identity);
+            circleDur += Time.deltaTime;
             Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, buffSpellRadius);
-            GameObject buff = Instantiate(spellFx, transform.position, transform.rotation);
             for (int i = 0; i < enemies.Length; i++)
             {
                 if (enemies[i].CompareTag("Enemy"))
                 {
                     //Run the buff here
-                    enemies[i].GetComponent<Enemy>().takeDamage(0);
+                    enemies[i].GetComponent<Enemy>().heal(2);
                 }
             }
-            //Destroy(buff);
+            Debug.Log(circleTime);
+            
+            attackLag = startLag;
         }
         else
         {
