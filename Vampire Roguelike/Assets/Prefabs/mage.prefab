@@ -147,9 +147,10 @@ MonoBehaviour:
   speed: 1
   currentSpeed: 0
   sprite: {fileID: 2785528915872566287}
-  player: {fileID: 0}
-  bloodParticle: {fileID: 0}
-  healEffectParticle: {fileID: 0}
+  bloodParticle: {fileID: 78693775177663599, guid: fac58f2e99407224583b2884fae93699,
+    type: 3}
+  healEffectParticlePrefab: {fileID: 8031317950813113356, guid: de0792f8016b69b408266c5f4277235f,
+    type: 3}
   agroRadius: 9.09
   miniumRange: 4.18
   OnDestroy:
@@ -162,4 +163,4 @@ MonoBehaviour:
   startLag: 7.56
   buffSpellRadius: 5
   spellFx: {fileID: 6360148462393092670, guid: 17edb0404bef6b94796e66cc206dbbb3, type: 3}
-  circleTime: 0
+  circleTime: 2

@@ -227,10 +227,10 @@ MonoBehaviour:
   speed: 1
   currentSpeed: 0
   sprite: {fileID: 7440419717192482398}
-  player: {fileID: 0}
   bloodParticle: {fileID: 78693775177663599, guid: fac58f2e99407224583b2884fae93699,
     type: 3}
-  healEffectParticle: {fileID: 0}
+  healEffectParticlePrefab: {fileID: 8031317950813113356, guid: de0792f8016b69b408266c5f4277235f,
+    type: 3}
   agroRadius: 5.29
   miniumRange: 2.94
   OnDestroy:
