@@ -7,6 +7,7 @@ public class arrow : MonoBehaviour
 
     public float speed = 20f;
     public Rigidbody2D rb;
+    public GameObject arrowObject;
 
         
     // Start is called before the first frame update
@@ -21,9 +22,11 @@ public class arrow : MonoBehaviour
         {
             Debug.Log("");
             collision.gameObject.GetComponent<PlayerController>().takeDamage(2);
+            Destroy(arrowObject);
 
-          
+
         }
+        
     }
 
 }

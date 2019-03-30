@@ -148,11 +148,15 @@ MonoBehaviour:
   sprite: {fileID: 2785528915872566287}
   player: {fileID: 0}
   bloodParticle: {fileID: 0}
-  agroRadius: 5
-  miniumRange: 2
+  agroRadius: 9.09
+  miniumRange: 4.18
   OnDestroy:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  target: {fileID: 0}
   room: {fileID: 0}
+  startLag: 7.56
+  buffSpellRadius: 5
+  spellFx: {fileID: 6360148462393092670, guid: 17edb0404bef6b94796e66cc206dbbb3, type: 3}

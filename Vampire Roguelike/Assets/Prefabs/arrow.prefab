@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5223598306167506140}
   - component: {fileID: 1557213047989259142}
   - component: {fileID: 7119350945885716438}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   rb: {fileID: 5223598306167506140}
+  arrowObject: {fileID: 3576491130118358102}
 --- !u!61 &7119350945885716438
 BoxCollider2D:
   m_ObjectHideFlags: 0
