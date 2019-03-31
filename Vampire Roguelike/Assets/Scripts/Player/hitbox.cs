@@ -1,5 +1,6 @@
 ﻿
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class hitbox : MonoBehaviour
@@ -8,7 +9,7 @@ public class hitbox : MonoBehaviour
     public float startLag;
     public GameObject sword;
     public LayerMask enemiesMask;
-    private GameObject enemyToHit;
+    private List<GameObject> enemyToHit = new List<GameObject>();
     public Sprite normal;
     public Sprite stab;
     private SpriteRenderer spriteRenderer;
@@ -23,6 +24,7 @@ public class hitbox : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(enemyToHit.Count);
         //Sets the sword to it's normal sprite
         spriteRenderer.sprite = normal;
         //Calls the attack facing method to make sure the sowrd is following the mouse
@@ -41,10 +43,13 @@ public class hitbox : MonoBehaviour
                 {
                     //grabs a copy of the playerController
                     playerInfo = PlayerController.instance;
-                    //Grabs the script from the current enemy and calls the damage function which accepts a float for the damage amount
-                    enemyToHit.GetComponent<Enemy>().takeDamage(playerInfo.attackDamage);
+                    for (int i = 0; i < enemyToHit.Count; i++) { 
+                        //Grabs the script from the current enemy and calls the damage function which accepts a float for the damage amount
+                        enemyToHit[i].GetComponent<Enemy>().takeDamage(playerInfo.attackDamage);
+                        
+                    }
                     //Resets the triggers to defaults
-                    enemyToHit = null;
+                    enemyToHit.Clear();
                     trigger = false;
                 }
 
@@ -80,7 +85,7 @@ public class hitbox : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         //Resets the trigger
-        trigger = false;
+        enemyToHit.Clear();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -89,8 +94,10 @@ public class hitbox : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             trigger = true;
-            //Grab the enemy that caused the trigger
-            enemyToHit = collision.gameObject;
+            if (enemyToHit.Contains(collision.gameObject) == false) {
+                //Grab the enemy that caused the trigger
+                enemyToHit.Add(collision.gameObject);
+            }
         }
     }
 }
