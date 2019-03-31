@@ -8,18 +8,18 @@ TextureImporter:
     21300006: 0x72_DungeonTilesetII_v1.2_3
     21300008: 0x72_DungeonTilesetII_v1.2_4
     21300010: 0x72_DungeonTilesetII_v1.2_5
-    21300012: mage
-    21300014: 0x72_DungeonTilesetII_v1.2_7
+    21300012: mage0
+    21300014: StaffGreen
     21300016: 0x72_DungeonTilesetII_v1.2_8
     21300018: 0x72_DungeonTilesetII_v1.2_9
     21300020: 0x72_DungeonTilesetII_v1.2_10
     21300022: 0x72_DungeonTilesetII_v1.2_11
     21300024: 0x72_DungeonTilesetII_v1.2_12
     21300026: 0x72_DungeonTilesetII_v1.2_13
-    21300028: 0x72_DungeonTilesetII_v1.2_14
+    21300028: orcBoss
     21300030: 0x72_DungeonTilesetII_v1.2_15
-    21300032: 0x72_DungeonTilesetII_v1.2_16
-    21300034: 0x72_DungeonTilesetII_v1.2_17
+    21300032: orcNormal1
+    21300034: orcNormalMoving0
     21300036: 0x72_DungeonTilesetII_v1.2_18
     21300038: 0x72_DungeonTilesetII_v1.2_19
     21300040: 0x72_DungeonTilesetII_v1.2_20
@@ -318,9 +318,9 @@ TextureImporter:
     21300626: door_closed_10
     21300628: door_open_3
     21300630: door_open_4
-    21300632: 0x72_DungeonTilesetII_v1.2_316
-    21300634: 0x72_DungeonTilesetII_v1.2_317
-    21300636: 0x72_DungeonTilesetII_v1.2_318
+    21300632: Mimic0
+    21300634: Mimic1
+    21300636: Mimic2
     21300638: 0x72_DungeonTilesetII_v1.2_319
     21300640: 0x72_DungeonTilesetII_v1.2_320
     21300642: 0x72_DungeonTilesetII_v1.2_321
@@ -472,7 +472,23 @@ TextureImporter:
     21300934: horizontalDoor
     21300936: orc0
     21300938: orc1
-    21300940: 0x72_DungeonTilesetII_v1.2_6
+    21300940: orc2
+    21300942: StaffRed
+    21300944: 0x72_DungeonTilesetII_v1.2_7
+    21300946: orcNormal0
+    21300948: orcNormal2
+    21300950: orcNormal3
+    21300952: orcNormalMoving1
+    21300954: orcNormalMoving2
+    21300956: orcNormalMoving3
+    21300958: mage1
+    21300960: mage2
+    21300962: mage3
+    21300964: orc3
+    21300966: orcMoving0
+    21300968: orcMoving1
+    21300970: orcMoving2
+    21300972: orcMoving3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -2715,7 +2731,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_316
+      name: Mimic0
       rect:
         serializedVersion: 2
         x: 240
@@ -2735,7 +2751,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_317
+      name: Mimic1
       rect:
         serializedVersion: 2
         x: 256
@@ -2755,7 +2771,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_318
+      name: Mimic2
       rect:
         serializedVersion: 2
         x: 272
@@ -2975,12 +2991,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mage
+      name: mage0
       rect:
         serializedVersion: 2
-        x: 385
+        x: 384
         y: 224
-        width: 14
+        width: 16
         height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -3003,7 +3019,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3023,7 +3039,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3035,10 +3051,350 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_6
+      name: orc2
       rect:
         serializedVersion: 2
         x: 401
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12f2ff7e46ce3e948ba69f033a68f263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StaffGreen
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 337
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9abdb1791027200448301c23a297baaf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StaffRed
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 337
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fc17a85b1675b445af19d129a2775b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0x72_DungeonTilesetII_v1.2_7
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 401
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc273a3c85a04aa4185d9abc5155a8c9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcBoss
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 157
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7065eb0006674624bbd2cec5bf322d5f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0x72_DungeonTilesetII_v1.2_15
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 157
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b2039b01284a5d4dadfe9745c7b7b2a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormal0
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d92275f0d265b044ada142e5c414059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormal1
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 246278117d241434f96ad164d35866e7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormal2
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9431aaae176fe0241861e487b7a7778a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormal3
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f03ee1c9d48f2c942869986dbd1fc815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormalMoving0
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 289
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af76797e6bb9a0e47a6e2fd0e365701b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormalMoving1
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 290
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e19136e7f5294b0489c8f044713db8b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormalMoving2
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 289
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dfcc85cc0363294f937daa170495f33
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormalMoving3
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c39584e10e39304c94438b182821d97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 224
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 273ef82f7d85987448746a8814ee16b1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage2
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 224
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34e0bc01c48efba46892ca36fcb1b97b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage3
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 224
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e5d21f4ca3b3ac4b9f9143606c60724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3
+      rect:
+        serializedVersion: 2
+        x: 417
         y: 256
         width: 16
         height: 16
@@ -3049,7 +3405,87 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12f2ff7e46ce3e948ba69f033a68f263
+      spriteID: 4684db4077be5ac4484664c659596aae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcMoving0
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 257
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 878c9a41256638a419f3885cb6069ab4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcMoving1
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 258
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581f5ef513aae064aafe120a00f76633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcMoving2
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3fe361f295915d4da891e107a64629d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcMoving3
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1801bdbb91155947bcb2e6e7ce637a1
       vertices: []
       indices: 
       edges: []

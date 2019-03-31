@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    public Animator anim;
     public GameObject sword;
 
     public Image healthBar;
@@ -67,6 +68,7 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case State.Normal:
+                anim.SetBool("Rolling", false);
                 Move();
                 ChangeDirection();
                 HandleDash();
@@ -135,12 +137,13 @@ public class PlayerController : MonoBehaviour
         }
 
         //Move character
+        anim.SetBool("Moving", true);
         Vector3 moveDirection = new Vector3(moveX, moveY).normalized;
 
         bool isIdle = moveX == 0 && moveY == 0;
         if (isIdle)
         {
-            //play idle animation
+            anim.SetBool("Moving",false);
         }
         else
         {
@@ -176,7 +179,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        //Cannot move, play idle animation
+                        anim.SetBool("Moving", false);
                     }
                 }
             }
@@ -198,6 +201,7 @@ public class PlayerController : MonoBehaviour
         //Slide player by slideSpeed amount
         if (CanMove(lastMoveDirection, slideSpeed))
         {
+            anim.SetBool("Rolling", true);
             transform.position += lastMoveDirection * slideSpeed * Time.deltaTime;
 
             sr.color = new Color(1f, 1f, 1f, .5f);
@@ -207,6 +211,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            
             sr.color = new Color(1f, 1f, 1f, 1f);
             state = State.Normal;
         }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 96004247}
   m_Layer: 8
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,9 +68,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: 1542988835
+  m_SortingLayer: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 88fdd6d43055ee84894e874a999247eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.68469787, y: -0.0024366379}
+  m_Offset: {x: 0.7784817, y: -0.0024366379}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.023688441, y: 0.50779724}
@@ -106,7 +106,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4375, y: 0.3125}
+  m_Size: {x: 1.6250677, y: 0.3125}
   m_EdgeRadius: 0
 --- !u!114 &1450141840
 MonoBehaviour:
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25723100099e66a4fb2724b0a5c82d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLag: 1
+  startLag: 0.5
   sword: {fileID: 1450141837}
   enemiesMask:
     serializedVersion: 2
@@ -128,7 +128,6 @@ MonoBehaviour:
   normal: {fileID: 21300000, guid: 88fdd6d43055ee84894e874a999247eb, type: 3}
   stab: {fileID: 21300004, guid: 88fdd6d43055ee84894e874a999247eb, type: 3}
   trigger: 0
-  canAttack: 1
 --- !u!50 &96004247
 Rigidbody2D:
   serializedVersion: 4
@@ -163,7 +162,9 @@ GameObject:
   - component: {fileID: 4782444987536739166}
   - component: {fileID: 4782444987536739161}
   - component: {fileID: 4782444987536739165}
-  - component: {fileID: 277389984}
+  - component: {fileID: 4136484433608238558}
+  - component: {fileID: 277389979}
+  - component: {fileID: 277389986}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -220,9 +221,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: 1542988835
+  m_SortingLayer: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 20fac835a6090b3439674e536b635a09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -246,6 +247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6c5cb4ff83e6549b5cd6f58f5dab46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 3639
   speed: 7
   maxHealth: 100
   health: 0
@@ -255,6 +259,8 @@ MonoBehaviour:
   magicDamage: 0
   gold: 0
   interactRadius: 3
+  anim: {fileID: 4136484433608238558}
+  sword: {fileID: 1450141837}
   healthBar: {fileID: 0}
   bloodBar: {fileID: 0}
   goldText: {fileID: 0}
@@ -305,7 +311,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.9439993}
   m_EdgeRadius: 0
---- !u!114 &277389984
+--- !u!95 &4136484433608238558
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782444987536739160}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 57273ad41da531747b393aafe7dda1d8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &277389979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,6 +339,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 4782444987536739160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49dcc274c579de24f86264fcb27a5f54, type: 3}
+  m_Script: {fileID: 11500000, guid: ad770e537e53033418140712a337c1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  enemiesMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  radius: 2.6
+  playerPos: {fileID: 4782444987536739164}
+  blastFx: {fileID: 4842268025036292850, guid: 12c841831a10e8a4e88a5a6d94f0fe5d, type: 3}
+--- !u!114 &277389986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782444987536739160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 564d217339ddc5b4fb8906b435af3fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  launchPosition: {fileID: 1450141838}
+  bloodBoltPrefab: {fileID: 3728805337816938994, guid: d897f91591e6a2f479a61102fc951d7b,
+    type: 3}

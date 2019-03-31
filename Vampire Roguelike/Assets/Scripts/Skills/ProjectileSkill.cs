@@ -10,6 +10,7 @@ public class ProjectileSkill : Skill
     private Bloodbolt bloodBolt;
     private Transform spawnLocation;
 
+
     public override void Initialize(GameObject obj)
     {
 

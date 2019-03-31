@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float currentSpeed;
     public SpriteRenderer sprite;
-    private GameObject player;
+    public GameObject player;
     public GameObject bloodParticle;
     public GameObject healEffectParticlePrefab;
     public float agroRadius;
@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     private GameObject healingEffect;
     public UnityEvent OnDestroy;
 
-    private Animator anim;
+    public Animator anim;
     public Transform target;
     public Room room;
     private GameManager gameManager;
@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour
             followPlayer();
         }
         particleStopper();
+        ChangeDirection();
     }
     //Called by other gameobjects like the player accepts a damage amount of type float
     public void takeDamage(float damage)
@@ -102,6 +103,11 @@ public class Enemy : MonoBehaviour
         if (distance <= agroRadius)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            anim.SetBool("Moving", true);
+        }
+        else
+        {
+            anim.SetBool("Moving", false);
         }
     }
 
@@ -110,7 +116,6 @@ public class Enemy : MonoBehaviour
         if (health < maxHealth)
         {
             health += healAmount;
-            Debug.Log("Healed");
             healingEffect = Instantiate(healEffectParticlePrefab,transform.position,Quaternion.identity);
 
             if(health >= maxHealth)
@@ -125,6 +130,19 @@ public class Enemy : MonoBehaviour
         if (healingEffect != null && healingEffect.GetComponent<ParticleSystem>().isStopped)
         {
             Destroy(healingEffect);
+        }
+    }
+
+    private void ChangeDirection()
+    {
+
+        if (player.transform.position.x < transform.position.x)
+        {
+            sprite.flipX = true;
+        }
+        else
+        {
+            sprite.flipX = false;
         }
     }
 }

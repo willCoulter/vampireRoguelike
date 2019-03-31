@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cdcbc5b7274c034483432b7e4465d2d, type: 3}
   m_Name: BloodSword
   m_EditorClassIdentifier: 
-  skillName: New Skill
-  desc: New Desc
-  skillSprite: {fileID: 0}
+  skillName: Blood Blade
+  desc: Doubles Damge for 2 seconds
+  skillSprite: {fileID: 21300610, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
   skillSound: {fileID: 0}
-  baseCD: 1
-  baseCost: 0
+  baseCD: 10
+  baseCost: 10
+  multipler: 2
+  dur: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2785528915872566280}
   - component: {fileID: 2785528915872566281}
   - component: {fileID: 832984763}
+  - component: {fileID: 1577696079525672640}
   m_Layer: 11
   m_Name: mage
   m_TagString: Enemy
@@ -99,7 +100,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.875, y: 1.0625}
+    oldSize: {x: 1, y: 1.0625}
     newSize: {x: 0.875, y: 1.0625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -147,6 +148,7 @@ MonoBehaviour:
   speed: 1
   currentSpeed: 0
   sprite: {fileID: 2785528915872566287}
+  player: {fileID: 0}
   bloodParticle: {fileID: 78693775177663599, guid: fac58f2e99407224583b2884fae93699,
     type: 3}
   healEffectParticlePrefab: {fileID: 8031317950813113356, guid: de0792f8016b69b408266c5f4277235f,
@@ -158,9 +160,29 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  anim: {fileID: 1577696079525672640}
   target: {fileID: 0}
   room: {fileID: 0}
   startLag: 7.56
   buffSpellRadius: 5
   spellFx: {fileID: 6360148462393092670, guid: 17edb0404bef6b94796e66cc206dbbb3, type: 3}
   circleTime: 2
+--- !u!95 &1577696079525672640
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2785528915872566283}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0108271368ecfa4197ebd78e7210135, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

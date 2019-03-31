@@ -3,7 +3,7 @@ guid: 20fac835a6090b3439674e536b635a09
 TextureImporter:
   fileIDToRecycleName:
     21300000: vampIdle
-    21300002: vampire_1
+    21300002: vampIdle1
     21300004: vampire_2
     21300006: vampire_3
     21300008: vampRunning_0
@@ -18,10 +18,10 @@ TextureImporter:
     21300026: vampire_13
     21300028: vampire_14
     21300030: vampire_15
-    21300032: vampire_16
-    21300034: vampire_17
-    21300036: vampire_18
-    21300038: vampire_19
+    21300032: vampCast0
+    21300034: vampCast2
+    21300036: vampCast1
+    21300038: vampCast3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -124,13 +124,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vampire_1
+      name: vampIdle1
       rect:
         serializedVersion: 2
         x: 18
         y: 80
         width: 16
-        height: 15
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -424,7 +424,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vampire_16
+      name: vampCast0
       rect:
         serializedVersion: 2
         x: 1
@@ -444,7 +444,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vampire_17
+      name: vampCast2
       rect:
         serializedVersion: 2
         x: 36
@@ -464,7 +464,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vampire_18
+      name: vampCast1
       rect:
         serializedVersion: 2
         x: 18
@@ -484,7 +484,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vampire_19
+      name: vampCast3
       rect:
         serializedVersion: 2
         x: 54
