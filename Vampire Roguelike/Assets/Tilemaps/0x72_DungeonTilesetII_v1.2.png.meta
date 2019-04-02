@@ -8,18 +8,18 @@ TextureImporter:
     21300006: 0x72_DungeonTilesetII_v1.2_3
     21300008: 0x72_DungeonTilesetII_v1.2_4
     21300010: 0x72_DungeonTilesetII_v1.2_5
-    21300012: 0x72_DungeonTilesetII_v1.2_6
-    21300014: 0x72_DungeonTilesetII_v1.2_7
+    21300012: mage0
+    21300014: StaffGreen
     21300016: 0x72_DungeonTilesetII_v1.2_8
     21300018: 0x72_DungeonTilesetII_v1.2_9
     21300020: 0x72_DungeonTilesetII_v1.2_10
     21300022: 0x72_DungeonTilesetII_v1.2_11
     21300024: 0x72_DungeonTilesetII_v1.2_12
     21300026: 0x72_DungeonTilesetII_v1.2_13
-    21300028: 0x72_DungeonTilesetII_v1.2_14
-    21300030: 0x72_DungeonTilesetII_v1.2_15
-    21300032: 0x72_DungeonTilesetII_v1.2_16
-    21300034: 0x72_DungeonTilesetII_v1.2_17
+    21300028: orcBossIdle0
+    21300030: orcBossIdle1
+    21300032: orcNormal1
+    21300034: orcNormalMoving0
     21300036: 0x72_DungeonTilesetII_v1.2_18
     21300038: 0x72_DungeonTilesetII_v1.2_19
     21300040: 0x72_DungeonTilesetII_v1.2_20
@@ -283,12 +283,12 @@ TextureImporter:
     21300556: 0x72_DungeonTilesetII_v1.2_278
     21300558: 0x72_DungeonTilesetII_v1.2_279
     21300560: 0x72_DungeonTilesetII_v1.2_280
-    21300562: 0x72_DungeonTilesetII_v1.2_281
-    21300564: 0x72_DungeonTilesetII_v1.2_282
+    21300562: door_archway_2
+    21300564: door_archway_3
     21300566: 0x72_DungeonTilesetII_v1.2_283
-    21300568: 0x72_DungeonTilesetII_v1.2_284
-    21300570: 0x72_DungeonTilesetII_v1.2_285
-    21300572: 0x72_DungeonTilesetII_v1.2_286
+    21300568: chest_empty_1
+    21300570: chest_empty_2
+    21300572: chest_empty_3
     21300574: 0x72_DungeonTilesetII_v1.2_287
     21300576: 0x72_DungeonTilesetII_v1.2_288
     21300578: 0x72_DungeonTilesetII_v1.2_289
@@ -297,30 +297,30 @@ TextureImporter:
     21300584: 0x72_DungeonTilesetII_v1.2_292
     21300586: 0x72_DungeonTilesetII_v1.2_293
     21300588: 0x72_DungeonTilesetII_v1.2_294
-    21300590: 0x72_DungeonTilesetII_v1.2_295
-    21300592: 0x72_DungeonTilesetII_v1.2_296
-    21300594: 0x72_DungeonTilesetII_v1.2_297
-    21300596: 0x72_DungeonTilesetII_v1.2_298
-    21300598: 0x72_DungeonTilesetII_v1.2_299
-    21300600: 0x72_DungeonTilesetII_v1.2_300
+    21300590: door_archway_1
+    21300592: door_closed_4
+    21300594: door_closed_5
+    21300596: door_archway_4
+    21300598: door_open_1
+    21300600: door_open_2
     21300602: 0x72_DungeonTilesetII_v1.2_301
-    21300604: 0x72_DungeonTilesetII_v1.2_302
-    21300606: 0x72_DungeonTilesetII_v1.2_303
-    21300608: 0x72_DungeonTilesetII_v1.2_304
+    21300604: chest_loot_1
+    21300606: chest_loot_2
+    21300608: chest_loot_3
     21300610: 0x72_DungeonTilesetII_v1.2_305
     21300612: 0x72_DungeonTilesetII_v1.2_306
     21300614: 0x72_DungeonTilesetII_v1.2_307
     21300616: 0x72_DungeonTilesetII_v1.2_308
     21300618: 0x72_DungeonTilesetII_v1.2_309
-    21300620: 0x72_DungeonTilesetII_v1.2_310
-    21300622: 0x72_DungeonTilesetII_v1.2_311
-    21300624: 0x72_DungeonTilesetII_v1.2_312
-    21300626: 0x72_DungeonTilesetII_v1.2_313
-    21300628: 0x72_DungeonTilesetII_v1.2_314
-    21300630: 0x72_DungeonTilesetII_v1.2_315
-    21300632: 0x72_DungeonTilesetII_v1.2_316
-    21300634: 0x72_DungeonTilesetII_v1.2_317
-    21300636: 0x72_DungeonTilesetII_v1.2_318
+    21300620: door_closed_7
+    21300622: door_closed_8
+    21300624: door_closed_9
+    21300626: door_closed_10
+    21300628: door_open_3
+    21300630: door_open_4
+    21300632: Mimic0
+    21300634: Mimic1
+    21300636: Mimic2
     21300638: 0x72_DungeonTilesetII_v1.2_319
     21300640: 0x72_DungeonTilesetII_v1.2_320
     21300642: 0x72_DungeonTilesetII_v1.2_321
@@ -469,6 +469,49 @@ TextureImporter:
     21300928: 0x72_DungeonTilesetII_v1.2_464
     21300930: 0x72_DungeonTilesetII_v1.2_465
     21300932: 0x72_DungeonTilesetII_v1.2_466
+    21300934: horizontalDoor_Closed
+    21300936: orc0
+    21300938: orc1
+    21300940: orc2
+    21300942: StaffRed
+    21300944: orcBossWeapon
+    21300946: orcNormal0
+    21300948: orcNormal2
+    21300950: orcNormal3
+    21300952: orcNormalMoving1
+    21300954: orcNormalMoving2
+    21300956: orcNormalMoving3
+    21300958: mage1
+    21300960: mage2
+    21300962: mage3
+    21300964: orc3
+    21300966: orcMoving0
+    21300968: orcMoving1
+    21300970: orcMoving2
+    21300972: orcMoving3
+    21300974: horizontalDoor_Open
+    21300976: orcBossIdle2
+    21300978: orcBossIdle3
+    21300980: orcBossWalk0
+    21300982: orcBossWalk1
+    21300984: orcBossWalk2
+    21300986: orcBossWalk3
+    21300988: demonIdle0
+    21300990: demonIdle1
+    21300992: demonIdle2
+    21300994: demonIdle3
+    21300996: demonWalk0
+    21300998: demonWalk1
+    21301000: demonWalk2
+    21301002: demonWalk3
+    21301004: zombieIdle0
+    21301006: zombieIdle1
+    21301008: zombieIdle2
+    21301010: zombieIdle3
+    21301012: zombieWalk0
+    21301014: zombieWalk1
+    21301016: zombieWalk2
+    21301018: zombieWalk3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -2191,7 +2234,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_281
+      name: door_archway_2
       rect:
         serializedVersion: 2
         x: 32
@@ -2211,7 +2254,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_282
+      name: door_archway_3
       rect:
         serializedVersion: 2
         x: 48
@@ -2251,7 +2294,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_284
+      name: chest_empty_1
       rect:
         serializedVersion: 2
         x: 240
@@ -2271,7 +2314,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_285
+      name: chest_empty_2
       rect:
         serializedVersion: 2
         x: 256
@@ -2291,7 +2334,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_286
+      name: chest_empty_3
       rect:
         serializedVersion: 2
         x: 272
@@ -2311,7 +2354,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_295
+      name: door_archway_1
       rect:
         serializedVersion: 2
         x: 16
@@ -2331,47 +2374,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_296
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 272
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df3ab48e6b87ea743bf6427d4e48d9c7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_297
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 272
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3842267f37d53cb4eb134bf8b6028cdb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_298
+      name: door_archway_4
       rect:
         serializedVersion: 2
         x: 64
@@ -2386,46 +2389,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 53118ecbd2b3af54f9c5c1c365ce9336
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_299
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 272
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bbf9b0038ef7eba478a7ee41a82f131a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_300
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 272
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6964ed292bec83b4182d4c97f3def5d1
       vertices: []
       indices: 
       edges: []
@@ -2451,7 +2414,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_302
+      name: chest_loot_1
       rect:
         serializedVersion: 2
         x: 240
@@ -2471,7 +2434,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_303
+      name: chest_loot_2
       rect:
         serializedVersion: 2
         x: 256
@@ -2491,7 +2454,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_304
+      name: chest_loot_3
       rect:
         serializedVersion: 2
         x: 272
@@ -2591,7 +2554,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_310
+      name: door_closed_7
       rect:
         serializedVersion: 2
         x: 16
@@ -2611,47 +2574,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_311
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 256
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f96191698c16cf244b0d80c2acdaaefb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_312
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 256
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d760fca0f4344a4c8fe1b230ebcd869
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_313
+      name: door_closed_10
       rect:
         serializedVersion: 2
         x: 64
@@ -2671,47 +2594,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_314
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 256
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf26d8bcb827e89408e025e442c9b27f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_315
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 256
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3e48636717e56047a5637fabede91b2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_316
+      name: Mimic0
       rect:
         serializedVersion: 2
         x: 240
@@ -2731,7 +2614,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_317
+      name: Mimic1
       rect:
         serializedVersion: 2
         x: 256
@@ -2751,7 +2634,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_318
+      name: Mimic2
       rect:
         serializedVersion: 2
         x: 272
@@ -2946,6 +2829,986 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: efb3abc3758ca254999c4f5503020e18
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontalDoor_Closed
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09acd098414434c9c98ad193b8dc4a20
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage0
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 224
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebab1ccd1ae3a45439f60dac450b345b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc0
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d11a5d6c7743d4bae1ea18779c9def
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc1
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0115f66bb22bcfd4d8d79206578ca137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc2
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12f2ff7e46ce3e948ba69f033a68f263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StaffGreen
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 337
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9abdb1791027200448301c23a297baaf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StaffRed
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 337
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fc17a85b1675b445af19d129a2775b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcBossWeapon
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 401
+        width: 16
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4927063, y: 0.08069897}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc273a3c85a04aa4185d9abc5155a8c9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcBossIdle0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7065eb0006674624bbd2cec5bf322d5f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcBossIdle1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b2039b01284a5d4dadfe9745c7b7b2a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormal0
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d92275f0d265b044ada142e5c414059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormal1
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 246278117d241434f96ad164d35866e7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormal2
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9431aaae176fe0241861e487b7a7778a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormal3
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f03ee1c9d48f2c942869986dbd1fc815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormalMoving0
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 289
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af76797e6bb9a0e47a6e2fd0e365701b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormalMoving1
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 290
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e19136e7f5294b0489c8f044713db8b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormalMoving2
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 289
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dfcc85cc0363294f937daa170495f33
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcNormalMoving3
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c39584e10e39304c94438b182821d97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 224
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 273ef82f7d85987448746a8814ee16b1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage2
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 224
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34e0bc01c48efba46892ca36fcb1b97b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage3
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 224
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e5d21f4ca3b3ac4b9f9143606c60724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4684db4077be5ac4484664c659596aae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcMoving0
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 257
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 878c9a41256638a419f3885cb6069ab4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcMoving1
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 258
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581f5ef513aae064aafe120a00f76633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcMoving2
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3fe361f295915d4da891e107a64629d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcMoving3
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1801bdbb91155947bcb2e6e7ce637a1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontalDoor_Open
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c4b59ed62a3c94419029ae16277fbe5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcBossIdle2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08446ab66389f5348b5a692dc32480d6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcBossIdle3
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4d17d6b64f705b45a5aa1a483871468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcBossWalk0
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 904618a23d7c4e5459345d4c869d1634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcBossWalk1
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b338adda23ddc0f4b8355eed21c246f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcBossWalk2
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f5415821a8606449b3936d1fa08f12
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcBossWalk3
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc56ca61bfe84d74880c294a08fefcbd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonIdle0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aaf742641bc2c346ac4a465ef43105c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonIdle1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 112
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c97e5ed1359584db6f1f889979bdc2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonIdle2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 112
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 189af2d93a4fbf54a83c8e5d5a91e29e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonIdle3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebbd026dbfd44174fae65b024ed65ec8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonWalk0
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 114
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7dd1e5589b35a246b5c097d3822bc3f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonWalk1
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 116
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a44ef16a9f883f0459267640e60da2d2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonWalk2
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 113
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d4c0f31ae348b8459b58c10335796ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonWalk3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 112
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deb7a81628af00a4d86a66da9fcd307b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombieIdle0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a24e1f23bbaaba4ab456ce0dc2c8171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombieIdle1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8c6a73026d35d4a963598375d2c0d0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombieIdle2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 900c8960fb9b14941b1ba45c951b4d96
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombieIdle3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a464c392724746d498a0614c99a605d0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombieWalk0
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82b2015ceecf89146aed80bc4d09428e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombieWalk1
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 212
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95307b43a1a6d9445bd2963bdf74cdf6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombieWalk2
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f11b5bc9cfc23294a94478b70569d6cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombieWalk3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02f4ebd43f0425e4aa0ab762286b19e0
       vertices: []
       indices: 
       edges: []

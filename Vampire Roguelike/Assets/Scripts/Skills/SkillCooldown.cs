@@ -12,7 +12,7 @@ public class SkillCooldown : MonoBehaviour
     public Image darkMask;
     public Text cooldownTextDisplay;
 
-    private Skill skill;
+    public Skill skill;
     [SerializeField] private GameObject player;
 
     private Image buttonImage;
@@ -35,6 +35,7 @@ public class SkillCooldown : MonoBehaviour
         if (cooldownComplete){
             AbilityReady();
             if(Input.GetButtonDown(abilityButtonAxisName)){
+                PlayerController.instance.anim.SetTrigger("Casting");
                 ButtonTriggered();
             }
         }

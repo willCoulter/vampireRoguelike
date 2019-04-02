@@ -7,10 +7,9 @@ public class FlatBuffItem : Item
 {
     public float buffAmount;
 
-    [SerializeField]
-    FlatBuffType buff;
+    public FlatBuffType buff;
 
-    enum FlatBuffType{
+    public enum FlatBuffType{
         Health,
         Blood,
         AttackDamage,

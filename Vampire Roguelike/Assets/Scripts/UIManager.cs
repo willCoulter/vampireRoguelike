@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
 
     public static UIManager instance;
 
+    private List<SkillCooldown> cooldownScriptList = new List<SkillCooldown>();
+
     void Awake()
     {
         instance = this;
@@ -15,46 +17,90 @@ public class UIManager : MonoBehaviour
         skill1Script = skill1Slot.GetComponent<SkillCooldown>();
         skill2Script = skill2Slot.GetComponent<SkillCooldown>();
         skill3Script = skill3Slot.GetComponent<SkillCooldown>();
+
+        cooldownScriptList.Add(skill1Script);
+        cooldownScriptList.Add(skill2Script);
+        cooldownScriptList.Add(skill3Script);
     }
 
-    [SerializeField]
-    GameObject skill1Slot;
+    void Update()
+    {
+        if(cooldownScriptList.Count > 0)
+        {
+            UpdateSlotEnabled();
+        }
 
-    [SerializeField]
-    GameObject skill2Slot;
+        //If player presses tab, open or close pause menu
+        if (Input.GetKeyDown("tab"))
+        {
+            if (!pauseMenuOpen)
+            {
+                DisplayPauseMenu();
+            }
+            else
+            {
+                HidePauseMenu();
+            }
+        }
+        
+    }
 
-    [SerializeField]
-    GameObject skill3Slot;
+    public GameObject skill1Slot;
+
+    public GameObject skill2Slot;
+
+    public GameObject skill3Slot;
 
     private SkillCooldown skill1Script;
     private SkillCooldown skill2Script;
     private SkillCooldown skill3Script;
 
     //Skill popup UI items
-    [SerializeField]
-    GameObject skillPopupBox;
+    public GameObject skillPopupBox;
 
-    [SerializeField]
-    GameObject skillName;
+    public GameObject skillName;
 
-    [SerializeField]
-    GameObject skillCost;
+    public GameObject skillCost;
 
-    [SerializeField]
-    GameObject skillCD;
+    public GameObject skillCD;
 
-    [SerializeField]
-    GameObject skillDesc;
+    public GameObject skillDesc;
 
     //Item popup UI items;
-    [SerializeField]
-    GameObject itemPopupBox;
+    public GameObject itemPopupBox;
 
-    [SerializeField]
-    GameObject itemName;
+    public GameObject itemName;
 
-    [SerializeField]
-    GameObject itemDesc;
+    public GameObject itemDesc;
+
+    //Chest popup UI items;
+    public GameObject chestPopupBox;
+
+    //Pause menu UI items;
+    public GameObject pauseMenu;
+    public Text level;
+    public Text enemiesSlain;
+    public Text time;
+
+    private bool pauseMenuOpen;
+    
+    private void DisplayPauseMenu()
+    {
+        //Set values
+        enemiesSlain.text = "Enemies Slain: " + GameManager.instance.enemiesSlain;
+        level.text = "Level: " + GameManager.instance.currentLevelNum;
+
+        pauseMenu.SetActive(true);
+        pauseMenuOpen = true;
+        Time.timeScale = 0;
+    }
+
+    private void HidePauseMenu()
+    {
+        pauseMenu.SetActive(false);
+        pauseMenuOpen = false;
+        Time.timeScale = 1;
+    }
 
     //Called in skill inventory
     public void UpdateSkillSlot(int slotId)
@@ -76,8 +122,25 @@ public class UIManager : MonoBehaviour
     
     }
 
+    public void UpdateSlotEnabled()
+    {
+        foreach(SkillCooldown skillScript in cooldownScriptList)
+        {
+            //if no skill is attached to slot, disable
+            if(skillScript.instance.skill == null)
+            {
+                skillScript.gameObject.SetActive(false);
+            }
+            //If there is a skill, and the slot is disabled, enable
+            else if(skillScript.instance.skill != null && skillScript.gameObject.activeSelf == false)
+            {
+                skillScript.gameObject.SetActive(true);
+            }
+        }
+    }
+
     public void displaySkillPopup(Skill skill, Vector3 popupPosition){
-        skillName.GetComponent<Text>().text = skill.name;
+        skillName.GetComponent<Text>().text = skill.skillName;
         skillCost.GetComponent<Text>().text = "Cost: " + skill.baseCost;
         skillCD.GetComponent<Text>().text = "Cooldown: " + skill.baseCD;
         skillDesc.GetComponent<Text>().text = skill.desc;
@@ -91,7 +154,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void displayItemPopup(Item item, Vector3 popupPosition){
-        itemName.GetComponent<Text>().text = item.name;
+        itemName.GetComponent<Text>().text = item.itemName;
         itemDesc.GetComponent<Text>().text = item.desc;
 
         itemPopupBox.SetActive(true);
@@ -101,5 +164,15 @@ public class UIManager : MonoBehaviour
     public void hideItemPopup()
     {
         itemPopupBox.SetActive(false);
+    }
+
+    public void displayChestPopup(Vector3 popupPosition){
+        chestPopupBox.SetActive(true);
+        UtilityMethods.MoveUiElementToWorldPosition(chestPopupBox.GetComponent<RectTransform>(), popupPosition);
+    }
+
+    public void hideChestPopup()
+    {
+        chestPopupBox.SetActive(false);
     }
 }

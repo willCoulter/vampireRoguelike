@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public LayerMask layerMask;
+
     public float speed = 7f;
     public float maxHealth = 100;
     public float health;
@@ -12,13 +14,21 @@ public class PlayerController : MonoBehaviour
     public float blood;
     public float attackDamage;
     public float magicDamage;
+    
+    
+    public int gold = 0;
+
+    public float interactRadius = 3f;
 
     private Vector2 direction;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    public Animator anim;
+    public GameObject sword;
 
     public Image healthBar;
     public Image bloodBar;
+    public Text goldText;
 
     private State state;
     private Vector3 lastMoveDirection;
@@ -43,12 +53,22 @@ public class PlayerController : MonoBehaviour
         health = maxHealth;
     }
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        health = maxHealth;
+        goldText.text = "Gold: " + gold;
+
+    }
+
     // Update is called once per frame
     void Update()
     {
+        //checkInteract();
         switch (state)
         {
             case State.Normal:
+                anim.SetBool("Rolling", false);
                 Move();
                 ChangeDirection();
                 HandleDash();
@@ -69,20 +89,22 @@ public class PlayerController : MonoBehaviour
         if (mousePos.x < playerScreenPoint.x)
         {
             sr.flipX = true;
+            sword.transform.localPosition = new Vector3(-0.292f, -0.117f);
         }
         else
         {
             sr.flipX = false;
+            sword.transform.localPosition = new Vector3(0.292f, -0.117f);
         }
     }
 
     private bool CanMove(Vector3 moveDirection, float distance)
     {
         //Create layermask on player layer
-        int layerMask = 1 << 8;
+        //int layerMask = 1 << 8;
 
-        //Invert layermask to all layers other than player
-        layerMask = ~layerMask;
+        //Invert layermask to all layers other than s
+        //layerMask = ~layerMask;
 
         //Raycast in movement direction to check for walls
         RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, moveDirection, distance * Time.deltaTime, layerMask);
@@ -115,12 +137,13 @@ public class PlayerController : MonoBehaviour
         }
 
         //Move character
+        anim.SetBool("Moving", true);
         Vector3 moveDirection = new Vector3(moveX, moveY).normalized;
 
         bool isIdle = moveX == 0 && moveY == 0;
         if (isIdle)
         {
-            //play idle animation
+            anim.SetBool("Moving",false);
         }
         else
         {
@@ -156,7 +179,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        //Cannot move, play idle animation
+                        anim.SetBool("Moving", false);
                     }
                 }
             }
@@ -178,6 +201,7 @@ public class PlayerController : MonoBehaviour
         //Slide player by slideSpeed amount
         if (CanMove(lastMoveDirection, slideSpeed))
         {
+            anim.SetBool("Rolling", true);
             transform.position += lastMoveDirection * slideSpeed * Time.deltaTime;
 
             sr.color = new Color(1f, 1f, 1f, .5f);
@@ -187,6 +211,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            
             sr.color = new Color(1f, 1f, 1f, 1f);
             state = State.Normal;
         }
@@ -200,8 +225,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void takeDamage()
+    public void takeDamage(float damage)
     {
+        health -= damage;
         healthBar.fillAmount = health / maxHealth;
     }
 
@@ -210,4 +236,21 @@ public class PlayerController : MonoBehaviour
         blood += bloodGained;
         bloodBar.fillAmount = blood / 100f;
     }
+
+    public void gainGold(int goldGained)
+    {
+        gold += goldGained;
+        goldText.text = "Gold: " + gold;
+    }
+    //public void checkInteract()
+    //{
+    //    if (Input.GetKey(KeyCode.E))
+    //    {
+    //        Collider2D[] things = Physics2D.OverlapCircleAll(transform.position, interactRadius);
+    //        if (things != null)
+    //        {
+    //            things[0].GetComponent<skillShop>().openShop();
+    //        }      
+    //    }
+    //}
 }

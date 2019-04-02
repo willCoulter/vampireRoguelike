@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Sword
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -17,9 +20,9 @@ TagManager:
   - Obstacles
   - Background
   - Enemy
-  - 
-  - 
-  - 
+  - Rooms
+  - Sword
+  - Projectiles
   - 
   - 
   - 
@@ -38,6 +41,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 540007191
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 1542988835
     locked: 0
