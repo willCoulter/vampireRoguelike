@@ -99,7 +99,7 @@ public class UIManager : MonoBehaviour
 
     }
 
-    private void RefreshPauseSkills()
+    public void RefreshPauseSkills()
     {
         foreach(SkillCooldown skillScript in cooldownScriptList)
         {

@@ -7,13 +7,13 @@ public class SkillCooldown : MonoBehaviour
 {
 
     public SkillCooldown instance;
+    public GameObject pickupPrefab;
 
     public string abilityButtonAxisName = "Fire1";
     public Image darkMask;
     public Text cooldownTextDisplay;
 
     public Skill skill;
-    [SerializeField] private GameObject player;
 
     private Image buttonImage;
     private AudioSource abilitySource;
@@ -30,18 +30,23 @@ public class SkillCooldown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Check if cooldown is complete
-        bool cooldownComplete = (Time.time > nextReadyTime);
-        if (cooldownComplete){
-            AbilityReady();
-            if(Input.GetButtonDown(abilityButtonAxisName)){
-                ButtonTriggered();
-            }
-        }
-        //If not, run cooldown
-        else
+        if(skill != null)
         {
-            CoolDown();
+            //Check if cooldown is complete
+            bool cooldownComplete = (Time.time > nextReadyTime);
+            if (cooldownComplete)
+            {
+                AbilityReady();
+                if (Input.GetButtonDown(abilityButtonAxisName))
+                {
+                    ButtonTriggered();
+                }
+            }
+            //If not, run cooldown
+            else
+            {
+                CoolDown();
+            }
         }
     }
 
@@ -57,6 +62,24 @@ public class SkillCooldown : MonoBehaviour
 
         //Ability ready
         AbilityReady();
+    }
+
+    public void DropSkill()
+    {
+        //Create new skillpickup at player position
+        GameObject droppedSkill = Instantiate(pickupPrefab, PlayerController.instance.gameObject.transform.position, PlayerController.instance.gameObject.transform.rotation);
+        SkillPickup droppedSkillScript = droppedSkill.GetComponent<SkillPickup>();
+
+        //Set skill of skillpickup
+        droppedSkillScript.skill = skill;
+
+        //Remove from inventory
+        SkillInventory.instance.Remove(skill);
+
+        //Clear properties
+        skill = null;
+        buttonImage.sprite = null;
+        darkMask.sprite = null;
     }
 
     private void AbilityReady(){

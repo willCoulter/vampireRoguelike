@@ -551,6 +551,77 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e93d8883e9af14a8898e9c83a86d9fcc, type: 3}
+--- !u!1 &394995944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6277179099093957368, guid: b757bd47c063ebd439bac3de5dc7d628,
+    type: 3}
+  m_PrefabInstance: {fileID: 1571194541}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &394995946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5298567775217699, guid: b757bd47c063ebd439bac3de5dc7d628,
+    type: 3}
+  m_PrefabInstance: {fileID: 1571194541}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394995944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &394995948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394995944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 394995946}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1527285742}
+        m_MethodName: DropSkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &405183633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,6 +1236,77 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1388116414}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &754379489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3231197570830433132, guid: b757bd47c063ebd439bac3de5dc7d628,
+    type: 3}
+  m_PrefabInstance: {fileID: 1571194541}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &754379491 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4569214907867938885, guid: b757bd47c063ebd439bac3de5dc7d628,
+    type: 3}
+  m_PrefabInstance: {fileID: 1571194541}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754379489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &754379493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754379489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 754379491}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1184952103}
+        m_MethodName: DropSkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &785994815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,6 +3140,7 @@ MonoBehaviour:
   pauseSkill1Slot: {fileID: 1591786571}
   pauseSkill2Slot: {fileID: 615165931}
   pauseSkill3Slot: {fileID: 1238872708}
+  pauseMenuOpen: 0
 --- !u!1 &1014371574
 GameObject:
   m_ObjectHideFlags: 0
@@ -9079,11 +9222,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instance: {fileID: 0}
+  pickupPrefab: {fileID: 1153136748071344653, guid: e93d8883e9af14a8898e9c83a86d9fcc,
+    type: 3}
   abilityButtonAxisName: Skill2
   darkMask: {fileID: 1854058547}
   cooldownTextDisplay: {fileID: 405183635}
   skill: {fileID: 0}
-  player: {fileID: 277389978}
 --- !u!114 &1184952104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10907,11 +11051,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instance: {fileID: 0}
+  pickupPrefab: {fileID: 1153136748071344653, guid: e93d8883e9af14a8898e9c83a86d9fcc,
+    type: 3}
   abilityButtonAxisName: Skill1
   darkMask: {fileID: 1168866857}
   cooldownTextDisplay: {fileID: 96256423}
   skill: {fileID: 0}
-  player: {fileID: 277389978}
 --- !u!114 &1513845130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11099,11 +11244,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instance: {fileID: 0}
+  pickupPrefab: {fileID: 1153136748071344653, guid: e93d8883e9af14a8898e9c83a86d9fcc,
+    type: 3}
   abilityButtonAxisName: Skill3
   darkMask: {fileID: 1538404068}
   cooldownTextDisplay: {fileID: 595864314}
   skill: {fileID: 0}
-  player: {fileID: 277389978}
 --- !u!114 &1527285743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11430,6 +11576,21 @@ PrefabInstance:
     - target: {fileID: 1238872711, guid: b757bd47c063ebd439bac3de5dc7d628, type: 3}
       propertyPath: m_Sprite
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306733415327036772, guid: b757bd47c063ebd439bac3de5dc7d628,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -57.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692958842118480788, guid: b757bd47c063ebd439bac3de5dc7d628,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 26.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6959820507936775281, guid: b757bd47c063ebd439bac3de5dc7d628,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 110.79
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b757bd47c063ebd439bac3de5dc7d628, type: 3}
@@ -12266,6 +12427,88 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2091952666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2206911163031734034, guid: b757bd47c063ebd439bac3de5dc7d628,
+    type: 3}
+  m_PrefabInstance: {fileID: 1571194541}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2091952668 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7952425222859460705, guid: b757bd47c063ebd439bac3de5dc7d628,
+    type: 3}
+  m_PrefabInstance: {fileID: 1571194541}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091952666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2091952670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091952666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2091952668}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1513845129}
+        m_MethodName: DropSkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 997704259}
+        m_MethodName: RefreshPauseSkills
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &3907885703118162649
 PrefabInstance:
   m_ObjectHideFlags: 0
