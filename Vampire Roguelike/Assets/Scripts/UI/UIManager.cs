@@ -112,6 +112,14 @@ public class UIManager : MonoBehaviour
                 //Set skill for slot at same index position
                 pauseSkillScriptList[skillIndex].SetSkill(skillScript.skill);
             }
+            else
+            {
+                //Grab current index
+                int skillIndex = cooldownScriptList.IndexOf(skillScript);
+
+                //Clear skill at position
+                pauseSkillScriptList[skillIndex].ClearSkill();
+            }
         }
     }
 
@@ -136,18 +144,18 @@ public class UIManager : MonoBehaviour
     }
 
     //Called in skill inventory
-    public void UpdateSkillSlot(int slotId)
+    public void UpdateSkillSlot(Skill skill, int slotId)
     {
         switch (slotId)
         {
+            case 0:
+                skill1Script.instance.Initialize(skill, GameObject.FindGameObjectWithTag("Player"));
+                break;
             case 1:
-                skill1Script.instance.Initialize(SkillInventory.instance.skills[0], GameObject.FindGameObjectWithTag("Player"));
+                skill2Script.instance.Initialize(skill, GameObject.FindGameObjectWithTag("Player"));
                 break;
             case 2:
-                skill2Script.instance.Initialize(SkillInventory.instance.skills[1], GameObject.FindGameObjectWithTag("Player"));
-                break;
-            case 3:
-                skill3Script.instance.Initialize(SkillInventory.instance.skills[2], GameObject.FindGameObjectWithTag("Player"));
+                skill3Script.instance.Initialize(skill, GameObject.FindGameObjectWithTag("Player"));
                 break;
             default:
                 return;

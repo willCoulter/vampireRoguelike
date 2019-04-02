@@ -24,7 +24,6 @@ public class hitbox : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(enemyToHit.Count);
         //Sets the sword to it's normal sprite
         spriteRenderer.sprite = normal;
         //Calls the attack facing method to make sure the sowrd is following the mouse, if pause menu not open

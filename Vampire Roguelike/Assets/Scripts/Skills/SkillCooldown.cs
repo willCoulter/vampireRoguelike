@@ -66,20 +66,22 @@ public class SkillCooldown : MonoBehaviour
 
     public void DropSkill()
     {
-        //Create new skillpickup at player position
-        GameObject droppedSkill = Instantiate(pickupPrefab, PlayerController.instance.gameObject.transform.position, PlayerController.instance.gameObject.transform.rotation);
-        SkillPickup droppedSkillScript = droppedSkill.GetComponent<SkillPickup>();
+        if(skill != null)
+        {
+            float radius = 1.5f;
 
-        //Set skill of skillpickup
-        droppedSkillScript.skill = skill;
+            //Create new skillpickup near player position
+            GameObject droppedSkill = Instantiate(pickupPrefab, Random.insideUnitSphere * radius + PlayerController.instance.gameObject.transform.position, PlayerController.instance.gameObject.transform.rotation);
+            SkillPickup droppedSkillScript = droppedSkill.GetComponent<SkillPickup>();
 
-        //Remove from inventory
-        SkillInventory.instance.Remove(skill);
+            //Set skill of skillpickup
+            droppedSkillScript.skill = skill;
 
-        //Clear properties
-        skill = null;
-        buttonImage.sprite = null;
-        darkMask.sprite = null;
+            //Clear properties
+            skill = null;
+            buttonImage.sprite = null;
+            darkMask.sprite = null;
+        }
     }
 
     private void AbilityReady(){

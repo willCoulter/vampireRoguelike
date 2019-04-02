@@ -20,7 +20,15 @@ public class PauseSkillSlot : MonoBehaviour
         if(skill.skillSprite != null)
         {
             GetComponent<Image>().sprite = skill.skillSprite;
-            Debug.Log(GetComponent<Image>().sprite);
+        }
+    }
+
+    public void ClearSkill()
+    {
+        if(skill != null)
+        {
+            GetComponent<Image>().sprite = null;
+            skill = null;
         }
     }
 }

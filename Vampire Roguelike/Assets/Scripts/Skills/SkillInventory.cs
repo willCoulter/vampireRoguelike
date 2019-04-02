@@ -6,7 +6,12 @@ public class SkillInventory : MonoBehaviour
 {
 
     public static SkillInventory instance;
-    public int slots = 3;
+
+    public List<Skill> skills = new List<Skill>();
+
+    private Skill skill1;
+    private Skill skill2;
+    private Skill skill3;
 
     void Awake()
     {
@@ -17,26 +22,81 @@ public class SkillInventory : MonoBehaviour
         }
 
         instance = this;
+
+        skills.Add(skill1);
+        skills.Add(skill2);
+        skills.Add(skill3);
     }
 
-    public List<Skill> skills = new List<Skill>();
+    
 
     public bool Add (Skill skill)
     {
-        if(skills.Count >= slots)
+        if(!SkillSlotAvailable())
         {
             Debug.Log("Not enough slots");
             return false;
         }
 
-        skills.Add(skill);
-        UIManager.instance.UpdateSkillSlot(skills.Count);
+        int indexLocation = 0;
+        bool skillSet = false;
 
-        return true;
+        if(skill1 == null)
+        {
+            skill1 = skill;
+            indexLocation = 0;
+            skillSet = true;
+        }else if(skill2 == null)
+        {
+            skill2 = skill;
+            indexLocation = 1;
+            skillSet = true;
+        }
+        else if(skill3 == null)
+        {
+            skill3 = skill;
+            indexLocation = 2;
+            skillSet = true;
+        }
+
+        if (skillSet)
+        {
+            UIManager.instance.UpdateSkillSlot(skill, indexLocation);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
-    public void Remove (Skill skill)
+    public void Remove (int skillLocation)
     {
-        skills.Remove(skill);
+        switch (skillLocation)
+        {
+            case 1:
+                skill1 = null;
+                break;
+            case 2:
+                skill2 = null;
+                break;
+            case 3:
+                skill3 = null;
+                break;
+        }
+
+    }
+
+    private bool SkillSlotAvailable()
+    {
+        //If all three slots full, return false
+        if(skill1 != null && skill2 != null && skill3 != null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }
