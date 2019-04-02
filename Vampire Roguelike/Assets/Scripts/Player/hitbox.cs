@@ -25,7 +25,7 @@ public class hitbox : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(enemyToHit.Count);
+        //Debug.Log(enemyToHit.Count);
         //Sets the sword to it's normal sprite
         spriteRenderer.sprite = normal;
         //Calls the attack facing method to make sure the sowrd is following the mouse
@@ -37,6 +37,7 @@ public class hitbox : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 playerInfo = PlayerController.instance;
+
                 //Sets the attack lag preventing spam attacks
                 attackLag = startLag;
                 playerInfo.anim.SetTrigger("Attack");
