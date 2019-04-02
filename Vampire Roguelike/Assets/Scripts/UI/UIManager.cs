@@ -42,6 +42,7 @@ public class UIManager : MonoBehaviour
     public GameObject chestPopupBox;
 
     //Pause menu UI items;
+    public GameObject pauseBG;
     public GameObject pauseMenu;
     public Text level;
     public Text enemiesSlain;
@@ -131,6 +132,7 @@ public class UIManager : MonoBehaviour
 
         RefreshPauseSkills();
 
+        pauseBG.SetActive(true);
         pauseMenu.SetActive(true);
         pauseMenuOpen = true;
         Time.timeScale = 0;
@@ -138,6 +140,7 @@ public class UIManager : MonoBehaviour
 
     private void HidePauseMenu()
     {
+        pauseBG.SetActive(false);
         pauseMenu.SetActive(false);
         pauseMenuOpen = false;
         Time.timeScale = 1;
