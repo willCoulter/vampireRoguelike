@@ -44,7 +44,7 @@ public class Chest : MonoBehaviour
         ItemPickup itemScript = itemDrop.GetComponent<ItemPickup>();
 
         //Generate random number and set itempickup item
-        int rand = Random.Range(0, allItems.Count);
+        int rand = Random.Range(0, allItems.Count - 1);
         itemScript.item = allItems[rand];
 
     }

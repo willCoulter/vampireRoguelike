@@ -46,6 +46,7 @@ public class Enemy : MonoBehaviour
         {
             //If they have less than or equal to 0 health kill the enemy with the die function and reward the player with gold
             player.GetComponent<PlayerController>().gainGold(2);
+            GameManager.instance.enemiesSlain++;
             Die();
         }
         if (canFollow() == true)
