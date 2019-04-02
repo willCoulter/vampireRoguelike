@@ -20,6 +20,7 @@ public class hitbox : MonoBehaviour
     {
         //Grabs the swords active sprite renderer
         spriteRenderer = GetComponent<SpriteRenderer>();
+        //playerInfo = PlayerController.instance;
     }
 
     void Update()
@@ -35,14 +36,16 @@ public class hitbox : MonoBehaviour
             //Checks thier inputs
             if (Input.GetKey(KeyCode.Mouse0))
             {
+                playerInfo = PlayerController.instance;
                 //Sets the attack lag preventing spam attacks
                 attackLag = startLag;
-                spriteRenderer.sprite = stab;
+                playerInfo.anim.SetTrigger("Attack");
+                //spriteRenderer.sprite = stab;
                 //Checks to make sure the collider has an active trigger
                 if (trigger == true)
                 {
                     //grabs a copy of the playerController
-                    playerInfo = PlayerController.instance;
+                    
                     for (int i = 0; i < enemyToHit.Count; i++) { 
                         //Grabs the script from the current enemy and calls the damage function which accepts a float for the damage amount
                         enemyToHit[i].GetComponent<Enemy>().takeDamage(playerInfo.attackDamage);

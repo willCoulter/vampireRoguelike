@@ -129,26 +129,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: raiper_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 26
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 561ddd742dc1d8a4a99d5413412641ee
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: raiper_2
       rect:
         serializedVersion: 2
@@ -157,7 +137,7 @@ TextureImporter:
         width: 24
         height: 5
       alignment: 9
-      pivot: {x: -0.062040627, y: 0.47924882}
+      pivot: {x: -0.08703281, y: 0.49250585}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
