@@ -48,7 +48,7 @@ MonoBehaviour:
   pickupPrefab: {fileID: 2671987006812946137, guid: 07ae1983a365e46c8b4b4c27cd77fd0c,
     type: 3}
   allItems:
-  - {fileID: 11400000, guid: f681b933f356b472999f23c52615479d, type: 2}
+  - {fileID: 11400000, guid: 3ed1318ebb25ff047b177dd906678507, type: 2}
   - {fileID: 11400000, guid: 9ebabdba1d6874c0f97156e1b815ffdf, type: 2}
 --- !u!61 &6113591937650743558
 BoxCollider2D:
