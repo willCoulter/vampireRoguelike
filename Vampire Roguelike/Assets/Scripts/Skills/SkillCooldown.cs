@@ -35,7 +35,6 @@ public class SkillCooldown : MonoBehaviour
         if (cooldownComplete){
             AbilityReady();
             if(Input.GetButtonDown(abilityButtonAxisName)){
-                PlayerController.instance.anim.SetTrigger("Casting");
                 ButtonTriggered();
             }
         }
@@ -74,16 +73,23 @@ public class SkillCooldown : MonoBehaviour
     }
 
     private void ButtonTriggered(){
-        nextReadyTime = cooldownDuration + Time.time;
-        cooldownTimeLeft = cooldownDuration;
-        darkMask.enabled = true;
-        cooldownTextDisplay.enabled = true;
+        //If pause menu is not open, trigger skill
+        if (!UIManager.instance.pauseMenuOpen)
+        {
+            PlayerController.instance.anim.SetTrigger("Casting");
 
-        //if(skill.skillSound != null){
-        //    abilitySource.clip = skill.skillSound;
-        //    abilitySource.Play();
-        //}
+            nextReadyTime = cooldownDuration + Time.time;
+            cooldownTimeLeft = cooldownDuration;
+            darkMask.enabled = true;
+            cooldownTextDisplay.enabled = true;
 
-        skill.TriggerSkill();
+            //if(skill.skillSound != null){
+            //    abilitySource.clip = skill.skillSound;
+            //    abilitySource.Play();
+            //}
+
+            skill.TriggerSkill();
+        }
+        
     }
 }

@@ -10,41 +10,6 @@ public class UIManager : MonoBehaviour
 
     private List<SkillCooldown> cooldownScriptList = new List<SkillCooldown>();
 
-    void Awake()
-    {
-        instance = this;
-
-        skill1Script = skill1Slot.GetComponent<SkillCooldown>();
-        skill2Script = skill2Slot.GetComponent<SkillCooldown>();
-        skill3Script = skill3Slot.GetComponent<SkillCooldown>();
-
-        cooldownScriptList.Add(skill1Script);
-        cooldownScriptList.Add(skill2Script);
-        cooldownScriptList.Add(skill3Script);
-    }
-
-    void Update()
-    {
-        if(cooldownScriptList.Count > 0)
-        {
-            UpdateSlotEnabled();
-        }
-
-        //If player presses tab, open or close pause menu
-        if (Input.GetKeyDown("tab"))
-        {
-            if (!pauseMenuOpen)
-            {
-                DisplayPauseMenu();
-            }
-            else
-            {
-                HidePauseMenu();
-            }
-        }
-        
-    }
-
     public GameObject skill1Slot;
 
     public GameObject skill2Slot;
@@ -82,13 +47,81 @@ public class UIManager : MonoBehaviour
     public Text enemiesSlain;
     public Text time;
 
-    private bool pauseMenuOpen;
-    
+    public GameObject pauseSkill1Slot;
+    public GameObject pauseSkill2Slot;
+    public GameObject pauseSkill3Slot;
+
+    private PauseSkillSlot pauseSkill1Script;
+    private PauseSkillSlot pauseSkill2Script;
+    private PauseSkillSlot pauseSkill3Script;
+
+    private List<PauseSkillSlot> pauseSkillScriptList = new List<PauseSkillSlot>();
+
+    public bool pauseMenuOpen;
+
+    void Awake()
+    {
+        instance = this;
+
+        skill1Script = skill1Slot.GetComponent<SkillCooldown>();
+        skill2Script = skill2Slot.GetComponent<SkillCooldown>();
+        skill3Script = skill3Slot.GetComponent<SkillCooldown>();
+
+        cooldownScriptList.Add(skill1Script);
+        cooldownScriptList.Add(skill2Script);
+        cooldownScriptList.Add(skill3Script);
+
+        pauseSkill1Script = pauseSkill1Slot.GetComponent<PauseSkillSlot>();
+        pauseSkill2Script = pauseSkill2Slot.GetComponent<PauseSkillSlot>();
+        pauseSkill3Script = pauseSkill3Slot.GetComponent<PauseSkillSlot>();
+
+        pauseSkillScriptList.Add(pauseSkill1Script);
+        pauseSkillScriptList.Add(pauseSkill2Script);
+        pauseSkillScriptList.Add(pauseSkill3Script);
+    }
+
+    void Update()
+    {
+        UpdateSlotsEnabled();
+
+        //If player presses tab, open or close pause menu
+        if (Input.GetKeyDown("tab"))
+        {
+            if (!pauseMenuOpen)
+            {
+                DisplayPauseMenu();
+            }
+            else
+            {
+                HidePauseMenu();
+            }
+        }
+
+    }
+
+    private void RefreshPauseSkills()
+    {
+        foreach(SkillCooldown skillScript in cooldownScriptList)
+        {
+            //If skill slot has a skill in it, update pause skill slot
+            if (skillScript.instance.skill != null)
+            {
+                //Grab current index
+                int skillIndex = cooldownScriptList.IndexOf(skillScript);
+
+                //Set skill for slot at same index position
+                pauseSkillScriptList[skillIndex].SetSkill(skillScript.skill);
+            }
+        }
+    }
+
     private void DisplayPauseMenu()
     {
         //Set values
         enemiesSlain.text = "Enemies Slain: " + GameManager.instance.enemiesSlain;
         level.text = "Level: " + GameManager.instance.currentLevelNum;
+
+        RefreshPauseSkills();
 
         pauseMenu.SetActive(true);
         pauseMenuOpen = true;
@@ -122,7 +155,7 @@ public class UIManager : MonoBehaviour
     
     }
 
-    public void UpdateSlotEnabled()
+    public void UpdateSlotsEnabled()
     {
         foreach(SkillCooldown skillScript in cooldownScriptList)
         {
@@ -135,6 +168,19 @@ public class UIManager : MonoBehaviour
             else if(skillScript.instance.skill != null && skillScript.gameObject.activeSelf == false)
             {
                 skillScript.gameObject.SetActive(true);
+            }
+        }
+
+        foreach(PauseSkillSlot pauseSlot in pauseSkillScriptList)
+        {
+            //if not skill attached, disable
+            if(pauseSlot.skill == null)
+            {
+                pauseSlot.gameObject.SetActive(false);
+            }
+            else if (pauseSlot.skill != null && pauseSlot.gameObject.activeSelf == false)
+            {
+                pauseSlot.gameObject.SetActive(true);
             }
         }
     }

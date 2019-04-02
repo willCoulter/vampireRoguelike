@@ -27,8 +27,12 @@ public class hitbox : MonoBehaviour
         Debug.Log(enemyToHit.Count);
         //Sets the sword to it's normal sprite
         spriteRenderer.sprite = normal;
-        //Calls the attack facing method to make sure the sowrd is following the mouse
-        attackFacing();
+        //Calls the attack facing method to make sure the sowrd is following the mouse, if pause menu not open
+        if (!UIManager.instance.pauseMenuOpen)
+        {
+            attackFacing();
+        }
+            
         //Checks to make sure the player can attack
         if (attackLag <= 0)
         {
