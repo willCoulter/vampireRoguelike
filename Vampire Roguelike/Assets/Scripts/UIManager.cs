@@ -29,6 +29,19 @@ public class UIManager : MonoBehaviour
         {
             UpdateSlotEnabled();
         }
+
+        //If player presses tab, open or close pause menu
+        if (Input.GetKeyDown("tab"))
+        {
+            if (!pauseMenuOpen)
+            {
+                DisplayPauseMenu();
+            }
+            else
+            {
+                HidePauseMenu();
+            }
+        }
         
     }
 
@@ -62,6 +75,32 @@ public class UIManager : MonoBehaviour
 
     //Chest popup UI items;
     public GameObject chestPopupBox;
+
+    //Pause menu UI items;
+    public GameObject pauseMenu;
+    public Text level;
+    public Text enemiesSlain;
+    public Text time;
+
+    private bool pauseMenuOpen;
+    
+    private void DisplayPauseMenu()
+    {
+        //Set values
+        enemiesSlain.text = "Enemies Slain: " + GameManager.instance.enemiesSlain;
+        level.text = "Level: " + GameManager.instance.currentLevelNum;
+
+        pauseMenu.SetActive(true);
+        pauseMenuOpen = true;
+        Time.timeScale = 0;
+    }
+
+    private void HidePauseMenu()
+    {
+        pauseMenu.SetActive(false);
+        pauseMenuOpen = false;
+        Time.timeScale = 1;
+    }
 
     //Called in skill inventory
     public void UpdateSkillSlot(int slotId)
