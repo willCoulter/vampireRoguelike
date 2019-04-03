@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: 88fdd6d43055ee84894e874a999247eb
+guid: 398fca99113611a428f8461e35452030
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: raiper_0
-    21300002: raiper_1
-    21300004: raiper_2
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -43,13 +40,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.47711995, y: 0.81698364}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
-  spriteBorder: {x: 2, y: 17, z: 3, w: 2}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -107,51 +104,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: raiper_0
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 17
-        width: 23
-        height: 5
-      alignment: 9
-      pivot: {x: 0.023688441, y: 0.50779724}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54ffc1d0082d0ed4bac8fc47eecdb51e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: raiper_2
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 7
-        width: 24
-        height: 5
-      alignment: 9
-      pivot: {x: -0.08703281, y: 0.49250585}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b40e35d7621babd4ba5e2421868c1794
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 74faf2bdf5138904f8c662b13f9ad206
+    spriteID: 30b48db8784c9624ba7acc6d0b1cd7ec
     vertices: []
     indices: 
     edges: []

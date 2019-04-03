@@ -8,6 +8,7 @@ public class arrow : MonoBehaviour
     public float speed = 20f;
     public Rigidbody2D rb;
     public GameObject arrowObject;
+    public float damage;
 
         
     // Start is called before the first frame update
@@ -20,13 +21,20 @@ public class arrow : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("");
-            collision.gameObject.GetComponent<PlayerController>().takeDamage(2);
+            collision.gameObject.GetComponent<PlayerController>().takeDamage(damage);
             Destroy(arrowObject);
 
 
         }
-        
+        else if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Projectile"))
+        {
+
+        }
+        else
+        {
+            Destroy(arrowObject);
+        }
+
     }
 
 }
