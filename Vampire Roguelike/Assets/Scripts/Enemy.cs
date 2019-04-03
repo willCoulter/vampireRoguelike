@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     public GameObject bloodParticle;
     public GameObject healEffectParticlePrefab;
+    public GameObject bloodPool;
     public float agroRadius;
     public float miniumRange;
     private GameObject healingEffect;
@@ -78,7 +79,8 @@ public class Enemy : MonoBehaviour
     {
         OnDestroy.Invoke();
         OnDestroy.RemoveAllListeners();
-
+        GameObject bloodpool = Instantiate(bloodPool, transform.position, Quaternion.identity);
+        bloodpool.GetComponent<bloodPool>().bloodAmount = maxHealth/2;
         Destroy(gameObject);
     }
 

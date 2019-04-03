@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float blood;
     public float attackDamage;
     public float magicDamage;
+    public float soakRadius;
     
     
     public int gold = 0;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sr;
     public Animator anim;
     public GameObject sword;
+    public GameObject bloodSoakFx;
 
     public Image healthBar;
     public Image bloodBar;
@@ -72,6 +74,7 @@ public class PlayerController : MonoBehaviour
                 Move();
                 ChangeDirection();
                 HandleDash();
+                bloodSoak();
                 break;
             case State.Dashing:
                 Dash();
@@ -241,6 +244,23 @@ public class PlayerController : MonoBehaviour
     {
         gold += goldGained;
         goldText.text = "Gold: " + gold;
+    }
+
+    public void bloodSoak()
+    {
+        if (Input.GetKey(KeyCode.F)) {
+            Instantiate(bloodSoakFx, transform.position, Quaternion.identity);
+            Collider2D[] bloodPools = Physics2D.OverlapCircleAll(transform.position, soakRadius);
+            for (int i = 0; i < bloodPools.Length; i++)
+            {
+                Debug.Log("Checked");
+                if (bloodPools[i].CompareTag("Bloodpool"))
+                {
+                    Debug.Log("Bloods");
+                    bloodPools[i].GetComponent<bloodPool>().sendBlood(this.gameObject);
+                }
+            }
+        }
     }
     //public void checkInteract()
     //{

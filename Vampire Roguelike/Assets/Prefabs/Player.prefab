@@ -337,10 +337,13 @@ MonoBehaviour:
   blood: 0
   attackDamage: 1
   magicDamage: 0
+  soakRadius: 0
   gold: 0
   interactRadius: 3
   anim: {fileID: 4136484433608238558}
   sword: {fileID: 1450141837}
+  bloodSoakFx: {fileID: 2840635055568240253, guid: e42add48965ead74db0334d107ca330c,
+    type: 3}
   healthBar: {fileID: 0}
   bloodBar: {fileID: 0}
   goldText: {fileID: 0}
