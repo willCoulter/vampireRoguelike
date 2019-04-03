@@ -130,6 +130,9 @@ public class UIManager : MonoBehaviour
         enemiesSlain.text = "Enemies Slain: " + GameManager.instance.enemiesSlain;
         level.text = "Level: " + GameManager.instance.currentLevelNum;
 
+        //Refresh inventory
+        InventoryUI.instance.UpdateInventory();
+
         RefreshPauseSkills();
 
         pauseBG.SetActive(true);
@@ -199,7 +202,7 @@ public class UIManager : MonoBehaviour
     public void displaySkillPopup(Skill skill, Vector3 popupPosition){
         skillName.GetComponent<Text>().text = skill.skillName;
         skillCost.GetComponent<Text>().text = "Cost: " + skill.baseCost;
-        skillCD.GetComponent<Text>().text = "Cooldown: " + skill.baseCD;
+        skillCD.GetComponent<Text>().text = "CD: " + skill.baseCD + "s";
         skillDesc.GetComponent<Text>().text = skill.desc;
 
         skillPopupBox.SetActive(true);

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2379917ad9a74a4595796e6f1c11c64, type: 3}
   m_Name: HealthPercent
   m_EditorClassIdentifier: 
-  name: New Item
+  itemName: New Item
   desc: Increases max health by 25%
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300610, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
   buffPercent: 25
   buff: 0

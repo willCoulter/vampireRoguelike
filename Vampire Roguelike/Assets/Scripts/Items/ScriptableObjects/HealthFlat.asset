@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Health Flat
   desc: Increases max health by 15
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300638, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
   buffAmount: 15
   buff: 0

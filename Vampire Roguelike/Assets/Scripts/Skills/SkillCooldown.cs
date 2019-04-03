@@ -81,6 +81,9 @@ public class SkillCooldown : MonoBehaviour
             skill = null;
             buttonImage.sprite = null;
             darkMask.sprite = null;
+
+            //Refresh pause ui
+            UIManager.instance.RefreshPauseSkills();
         }
     }
 
