@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class UIManager : MonoBehaviour
     public Text level;
     public Text enemiesSlain;
     public Text time;
-
+    
     public GameObject pauseSkill1Slot;
     public GameObject pauseSkill2Slot;
     public GameObject pauseSkill3Slot;
@@ -97,7 +98,6 @@ public class UIManager : MonoBehaviour
                 HidePauseMenu();
             }
         }
-
     }
 
     public void RefreshPauseSkills()

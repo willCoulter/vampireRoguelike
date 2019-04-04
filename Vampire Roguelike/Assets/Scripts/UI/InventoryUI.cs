@@ -7,6 +7,9 @@ public class InventoryUI : MonoBehaviour
     public static InventoryUI instance;
 
     public Transform itemsParent;
+    public GameObject itemPopupBox;
+    public GameObject skillPopupBox;
+
     ItemInventory inventory;
 
     InventorySlot[] slots;
@@ -33,7 +36,15 @@ public class InventoryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(itemPopupBox != null && Input.GetKeyDown("tab"))
+        {
+            Destroy(itemPopupBox);
+        }
+
+        if (skillPopupBox != null && Input.GetKeyDown("tab"))
+        {
+            Destroy(itemPopupBox);
+        }
     }
 
     public void UpdateInventory() {
