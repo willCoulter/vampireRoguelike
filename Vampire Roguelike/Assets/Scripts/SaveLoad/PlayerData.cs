@@ -7,7 +7,7 @@ public class PlayerData
 {
     public float currentHealth;
     public float currentBlood;
-    public float currentGold;
+    public int currentGold;
     public float[] position;
     public List<Item> items;
     public List<Skill> skills;

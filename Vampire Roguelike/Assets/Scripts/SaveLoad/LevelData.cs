@@ -8,11 +8,13 @@ public class LevelData
     public int levelNumber;
     public int itemsGathered;
     public int enemiesSlain;
-    public Time timeSurvived;
+    public int timeSurvived;
     public Dictionary<int, bool> roomData;
 
     public LevelData()
     {
+        roomData = new Dictionary<int, bool>();
+
         levelNumber = GameManager.instance.currentLevelNum;
         itemsGathered = GameManager.instance.itemsGathered;
         enemiesSlain = GameManager.instance.enemiesSlain;

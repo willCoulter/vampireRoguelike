@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public int enemiesSlain;
 
     //Keep track of time played
-    public Time timePlayed;
+    public int timePlayed;
 
     //Keep track of level
     public int currentLevelNum;

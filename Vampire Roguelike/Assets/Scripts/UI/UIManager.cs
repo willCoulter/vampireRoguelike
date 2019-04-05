@@ -134,8 +134,7 @@ public class UIManager : MonoBehaviour
         InventoryUI.instance.UpdateInventory();
 
         RefreshPauseSkills();
-
-        pauseBG.SetActive(true);
+        
         pauseMenu.SetActive(true);
         pauseMenuOpen = true;
         Time.timeScale = 0;
@@ -143,7 +142,6 @@ public class UIManager : MonoBehaviour
 
     private void HidePauseMenu()
     {
-        pauseBG.SetActive(false);
         pauseMenu.SetActive(false);
         pauseMenuOpen = false;
         Time.timeScale = 1;

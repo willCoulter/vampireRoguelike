@@ -4,6 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
+
     public static void SavePlayer(PlayerController player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -36,7 +37,7 @@ public static class SaveSystem
         }
     }
 
-    public static void SaveGame(PlayerController player, CameraMovement camera)
+    public static void SaveGame(CameraMovement camera, PlayerController player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/save.dat";
