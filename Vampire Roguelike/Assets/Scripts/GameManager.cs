@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     //Keep track of level
     public int currentLevelNum;
 
+    public int itemsGathered;
+
     void Awake()
     {
         if (instance == null)

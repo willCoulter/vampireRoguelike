@@ -16,7 +16,7 @@ public class Room : MonoBehaviour
 
     public GameObject chestSpawn;
 
-    bool isCleared;
+    public bool isCleared;
     bool enemiesSpawned;
 
     // Start is called before the first frame update
