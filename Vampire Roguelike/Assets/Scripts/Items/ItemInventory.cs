@@ -6,6 +6,7 @@ public class ItemInventory : MonoBehaviour
 {
 
     public static ItemInventory instance;
+    public List<Item> allItems;
     public int slots = 15;
 
     void Awake()

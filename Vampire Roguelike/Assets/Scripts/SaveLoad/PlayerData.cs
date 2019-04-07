@@ -9,11 +9,14 @@ public class PlayerData
     public float currentBlood;
     public int currentGold;
     public float[] position;
-    public List<Item> items;
-    public List<Skill> skills;
+    public List<int> items;
+    public List<int> skills;
 
     public PlayerData(PlayerController player)
     {
+        items = new List<int>();
+        skills = new List<int>();
+
         currentHealth = player.health;
         currentBlood = player.blood;
         currentGold = player.gold;
@@ -22,8 +25,15 @@ public class PlayerData
         position[0] = player.transform.position.x;
         position[1] = player.transform.position.y;
         position[2] = player.transform.position.z;
+        
+        foreach(Item item in ItemInventory.instance.items)
+        {
+            items.Add(item.itemID);
+        }
 
-        items = ItemInventory.instance.items;
-        skills = SkillInventory.instance.skills;
+        foreach(Skill skill in SkillInventory.instance.skills)
+        {
+            skills.Add(skill.skillID);
+        }
     }
 }

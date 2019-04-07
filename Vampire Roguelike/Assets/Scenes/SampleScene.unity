@@ -555,12 +555,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1038679380}
         m_MethodName: SaveGame
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 519420030}
-          m_ObjectArgumentAssemblyTypeName: CameraMovement, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3644,6 +3644,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd28f851bbfeea54cbfcee30579785c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allSkills:
+  - {fileID: 11400000, guid: faff92f6cee4244c5b9ffabf26431b9d, type: 2}
+  - {fileID: 11400000, guid: 169eb78a7ee8141e5bd33d99e33c6edc, type: 2}
+  - {fileID: 11400000, guid: 8aff85237794291469ae73cf59f85731, type: 2}
   skills: []
 --- !u!114 &1088987998
 MonoBehaviour:
@@ -3657,6 +3661,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd71a4da4ea54a01b7bbb7832e0827f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allItems:
+  - {fileID: 11400000, guid: 9ebabdba1d6874c0f97156e1b815ffdf, type: 2}
+  - {fileID: 11400000, guid: 3ed1318ebb25ff047b177dd906678507, type: 2}
   slots: 15
   items: []
 --- !u!114 &1088987999

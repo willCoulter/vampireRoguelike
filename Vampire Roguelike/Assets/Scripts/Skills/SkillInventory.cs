@@ -6,12 +6,10 @@ public class SkillInventory : MonoBehaviour
 {
 
     public static SkillInventory instance;
+    
+    public List<Skill> allSkills;
 
-    public List<Skill> skills = new List<Skill>();
-
-    private Skill skill1;
-    private Skill skill2;
-    private Skill skill3;
+    public Skill[] skills;
 
     void Awake()
     {
@@ -22,13 +20,8 @@ public class SkillInventory : MonoBehaviour
         }
 
         instance = this;
-
-        skills.Add(skill1);
-        skills.Add(skill2);
-        skills.Add(skill3);
+        skills = new Skill[3];
     }
-
-    
 
     public bool Add (Skill skill)
     {
@@ -41,20 +34,20 @@ public class SkillInventory : MonoBehaviour
         int indexLocation = 0;
         bool skillSet = false;
 
-        if(skill1 == null)
+        if(skills[0] == null)
         {
-            skill1 = skill;
+            skills[0] = skill;
             indexLocation = 0;
             skillSet = true;
-        }else if(skill2 == null)
+        }else if(skills[1] == null)
         {
-            skill2 = skill;
+            skills[1] = skill;
             indexLocation = 1;
             skillSet = true;
         }
-        else if(skill3 == null)
+        else if(skills[2] == null)
         {
-            skill3 = skill;
+            skills[2] = skill;
             indexLocation = 2;
             skillSet = true;
         }
@@ -75,13 +68,13 @@ public class SkillInventory : MonoBehaviour
         switch (skillLocation)
         {
             case 1:
-                skill1 = null;
+                skills[0] = null;
                 break;
             case 2:
-                skill2 = null;
+                skills[1] = null;
                 break;
             case 3:
-                skill3 = null;
+                skills[2] = null;
                 break;
         }
 
@@ -89,8 +82,9 @@ public class SkillInventory : MonoBehaviour
 
     private bool SkillSlotAvailable()
     {
+        Debug.Log(skills.Length);
         //If all three slots full, return false
-        if(skill1 != null && skill2 != null && skill3 != null)
+        if(skills[0] != null && skills[1] != null && skills[2] != null)
         {
             return false;
         }

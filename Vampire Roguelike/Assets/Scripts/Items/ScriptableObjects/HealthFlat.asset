@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf5cb6f3129d4275b5934ff4e38dfa9, type: 3}
   m_Name: HealthFlat
   m_EditorClassIdentifier: 
+  itemID: 1
   itemName: Health Flat
   desc: Increases max health by 15
   itemSprite: {fileID: 21300638, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}

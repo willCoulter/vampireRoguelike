@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
     private SkillCooldown skill2Script;
     private SkillCooldown skill3Script;
 
+    public GameObject canvas;
+
     //Skill popup UI items
     public GameObject skillPopupBox;
 
@@ -64,6 +66,8 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(canvas);
 
         skill1Script = skill1Slot.GetComponent<SkillCooldown>();
         skill2Script = skill2Slot.GetComponent<SkillCooldown>();

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
@@ -27,36 +28,85 @@ public class SaveManager : MonoBehaviour
     {
         SaveData saveData = SaveSystem.LoadGame();
 
-        camera.followTarget = saveData.cameraData.cameraTrackTarget;
-        camera.gameObject.GetComponent<Camera>().depth = saveData.cameraData.cameraZDepth;
-        camera.moveSpeed = saveData.cameraData.moveSpeed;
+        bool sceneLoaded;
 
-        PlayerController.instance.health = saveData.playerData.currentHealth;
-        PlayerController.instance.blood = saveData.playerData.currentBlood;
-        PlayerController.instance.gold = saveData.playerData.currentGold;
-        PlayerController.instance.gameObject.transform.position = new Vector3(saveData.playerData.position[0], saveData.playerData.position[1], saveData.playerData.position[2]);
-
-        int i = 0;
-
-        foreach (GameObject roomObject in GameObject.FindGameObjectsWithTag("Room"))
+        switch (saveData.levelData.levelNumber)
         {
-            Room room = roomObject.GetComponent<Room>();
+            case 1:
+                SceneManager.LoadScene("SampleScene");
+                sceneLoaded = true;
+                break;
+            default:
+                sceneLoaded = false;
+                break;
+        }
 
-            if (room != null)
+        if (sceneLoaded)
+        {
+            //Set camera settings
+            camera.followTarget = GameObject.FindGameObjectWithTag(saveData.cameraData.cameraTrackTarget);
+            camera.gameObject.GetComponent<Camera>().depth = saveData.cameraData.cameraZDepth;
+            camera.moveSpeed = saveData.cameraData.moveSpeed;
+
+            //Set player values and position
+            PlayerController.instance.health = saveData.playerData.currentHealth;
+            PlayerController.instance.blood = saveData.playerData.currentBlood;
+            PlayerController.instance.gold = saveData.playerData.currentGold;
+            PlayerController.instance.gameObject.transform.position = new Vector3(saveData.playerData.position[0], saveData.playerData.position[1], saveData.playerData.position[2]);
+
+            //Set player skills
+            int index = 0;
+
+            //Loop through saved skill id's
+            foreach (int playerSkill in saveData.playerData.skills)
             {
-                if(saveData.levelData.roomData.ContainsKey(room.roomID))
+                //Loop through all skills
+                foreach (Skill skill in SkillInventory.instance.allSkills)
                 {
-                    room.isCleared = saveData.levelData.roomData[i];
+                    //Check if saved skill id matches a skill in all skills list
+                    if (playerSkill == skill.skillID)
+                    {
+                        //If so, add to players current skills
+                        SkillInventory.instance.skills[index] = skill;
+                        index++;
+                    }
                 }
             }
 
-            i++;
+            //Set player items
+            foreach (int playerItem in saveData.playerData.items)
+            {
+                foreach (Item item in ItemInventory.instance.allItems)
+                {
+                    if (playerItem == item.itemID)
+                    {
+                        ItemInventory.instance.items.Add(item);
+                    }
+                }
+            }
+
+            //Loop through room objects and set cleared value by room id
+            int i = 0;
+            foreach (GameObject roomObject in GameObject.FindGameObjectsWithTag("Room"))
+            {
+                Room room = roomObject.GetComponent<Room>();
+
+                if (room != null)
+                {
+                    if (saveData.levelData.roomData.ContainsKey(room.roomID))
+                    {
+                        room.isCleared = saveData.levelData.roomData[i];
+                    }
+                }
+
+                i++;
+            }
+
+            //Set gamemanager values
+            GameManager.instance.currentLevelNum = saveData.levelData.levelNumber;
+            GameManager.instance.enemiesSlain = saveData.levelData.enemiesSlain;
+            GameManager.instance.timePlayed = saveData.levelData.timeSurvived;
+            GameManager.instance.itemsGathered = saveData.levelData.itemsGathered;
         }
-
-        GameManager.instance.currentLevelNum = saveData.levelData.levelNumber;
-        GameManager.instance.enemiesSlain = saveData.levelData.enemiesSlain;
-        GameManager.instance.timePlayed = saveData.levelData.timeSurvived;
-        GameManager.instance.itemsGathered = saveData.levelData.itemsGathered;
-
     }
 }
