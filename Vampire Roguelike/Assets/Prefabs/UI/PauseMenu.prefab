@@ -445,7 +445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7118916232178180833
 RectTransform:
   m_ObjectHideFlags: 0
@@ -896,7 +896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  infoBox: {fileID: 0}
+  skillInfoBox: {fileID: 0}
 --- !u!222 &8743204356644083054
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -947,7 +947,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  infoBox: {fileID: 1411530476057646204, guid: e9c5571ef657947499060d805cd1fd2e, type: 3}
+  skillInfoBox: {fileID: 1411530476057646204, guid: e9c5571ef657947499060d805cd1fd2e,
+    type: 3}
 --- !u!1 &3533477595356629674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,7 +1905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  infoBox: {fileID: 0}
+  skillInfoBox: {fileID: 0}
 --- !u!222 &7704483821519716501
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1955,7 +1956,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  infoBox: {fileID: 1411530476057646204, guid: e9c5571ef657947499060d805cd1fd2e, type: 3}
+  skillInfoBox: {fileID: 1411530476057646204, guid: e9c5571ef657947499060d805cd1fd2e,
+    type: 3}
 --- !u!1 &8915457406152387386
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,7 +2010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  infoBox: {fileID: 0}
+  skillInfoBox: {fileID: 0}
 --- !u!222 &350577549784917272
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2059,7 +2061,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  infoBox: {fileID: 1411530476057646204, guid: e9c5571ef657947499060d805cd1fd2e, type: 3}
+  skillInfoBox: {fileID: 1411530476057646204, guid: e9c5571ef657947499060d805cd1fd2e,
+    type: 3}
 --- !u!1 &9054458706428714142
 GameObject:
   m_ObjectHideFlags: 0

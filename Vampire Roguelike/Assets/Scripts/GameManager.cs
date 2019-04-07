@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject managerRoot;
     public static GameManager instance;
     public GameObject player;
 
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(managerRoot);
 
         currentLevelNum = 1;
     }

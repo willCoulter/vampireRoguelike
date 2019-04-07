@@ -66,8 +66,6 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-        DontDestroyOnLoad(gameObject);
-        DontDestroyOnLoad(canvas);
 
         skill1Script = skill1Slot.GetComponent<SkillCooldown>();
         skill2Script = skill2Slot.GetComponent<SkillCooldown>();

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PauseSkillSlot : MonoBehaviour
 {
     public Skill skill;
-    public GameObject infoBox;
+    public GameObject skillInfoBox;
     private GameObject infoBoxInstance;
 
     Text skillName;
@@ -42,7 +42,7 @@ public class PauseSkillSlot : MonoBehaviour
     public void ShowSkillInfo()
     {
         //Instantiate box
-        infoBoxInstance = Instantiate(infoBox, transform.parent.parent);
+        infoBoxInstance = Instantiate(skillInfoBox, transform.parent.parent);
 
         //Grab child box, populate text fields
         Transform popupBox = infoBoxInstance.transform.Find("PopupBox");
