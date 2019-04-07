@@ -7,6 +7,8 @@ using System.IO;
 public class MainMenu : MonoBehaviour
 {
     public GameObject newGameWarning;
+    public GameObject creditsPage;
+    public GameObject buttonsWrapper;
 
     public void NewGame()
     {
@@ -39,5 +41,17 @@ public class MainMenu : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void ShowCredits()
+    {
+        buttonsWrapper.SetActive(false);
+        creditsPage.SetActive(true);
+    }
+
+    public void HideCredits()
+    {
+        creditsPage.SetActive(false);
+        buttonsWrapper.SetActive(true);
     }
 }
