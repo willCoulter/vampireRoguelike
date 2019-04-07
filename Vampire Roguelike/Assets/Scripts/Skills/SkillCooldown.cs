@@ -7,13 +7,13 @@ public class SkillCooldown : MonoBehaviour
 {
 
     public SkillCooldown instance;
+    public GameObject pickupPrefab;
 
     public string abilityButtonAxisName = "Fire1";
     public Image darkMask;
     public Text cooldownTextDisplay;
 
     public Skill skill;
-    [SerializeField] private GameObject player;
 
     private Image buttonImage;
     private AudioSource abilitySource;
@@ -30,19 +30,23 @@ public class SkillCooldown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Check if cooldown is complete
-        bool cooldownComplete = (Time.time > nextReadyTime);
-        if (cooldownComplete){
-            AbilityReady();
-            if(Input.GetButtonDown(abilityButtonAxisName)){
-                PlayerController.instance.anim.SetTrigger("Casting");
-                ButtonTriggered();
-            }
-        }
-        //If not, run cooldown
-        else
+        if(skill != null)
         {
-            CoolDown();
+            //Check if cooldown is complete
+            bool cooldownComplete = (Time.time > nextReadyTime);
+            if (cooldownComplete)
+            {
+                AbilityReady();
+                if (Input.GetButtonDown(abilityButtonAxisName))
+                {
+                    ButtonTriggered();
+                }
+            }
+            //If not, run cooldown
+            else
+            {
+                CoolDown();
+            }
         }
     }
 
@@ -60,6 +64,29 @@ public class SkillCooldown : MonoBehaviour
         AbilityReady();
     }
 
+    public void DropSkill()
+    {
+        if(skill != null)
+        {
+            float radius = 1.5f;
+
+            //Create new skillpickup near player position
+            GameObject droppedSkill = Instantiate(pickupPrefab, Random.insideUnitSphere * radius + PlayerController.instance.gameObject.transform.position, PlayerController.instance.gameObject.transform.rotation);
+            SkillPickup droppedSkillScript = droppedSkill.GetComponent<SkillPickup>();
+
+            //Set skill of skillpickup
+            droppedSkillScript.skill = skill;
+
+            //Clear properties
+            skill = null;
+            buttonImage.sprite = null;
+            darkMask.sprite = null;
+
+            //Refresh pause ui
+            UIManager.instance.RefreshPauseSkills();
+        }
+    }
+
     private void AbilityReady(){
         cooldownTextDisplay.enabled = false;
         darkMask.enabled = false;
@@ -74,16 +101,23 @@ public class SkillCooldown : MonoBehaviour
     }
 
     private void ButtonTriggered(){
-        nextReadyTime = cooldownDuration + Time.time;
-        cooldownTimeLeft = cooldownDuration;
-        darkMask.enabled = true;
-        cooldownTextDisplay.enabled = true;
+        //If pause menu is not open, trigger skill
+        if (!UIManager.instance.pauseMenuOpen)
+        {
+            PlayerController.instance.anim.SetTrigger("Casting");
 
-        //if(skill.skillSound != null){
-        //    abilitySource.clip = skill.skillSound;
-        //    abilitySource.Play();
-        //}
+            nextReadyTime = cooldownDuration + Time.time;
+            cooldownTimeLeft = cooldownDuration;
+            darkMask.enabled = true;
+            cooldownTextDisplay.enabled = true;
 
-        skill.TriggerSkill();
+            //if(skill.skillSound != null){
+            //    abilitySource.clip = skill.skillSound;
+            //    abilitySource.Play();
+            //}
+
+            skill.TriggerSkill();
+        }
+        
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject managerRoot;
     public static GameManager instance;
     public GameObject player;
 
@@ -11,10 +12,12 @@ public class GameManager : MonoBehaviour
     public int enemiesSlain;
 
     //Keep track of time played
-    public Time timePlayed;
+    public int timePlayed;
 
     //Keep track of level
     public int currentLevelNum;
+
+    public int itemsGathered;
 
     void Awake()
     {
@@ -22,6 +25,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        DontDestroyOnLoad(managerRoot);
 
         currentLevelNum = 1;
     }
