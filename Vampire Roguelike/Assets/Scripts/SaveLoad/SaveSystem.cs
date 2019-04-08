@@ -39,17 +39,16 @@ public static class SaveSystem
         }
     }
 
-    public static void SaveGame(CameraMovement camera, PlayerController player)
+    public static void SaveGame(PlayerController player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/save.dat";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         PlayerData playerData = new PlayerData(player);
-        CameraData cameraData = new CameraData(camera, player.gameObject);
         LevelData levelData = new LevelData();
 
-        SaveData saveData = new SaveData(levelData, cameraData, playerData);
+        SaveData saveData = new SaveData(levelData, playerData);
 
         formatter.Serialize(stream, saveData);
 

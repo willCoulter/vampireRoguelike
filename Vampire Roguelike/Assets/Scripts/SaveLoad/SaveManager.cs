@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;
-    public CameraMovement camera;
 
     void Awake()
     {
@@ -15,24 +14,20 @@ public class SaveManager : MonoBehaviour
 
     public void SaveGame()
     {
-        SaveSystem.SaveGame(camera, PlayerController.instance);
+        SaveSystem.SaveGame(PlayerController.instance);
     }
 
     public void LoadGame()
     {
         SaveData saveData = SaveSystem.LoadGame();
 
-        bool sceneLoaded;
-
         switch (saveData.levelData.levelNumber)
         {
             case 1:
                 SceneManager.LoadScene("SampleScene");
-                sceneLoaded = true;
                 SceneManager.sceneLoaded += OnSceneLoaded;
                 break;
             default:
-                sceneLoaded = false;
                 break;
         }
 
@@ -41,11 +36,6 @@ public class SaveManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SaveData saveData = SaveSystem.LoadGame();
-
-        //Set camera settings
-        //camera.followTarget = GameObject.FindGameObjectWithTag(saveData.cameraData.cameraTrackTarget);
-        //camera.gameObject.GetComponent<Camera>().depth = saveData.cameraData.cameraZDepth;
-        //camera.moveSpeed = saveData.cameraData.moveSpeed;
 
         //Set player values and position
         PlayerController.instance.health = saveData.playerData.currentHealth;
