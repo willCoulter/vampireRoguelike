@@ -10,12 +10,6 @@ public class SaveManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null)
-        {
-            Debug.LogWarning("More than one SaveManager instance");
-            return;
-        }
-
         instance = this;
     }
 

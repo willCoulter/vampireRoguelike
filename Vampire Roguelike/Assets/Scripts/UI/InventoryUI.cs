@@ -16,12 +16,6 @@ public class InventoryUI : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null)
-        {
-            Debug.LogWarning("More than one inventory UI instance");
-            return;
-        }
-
         instance = this;
     }
 

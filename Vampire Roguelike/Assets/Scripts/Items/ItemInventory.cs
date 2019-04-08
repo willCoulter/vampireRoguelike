@@ -11,12 +11,6 @@ public class ItemInventory : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null)
-        {
-            Debug.LogWarning("More than one inventory instance");
-            return;
-        }
-
         instance = this;
     }
 

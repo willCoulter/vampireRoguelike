@@ -38,15 +38,16 @@ public class PlayerController : MonoBehaviour
     {
         Normal,
         Dashing,
+        Dead
     }
 
     public static PlayerController instance;
 
     void Awake()
     {
-        if(instance == null){
-            instance = this;
-        }
+        instance = this;
+
+        state = State.Normal;
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
@@ -80,8 +81,23 @@ public class PlayerController : MonoBehaviour
             case State.Dashing:
                 Dash();
                 break;
+            case State.Dead:
+                break;
+        }
+
+        if(health <= 0)
+        {
+            Die();
         }
         
+    }
+
+    private void Die()
+    {
+        state = State.Dead;
+
+        UIManager.instance.DisplayDeathMenu();
+        Destroy(gameObject);
     }
 
     private void ChangeDirection()
