@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     public Image healthBar;
     public Image bloodBar;
     public Text goldText;
+    public Controls controls1 = new Controls();
+    public Dictionary<string, KeyCode> playerControls = new Dictionary<string, KeyCode>();
+
 
     private State state;
     private Vector3 lastMoveDirection;
@@ -58,8 +61,10 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerControls = controls1.playerControls();
         health = maxHealth;
         goldText.text = "Gold: " + gold;
+        Debug.Log(playerControls);
 
     }
 
@@ -71,15 +76,15 @@ public class PlayerController : MonoBehaviour
         {
             case State.Normal:
                 anim.SetBool("Rolling", false);
-                
-                if (!UIManager.instance.pauseMenuOpen)
+                //If pause menu not open, allow control of player
+                if (!UIManager.instance.pauseMenuOpen) { 
                 
                 Move();
                 ChangeDirection();
                 HandleDash();
                 bloodSoak();
-        }
-                //If pause menu not open, allow control of player
+                }
+                
                 break;
             case State.Dashing:
                 Dash();
@@ -127,19 +132,19 @@ public class PlayerController : MonoBehaviour
         float moveY = 0f;
         
         //Handle based on key
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(playerControls["Up"]))
         {
             moveY = +1f;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(playerControls["Down"]))
         {
             moveY = -1f;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(playerControls["Left"]))
         {
             moveX = -1f;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(playerControls["Right"]))
         {
             moveX = 1f;
         }
@@ -197,7 +202,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleDash()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(playerControls["Dodge"]))
         {
             state = State.Dashing;
             slideSpeed = 17f;
@@ -253,7 +258,7 @@ public class PlayerController : MonoBehaviour
 
     public void bloodSoak()
     {
-        if (Input.GetKey(KeyCode.F)) {
+        if (Input.GetKey(playerControls["Bloodsuck"])) {
             Instantiate(bloodSoakFx, transform.position, Quaternion.identity);
             Collider2D[] bloodPools = Physics2D.OverlapCircleAll(transform.position, soakRadius);
             for (int i = 0; i < bloodPools.Length; i++)

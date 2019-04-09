@@ -34,12 +34,16 @@ public class UIManager : MonoBehaviour
 
     public GameObject skillDesc;
 
+    public GameObject skillButtonPrompt;
+
     //Item popup UI items;
     public GameObject itemPopupBox;
 
     public GameObject itemName;
 
     public GameObject itemDesc;
+
+    public GameObject itemButtonPrompt;
 
     //Chest popup UI items;
     public GameObject chestPopupBox;
@@ -204,6 +208,7 @@ public class UIManager : MonoBehaviour
         skillCost.GetComponent<Text>().text = "Cost: " + skill.baseCost;
         skillCD.GetComponent<Text>().text = "CD: " + skill.baseCD + "s";
         skillDesc.GetComponent<Text>().text = skill.desc;
+        
 
         skillPopupBox.SetActive(true);
         UtilityMethods.MoveUiElementToWorldPosition(skillPopupBox.GetComponent<RectTransform>(), popupPosition);

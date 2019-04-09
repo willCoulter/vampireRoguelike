@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     public GameObject newGameWarning;
     public GameObject creditsPage;
     public GameObject buttonsWrapper;
+    public GameObject optionsPage;
 
     public void NewGame()
     {
@@ -54,4 +55,18 @@ public class MainMenu : MonoBehaviour
         creditsPage.SetActive(false);
         buttonsWrapper.SetActive(true);
     }
+
+    public void ShowOptions()
+    {
+        buttonsWrapper.SetActive(false);
+        optionsPage.SetActive(true);
+    }
+
+    public void HideOptions()
+    {
+        optionsPage.SetActive(false);
+        buttonsWrapper.SetActive(true);
+    }
+
+
 }

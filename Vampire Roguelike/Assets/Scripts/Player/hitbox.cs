@@ -16,12 +16,15 @@ public class hitbox : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public bool trigger = false;
     PlayerController playerInfo;
+    private Controls controls1 = new Controls();
+    private Dictionary<string, KeyCode> playerControls = new Dictionary<string, KeyCode>();
 
     void Awake()
     {
         //Grabs the swords active sprite renderer
         spriteRenderer = GetComponent<SpriteRenderer>();
         //playerInfo = PlayerController.instance;
+        playerControls = controls1.playerControls();
     }
 
     void Update()
