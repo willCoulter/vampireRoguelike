@@ -335,9 +335,9 @@ MonoBehaviour:
   health: 0
   maxBlood: 0
   blood: 0
-  attackDamage: 1
+  attackDamage: 5
   magicDamage: 0
-  soakRadius: 0
+  soakRadius: 4
   gold: 0
   interactRadius: 3
   anim: {fileID: 4136484433608238558}
@@ -355,7 +355,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4782444987536739160}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

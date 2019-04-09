@@ -8,6 +8,7 @@ TagManager:
   - Sword
   - Projectile
   - Bloodpool
+  - WizardFireball
   layers:
   - Default
   - TransparentFX

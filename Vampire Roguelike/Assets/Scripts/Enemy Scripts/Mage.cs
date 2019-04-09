@@ -35,9 +35,7 @@ public class Mage : Enemy
                     //Run the buff here
                     enemies[i].GetComponent<Enemy>().heal(2);
                 }
-            }
-            Debug.Log(circleTime);
-            
+            }        
             attackLag = startLag;
         }
         else
