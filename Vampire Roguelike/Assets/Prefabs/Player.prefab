@@ -335,12 +335,15 @@ MonoBehaviour:
   health: 0
   maxBlood: 0
   blood: 0
-  attackDamage: 1
+  attackDamage: 5
   magicDamage: 0
+  soakRadius: 4
   gold: 0
   interactRadius: 3
   anim: {fileID: 4136484433608238558}
   sword: {fileID: 1450141837}
+  bloodSoakFx: {fileID: 2840635055568240253, guid: e42add48965ead74db0334d107ca330c,
+    type: 3}
   healthBar: {fileID: 0}
   bloodBar: {fileID: 0}
   goldText: {fileID: 0}
@@ -352,7 +355,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4782444987536739160}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

@@ -10,6 +10,7 @@ public class hitbox : MonoBehaviour
     public GameObject sword;
     public LayerMask enemiesMask;
     private List<GameObject> enemyToHit = new List<GameObject>();
+    private GameObject fireBallHit;
     public Sprite normal;
     public Sprite stab;
     private SpriteRenderer spriteRenderer;
@@ -52,8 +53,14 @@ public class hitbox : MonoBehaviour
                         enemyToHit[i].GetComponent<Enemy>().takeDamage(playerInfo.attackDamage);
                         
                     }
+
+                    if (fireBallHit != null)
+                    {
+                        fireBallHit.GetComponent<FollowingFireBall>().ChangeTarget();
+                    }
                     //Resets the triggers to defaults
                     enemyToHit.Clear();
+                    fireBallHit = null;
                     trigger = false;
                 }
 
@@ -90,6 +97,7 @@ public class hitbox : MonoBehaviour
     {
         //Resets the trigger
         enemyToHit.Clear();
+        fireBallHit = null;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -102,6 +110,17 @@ public class hitbox : MonoBehaviour
                 //Grab the enemy that caused the trigger
                 enemyToHit.Add(collision.gameObject);
             }
+        } else if (collision.gameObject.tag == "WizardFireball")
+        {
+            trigger = true;
+            fireBallHit = collision.gameObject;
+
         }
+
+    }
+
+    private void ReturnToSender()
+    {
+
     }
 }

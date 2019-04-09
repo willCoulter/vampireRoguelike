@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
+
 public class Enemy : MonoBehaviour
 {
     public float health;
@@ -15,6 +16,7 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     public GameObject bloodParticle;
     public GameObject healEffectParticlePrefab;
+    public GameObject bloodPool;
     public float agroRadius;
     public float miniumRange;
     private GameObject healingEffect;
@@ -35,6 +37,7 @@ public class Enemy : MonoBehaviour
         //Grab an active player from the scene
         player = GameObject.Find("Player");
         target = player.transform;
+        this.GetComponent<Pathfinding.AIDestinationSetter>().target = target;
         //target = PlayerController.instance.transform;
     }
 
@@ -78,7 +81,8 @@ public class Enemy : MonoBehaviour
     {
         OnDestroy.Invoke();
         OnDestroy.RemoveAllListeners();
-
+        GameObject bloodpool = Instantiate(bloodPool, transform.position, Quaternion.identity);
+        bloodpool.GetComponent<bloodPool>().bloodAmount = maxHealth/2;
         Destroy(gameObject);
     }
 
@@ -103,11 +107,15 @@ public class Enemy : MonoBehaviour
 
         if (distance <= agroRadius)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            gameObject.GetComponent<Pathfinding.AIPath>().canMove = true;
+            gameObject.GetComponent<Pathfinding.AIPath>().canSearch = true;
+            //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             anim.SetBool("Moving", true);
         }
         else
         {
+            gameObject.GetComponent<Pathfinding.AIPath>().canMove = false;
+            gameObject.GetComponent<Pathfinding.AIPath>().canSearch = false;
             anim.SetBool("Moving", false);
         }
     }
