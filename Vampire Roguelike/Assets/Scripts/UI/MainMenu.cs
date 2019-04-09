@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public GameObject creditsPage;
     public GameObject buttonsWrapper;
     public GameObject continueButton;
+    public GameObject graveyardPage;
 
     void Update()
     {
@@ -59,6 +60,21 @@ public class MainMenu : MonoBehaviour
     public void HideCredits()
     {
         creditsPage.SetActive(false);
+        buttonsWrapper.SetActive(true);
+    }
+
+    public void ShowGraveyard()
+    {
+        buttonsWrapper.SetActive(false);
+
+        //Set graveyard scrollview items
+
+        graveyardPage.SetActive(true);
+    }
+
+    public void HideGraveyard()
+    {
+        graveyardPage.SetActive(false);
         buttonsWrapper.SetActive(true);
     }
 
