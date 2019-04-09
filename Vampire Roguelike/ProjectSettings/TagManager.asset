@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - Bloodpool
   - WizardFireball
+  - Room
   layers:
   - Default
   - TransparentFX

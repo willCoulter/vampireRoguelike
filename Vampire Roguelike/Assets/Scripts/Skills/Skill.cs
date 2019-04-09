@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+[System.Serializable]
 public abstract class Skill : ScriptableObject
 {
+    public int skillID;
     public string skillName = "New Skill";
     public string desc = "New Desc";
     public Sprite skillSprite;

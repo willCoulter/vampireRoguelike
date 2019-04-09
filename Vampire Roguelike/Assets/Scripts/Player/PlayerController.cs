@@ -71,10 +71,15 @@ public class PlayerController : MonoBehaviour
         {
             case State.Normal:
                 anim.SetBool("Rolling", false);
+                
+                if (!UIManager.instance.pauseMenuOpen)
+                
                 Move();
                 ChangeDirection();
                 HandleDash();
                 bloodSoak();
+        }
+                //If pause menu not open, allow control of player
                 break;
             case State.Dashing:
                 Dash();
