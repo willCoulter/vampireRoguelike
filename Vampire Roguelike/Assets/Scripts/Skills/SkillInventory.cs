@@ -76,7 +76,6 @@ public class SkillInventory : MonoBehaviour
 
     private bool SkillSlotAvailable()
     {
-        Debug.Log(skills.Length);
         //If all three slots full, return false
         if(skills[0] != null && skills[1] != null && skills[2] != null)
         {

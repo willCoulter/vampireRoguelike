@@ -37,7 +37,7 @@ public class SkillCooldown : MonoBehaviour
             if (cooldownComplete)
             {
                 AbilityReady();
-                if (Input.GetButtonDown(abilityButtonAxisName))
+                if (Input.GetButtonDown(abilityButtonAxisName) && PlayerController.instance.blood >= skill.baseCost)
                 {
                     ButtonTriggered();
                 }
