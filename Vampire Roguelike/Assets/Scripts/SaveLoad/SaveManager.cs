@@ -12,6 +12,11 @@ public class SaveManager : MonoBehaviour
         instance = this;
     }
 
+    public void SaveToGraveyard()
+    {
+        SaveSystem.SaveToGraveyard();
+    }
+
     public void SaveGame()
     {
         SaveSystem.SaveGame(PlayerController.instance);
@@ -97,4 +102,5 @@ public class SaveManager : MonoBehaviour
         GameManager.instance.timePlayed = saveData.levelData.timeSurvived;
         GameManager.instance.itemsGathered = saveData.levelData.itemsGathered;
     }
+
 }
