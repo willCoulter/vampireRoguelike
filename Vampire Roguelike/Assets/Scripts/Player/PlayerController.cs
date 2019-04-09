@@ -98,6 +98,8 @@ public class PlayerController : MonoBehaviour
 
         UIManager.instance.DisplayDeathMenu();
         Destroy(gameObject);
+
+        SaveSystem.SaveToGraveyard();
     }
 
     private void ChangeDirection()

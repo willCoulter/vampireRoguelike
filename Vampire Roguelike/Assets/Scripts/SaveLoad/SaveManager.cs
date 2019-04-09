@@ -6,10 +6,15 @@ using UnityEngine.SceneManagement;
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;
+    public bool isLoading;
 
     void Awake()
     {
-        instance = this;
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
     }
 
     public void SaveToGraveyard()
@@ -25,6 +30,7 @@ public class SaveManager : MonoBehaviour
     public void LoadGame()
     {
         SaveData saveData = SaveSystem.LoadGame();
+        isLoading = true;
 
         switch (saveData.levelData.levelNumber)
         {
@@ -40,67 +46,72 @@ public class SaveManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        SaveData saveData = SaveSystem.LoadGame();
-
-        //Set player values and position
-        PlayerController.instance.health = saveData.playerData.currentHealth;
-        PlayerController.instance.blood = saveData.playerData.currentBlood;
-        PlayerController.instance.gold = saveData.playerData.currentGold;
-        PlayerController.instance.gameObject.transform.position = new Vector3(saveData.playerData.position[0], saveData.playerData.position[1], saveData.playerData.position[2]);
-
-        //Set player skills
-        int index = 0;
-
-        //Loop through saved skill id's
-        foreach (int playerSkill in saveData.playerData.skills)
+        if(scene.name != "MainMenu" && isLoading == true)
         {
-            //Loop through all skills
-            foreach (Skill skill in SkillInventory.instance.allSkills)
-            {
-                //Check if saved skill id matches a skill in all skills list
-                if (playerSkill == skill.skillID)
-                {
-                    //If so, add to players current skills
-                    SkillInventory.instance.Add(skill);
-                    index++;
-                }
-            }
-        }
+            SaveData saveData = SaveSystem.LoadGame();
 
-        //Set player items
-        foreach (int playerItem in saveData.playerData.items)
-        {
-            foreach (Item item in ItemInventory.instance.allItems)
-            {
-                if (playerItem == item.itemID)
-                {
-                    ItemInventory.instance.items.Add(item);
-                }
-            }
-        }
+            //Set player values and position
+            PlayerController.instance.health = saveData.playerData.currentHealth;
+            PlayerController.instance.blood = saveData.playerData.currentBlood;
+            PlayerController.instance.gold = saveData.playerData.currentGold;
+            PlayerController.instance.gameObject.transform.position = new Vector3(saveData.playerData.position[0], saveData.playerData.position[1], saveData.playerData.position[2]);
 
-        //Loop through room objects and set cleared value by room id
-        int i = 0;
-        foreach (GameObject roomObject in GameObject.FindGameObjectsWithTag("Room"))
-        {
-            Room room = roomObject.GetComponent<Room>();
+            //Set player skills
+            int index = 0;
 
-            if (room != null)
+            //Loop through saved skill id's
+            foreach (int playerSkill in saveData.playerData.skills)
             {
-                if (saveData.levelData.roomData.ContainsKey(room.roomID))
+                //Loop through all skills
+                foreach (Skill skill in SkillInventory.instance.allSkills)
                 {
-                    room.isCleared = saveData.levelData.roomData[i];
+                    //Check if saved skill id matches a skill in all skills list
+                    if (playerSkill == skill.skillID)
+                    {
+                        //If so, add to players current skills
+                        SkillInventory.instance.Add(skill);
+                        index++;
+                    }
                 }
             }
 
-            i++;
-        }
+            //Set player items
+            foreach (int playerItem in saveData.playerData.items)
+            {
+                foreach (Item item in ItemInventory.instance.allItems)
+                {
+                    if (playerItem == item.itemID)
+                    {
+                        ItemInventory.instance.items.Add(item);
+                    }
+                }
+            }
 
-        //Set gamemanager values
-        GameManager.instance.currentLevelNum = saveData.levelData.levelNumber;
-        GameManager.instance.enemiesSlain = saveData.levelData.enemiesSlain;
-        GameManager.instance.timePlayed = saveData.levelData.timeSurvived;
-        GameManager.instance.itemsGathered = saveData.levelData.itemsGathered;
+            //Loop through room objects and set cleared value by room id
+            foreach (GameObject roomObject in GameObject.FindGameObjectsWithTag("Room"))
+            {
+                Room room = roomObject.GetComponent<Room>();
+
+                if (room != null)
+                {
+                    foreach (KeyValuePair<int, bool> entry in saveData.levelData.roomData)
+                    {
+                        if(entry.Key == room.roomID)
+                        {
+                            room.isCleared = entry.Value;
+                        }
+                    }
+                }
+            }
+
+            //Set gamemanager values
+            GameManager.instance.currentLevelNum = saveData.levelData.levelNumber;
+            GameManager.instance.enemiesSlain = saveData.levelData.enemiesSlain;
+            GameManager.instance.timePlayed = saveData.levelData.timeSurvived;
+            GameManager.instance.itemsGathered = saveData.levelData.itemsGathered;
+
+            //Loading done
+            isLoading = false;
+        }
     }
-
 }

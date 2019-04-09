@@ -31,7 +31,13 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        SaveManager.instance.SaveGame();
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
     public void Restart()

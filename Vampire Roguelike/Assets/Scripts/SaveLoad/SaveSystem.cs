@@ -46,7 +46,6 @@ public static class SaveSystem
     
         BinaryFormatter formatter = new BinaryFormatter();
         string savePath = Application.persistentDataPath + "/save.dat";
-        
 
         //If save file exists
         if (File.Exists(savePath))
@@ -55,7 +54,7 @@ public static class SaveSystem
             SaveData save = LoadGame();
 
             //Create new file on graveyard path with current timestamp
-            string graveyardPath = Application.persistentDataPath + "/graveyard" + "/save-" + System.DateTime.Now + ".dat";
+            string graveyardPath = Application.persistentDataPath + "/Graveyard" + "/save-" + System.DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".dat";
             FileStream stream = new FileStream(graveyardPath, FileMode.Create);
 
             //Serialize data into graveyard save
