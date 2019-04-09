@@ -512,6 +512,10 @@ TextureImporter:
     21301014: zombieWalk1
     21301016: zombieWalk2
     21301018: zombieWalk3
+    21301020: shopKeeperIdle_0
+    21301022: shopKeeperIdle_1
+    21301024: shopKeeperIdle_2
+    21301026: shopKeeperIdle_3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -3809,6 +3813,86 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 02f4ebd43f0425e4aa0ab762286b19e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shopKeeperIdle_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6bc988cb56c9874e8ea8214de848cbf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shopKeeperIdle_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 320
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 587d21e70244f584ca1545a0c3d682c2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shopKeeperIdle_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5937d6ee60c034a4eb57ad272b0c2554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shopKeeperIdle_3
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 320
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d09df57be877214d9240d0033e3409f
       vertices: []
       indices: 
       edges: []

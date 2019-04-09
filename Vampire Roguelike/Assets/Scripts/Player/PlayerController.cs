@@ -55,16 +55,16 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        playerControls = controls1.playerControls();
         health = maxHealth;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        playerControls = controls1.playerControls();
+        
         health = maxHealth;
         goldText.text = "Gold: " + gold;
-        Debug.Log(playerControls);
 
     }
 
@@ -272,15 +272,4 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    //public void checkInteract()
-    //{
-    //    if (Input.GetKey(KeyCode.E))
-    //    {
-    //        Collider2D[] things = Physics2D.OverlapCircleAll(transform.position, interactRadius);
-    //        if (things != null)
-    //        {
-    //            things[0].GetComponent<skillShop>().openShop();
-    //        }      
-    //    }
-    //}
 }

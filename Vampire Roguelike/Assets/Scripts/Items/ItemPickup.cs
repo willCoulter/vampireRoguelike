@@ -7,17 +7,17 @@ public class ItemPickup : MonoBehaviour
     public Item item;
     private bool playerInPickupRange;
     private Controls controls1 = new Controls();
-    private Dictionary<string, KeyCode> playerControls = new Dictionary<string, KeyCode>();
+    public KeyCode interactKey;
 
     private void Start()
     {
-        playerControls = controls1.playerControls();
+       interactKey = PlayerController.instance.playerControls["Interact"];
     }
 
     private void Update()
     {
         //If in range, and player presses e, pick up skill
-        if (playerInPickupRange && Input.GetKeyDown(playerControls["Interact"]))
+        if (playerInPickupRange && Input.GetKeyDown(interactKey))
         {
             PickUp();
         }

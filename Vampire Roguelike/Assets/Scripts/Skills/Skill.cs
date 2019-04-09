@@ -14,6 +14,7 @@ public abstract class Skill : ScriptableObject
 
     public float baseCD = 1f;
     public float baseCost = 0f;
+    public int skillPrice;
 
     public abstract void Initialize(GameObject obj);
 

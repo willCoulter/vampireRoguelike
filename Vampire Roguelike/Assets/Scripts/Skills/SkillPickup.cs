@@ -7,11 +7,25 @@ public class SkillPickup : MonoBehaviour
 
     public Skill skill;
     private bool playerInPickupRange;
+    public KeyCode interactKey;
+
+    private void Start()
+    {
+        interactKey = PlayerController.instance.playerControls["Interact"];
+    }
 
     private void Update()
     {
+        if (skill.skillPrice > 0)
+        {
+            if (playerInPickupRange && Input.GetKeyDown(interactKey) && PlayerController.instance.gold >= skill.skillPrice)
+            {
+                PlayerController.instance.gold -= skill.skillPrice;
+                PickUp();
+            }
+        }
         //If in range, and player presses e, pick up skill
-        if (playerInPickupRange && Input.GetKeyDown(KeyCode.E))
+        else if (playerInPickupRange && Input.GetKeyDown(interactKey))
         {
             PickUp();
         }

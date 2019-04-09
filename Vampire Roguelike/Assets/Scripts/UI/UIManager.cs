@@ -34,6 +34,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject skillDesc;
 
+    public GameObject skillPrice;
+
     public GameObject skillButtonPrompt;
 
     //Item popup UI items;
@@ -208,6 +210,11 @@ public class UIManager : MonoBehaviour
         skillCost.GetComponent<Text>().text = "Cost: " + skill.baseCost;
         skillCD.GetComponent<Text>().text = "CD: " + skill.baseCD + "s";
         skillDesc.GetComponent<Text>().text = skill.desc;
+        skillButtonPrompt.GetComponent<Text>().text = "Press " + PlayerController.instance.playerControls["Interact"].ToString() + " to pick up."; 
+        if (skill.skillPrice > 0) {
+            skillPrice.GetComponent<Text>().text = "Gold Price: " + skill.skillPrice.ToString();
+            skillButtonPrompt.GetComponent<Text>().text = "Press " + PlayerController.instance.playerControls["Interact"].ToString() + " to buy.";
+        }
         
 
         skillPopupBox.SetActive(true);
@@ -221,7 +228,7 @@ public class UIManager : MonoBehaviour
     public void displayItemPopup(Item item, Vector3 popupPosition){
         itemName.GetComponent<Text>().text = item.itemName;
         itemDesc.GetComponent<Text>().text = item.desc;
-
+        itemButtonPrompt.GetComponent<Text>().text = "Press " + PlayerController.instance.playerControls["Interact"].ToString() + " to pick up.";
         itemPopupBox.SetActive(true);
         UtilityMethods.MoveUiElementToWorldPosition(itemPopupBox.GetComponent<RectTransform>(), popupPosition);
     }
