@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     public GameObject buttonsWrapper;
     public GameObject continueButton;
     public GameObject graveyardPage;
+    public GraveyardManager graveyardManager;
 
     void Update()
     {
@@ -68,6 +69,7 @@ public class MainMenu : MonoBehaviour
         buttonsWrapper.SetActive(false);
 
         //Set graveyard scrollview items
+        graveyardManager.Populate();
 
         graveyardPage.SetActive(true);
     }

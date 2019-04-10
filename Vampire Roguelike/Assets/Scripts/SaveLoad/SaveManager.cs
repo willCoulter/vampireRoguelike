@@ -57,7 +57,6 @@ public class SaveManager : MonoBehaviour
             PlayerController.instance.gameObject.transform.position = new Vector3(saveData.playerData.position[0], saveData.playerData.position[1], saveData.playerData.position[2]);
 
             //Set player skills
-            int index = 0;
 
             //Loop through saved skill id's
             foreach (int playerSkill in saveData.playerData.skills)
@@ -70,7 +69,6 @@ public class SaveManager : MonoBehaviour
                     {
                         //If so, add to players current skills
                         SkillInventory.instance.Add(skill);
-                        index++;
                     }
                 }
             }

@@ -97,9 +97,8 @@ public class PlayerController : MonoBehaviour
         state = State.Dead;
 
         UIManager.instance.DisplayDeathMenu();
-        Destroy(gameObject);
-
         SaveSystem.SaveToGraveyard();
+        Destroy(gameObject);
     }
 
     private void ChangeDirection()

@@ -13,7 +13,7 @@ public static class SaveSystem
         FileStream stream = new FileStream(path, FileMode.Create);
 
         PlayerData playerData = new PlayerData(player);
-        LevelData levelData = new LevelData();
+        LevelData levelData = new LevelData(GameManager.instance);
 
         SaveData saveData = new SaveData(levelData, playerData);
 
@@ -53,12 +53,16 @@ public static class SaveSystem
             //Load the save and store in variable
             SaveData save = LoadGame();
 
+            var currentTime = System.DateTime.Now;
+
+            GraveyardSaveData graveyardSave = new GraveyardSaveData(save.levelData, save.playerData, currentTime);
+
             //Create new file on graveyard path with current timestamp
-            string graveyardPath = Application.persistentDataPath + "/Graveyard" + "/save-" + System.DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".dat";
+            string graveyardPath = Application.persistentDataPath + "/Graveyard" + "/save-" + currentTime.ToString("dd-MM-yyyy_hh-mm-ss") + ".dat";
             FileStream stream = new FileStream(graveyardPath, FileMode.Create);
 
             //Serialize data into graveyard save
-            formatter.Serialize(stream, save);
+            formatter.Serialize(stream, graveyardSave);
             stream.Close();
 
             //Delete save
@@ -70,9 +74,9 @@ public static class SaveSystem
         }
     }
 
-    public static List<SaveData> LoadGraveyardSaves()
+    public static List<GraveyardSaveData> LoadGraveyardSaves()
     {
-        List<SaveData> saves = new List<SaveData>();
+        List<GraveyardSaveData> saves = new List<GraveyardSaveData>();
 
         //Load directory of graveyard files
         string graveyardPath = Application.persistentDataPath + "/graveyard";
@@ -91,7 +95,7 @@ public static class SaveSystem
             FileStream saveStream = new FileStream(savePath, FileMode.Open);
 
             //Deserialize data and add to list
-            saves.Add(formatter.Deserialize(saveStream) as SaveData);
+            saves.Add(formatter.Deserialize(saveStream) as GraveyardSaveData);
 
             saveStream.Close();
         }
