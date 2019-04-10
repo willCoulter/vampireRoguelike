@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
@@ -14,6 +15,13 @@ public class SaveManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this);
+        }
+
+        string graveyardPath = Application.persistentDataPath + "/Graveyard";
+
+        if (!Directory.Exists(graveyardPath)){
+            Debug.Log("Created graveyard directory");
+            Directory.CreateDirectory(graveyardPath);
         }
     }
 
