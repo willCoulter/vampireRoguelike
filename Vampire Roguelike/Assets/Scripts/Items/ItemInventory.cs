@@ -11,12 +11,6 @@ public class ItemInventory : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null)
-        {
-            Debug.LogWarning("More than one inventory instance");
-            return;
-        }
-
         instance = this;
     }
 
@@ -39,5 +33,10 @@ public class ItemInventory : MonoBehaviour
     public void Remove(Item item)
     {
         items.Remove(item);
+    }
+
+    public void ClearAllItems()
+    {
+        items = new List<Item>();
     }
 }

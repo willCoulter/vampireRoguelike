@@ -22,7 +22,6 @@ public class Room : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isCleared = false;
         enemiesSpawned = false;
     }
 
@@ -54,7 +53,7 @@ public class Room : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         //If player enters room, lock doors and spawn enemies
-        if(collision.tag == "Player" && enemiesSpawned == false){
+        if(collision.tag == "Player" && enemiesSpawned == false && isCleared == false){
             //Lock doors
             Invoke("LockDoors", 0.2f);
             Debug.Log("Room " + roomID + " doors locked");

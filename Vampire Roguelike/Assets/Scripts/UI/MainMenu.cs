@@ -9,7 +9,15 @@ public class MainMenu : MonoBehaviour
     public GameObject newGameWarning;
     public GameObject creditsPage;
     public GameObject buttonsWrapper;
+    public GameObject continueButton;
+    public GameObject graveyardPage;
+    public GraveyardManager graveyardManager;
     public GameObject optionsPage;
+
+    void Update()
+    {
+        ToggleContinueButton();
+    }
 
     public void NewGame()
     {
@@ -20,12 +28,13 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("SampleScene");
+            NewGameConfirm();
         }
     }
 
     public void NewGameConfirm()
     {
+        SaveManager.instance.isLoading = false;
         SceneManager.LoadScene("SampleScene");
     }
 
@@ -54,6 +63,35 @@ public class MainMenu : MonoBehaviour
     {
         creditsPage.SetActive(false);
         buttonsWrapper.SetActive(true);
+    }
+
+    public void ShowGraveyard()
+    {
+        buttonsWrapper.SetActive(false);
+
+        //Set graveyard scrollview items
+        graveyardManager.Populate();
+
+        graveyardPage.SetActive(true);
+    }
+
+    public void HideGraveyard()
+    {
+        graveyardPage.SetActive(false);
+        buttonsWrapper.SetActive(true);
+    }
+
+    public void ToggleContinueButton()
+    {
+        string path = Application.persistentDataPath + "/save.dat";
+        if (File.Exists(path))
+        {
+            continueButton.SetActive(true);
+        }
+        else
+        {
+            continueButton.SetActive(false);
+        }
     }
 
     public void ShowOptions()

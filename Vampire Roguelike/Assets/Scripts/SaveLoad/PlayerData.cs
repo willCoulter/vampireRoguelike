@@ -33,7 +33,9 @@ public class PlayerData
 
         foreach(Skill skill in SkillInventory.instance.skills)
         {
-            skills.Add(skill.skillID);
+            if(skill != null){
+                skills.Add(skill.skillID);
+            }
         }
     }
 }

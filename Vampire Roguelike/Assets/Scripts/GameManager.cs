@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,12 +27,39 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        DontDestroyOnLoad(managerRoot);
+        instance = this;
+
+        Time.timeScale = 1;
 
         currentLevelNum = 1;
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SaveManager.instance.SaveGame();
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ReturnToMainMenuNoSave()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void Restart()
+    {
+        switch (currentLevelNum)
+        {
+            case 1:
+                SceneManager.LoadScene("SampleScene");
+                break;
+            default:
+                Debug.Log("Invalid level number");
+                break;
+        }
     }
 }
