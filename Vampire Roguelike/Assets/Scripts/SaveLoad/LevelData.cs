@@ -11,14 +11,14 @@ public class LevelData
     public int timeSurvived;
     public Dictionary<int, bool> roomData;
 
-    public LevelData()
+    public LevelData(GameManager instance)
     {
         roomData = new Dictionary<int, bool>();
 
-        levelNumber = GameManager.instance.currentLevelNum;
-        itemsGathered = GameManager.instance.itemsGathered;
-        enemiesSlain = GameManager.instance.enemiesSlain;
-        timeSurvived = GameManager.instance.timePlayed;
+        levelNumber = instance.currentLevelNum;
+        itemsGathered = instance.itemsGathered;
+        enemiesSlain = instance.enemiesSlain;
+        timeSurvived = instance.timePlayed;
 
         foreach (GameObject roomObject in GameObject.FindGameObjectsWithTag("Room"))
         {

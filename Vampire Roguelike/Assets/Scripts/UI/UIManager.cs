@@ -51,12 +51,18 @@ public class UIManager : MonoBehaviour
     public GameObject chestPopupBox;
 
     //Pause menu UI items;
-    public GameObject pauseBG;
+    public Image pauseBG;
     public GameObject pauseMenu;
+    public Text topBoxText;
     public Text level;
     public Text enemiesSlain;
     public Text time;
-    
+    public bool pauseMenuOpen;
+    public Image pauseTopBox;
+
+    public GameObject pauseButtonsWrapper;
+    public GameObject deathButtonsWrapper;
+
     public GameObject pauseSkill1Slot;
     public GameObject pauseSkill2Slot;
     public GameObject pauseSkill3Slot;
@@ -66,8 +72,11 @@ public class UIManager : MonoBehaviour
     private PauseSkillSlot pauseSkill3Script;
 
     private List<PauseSkillSlot> pauseSkillScriptList = new List<PauseSkillSlot>();
+    
+    public AudioSource gameAudioManager;
 
-    public bool pauseMenuOpen;
+    public Sprite deathSpriteBG;
+    public Sprite deathSpriteTop;
 
     void Awake()
     {
@@ -95,7 +104,7 @@ public class UIManager : MonoBehaviour
         UpdateSlotsEnabled();
 
         //If player presses tab, open or close pause menu
-        if (Input.GetKeyDown("tab"))
+        if (Input.GetKeyDown("tab") && PlayerController.instance.health > 0)
         {
             if (!pauseMenuOpen)
             {
@@ -129,6 +138,23 @@ public class UIManager : MonoBehaviour
                 //Clear skill at position
                 pauseSkillScriptList[skillIndex].ClearSkill();
             }
+        }
+    }
+
+    public void DisplayDeathMenu()
+    {
+        //pauseBG.sprite = deathSpriteBG;
+        //pauseTopBox.sprite = deathSpriteTop;
+
+        //topBoxText.text = "You died";
+
+        DisplayPauseMenu();
+        pauseButtonsWrapper.SetActive(false);
+        deathButtonsWrapper.SetActive(true);
+
+        if(gameAudioManager != null)
+        {
+            gameAudioManager.Stop();
         }
     }
 
@@ -197,10 +223,12 @@ public class UIManager : MonoBehaviour
             if(pauseSlot.skill == null)
             {
                 pauseSlot.gameObject.SetActive(false);
+                pauseSlot.dropButton.SetActive(false);
             }
             else if (pauseSlot.skill != null && pauseSlot.gameObject.activeSelf == false)
             {
                 pauseSlot.gameObject.SetActive(true);
+                pauseSlot.dropButton.SetActive(true);
             }
         }
     }

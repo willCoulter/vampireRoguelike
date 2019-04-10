@@ -16,12 +16,6 @@ public class InventoryUI : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null)
-        {
-            Debug.LogWarning("More than one inventory UI instance");
-            return;
-        }
-
         instance = this;
     }
 
@@ -43,7 +37,7 @@ public class InventoryUI : MonoBehaviour
 
         if (skillPopupBox != null && Input.GetKeyDown("tab"))
         {
-            Destroy(itemPopupBox);
+            Destroy(skillPopupBox);
         }
     }
 
