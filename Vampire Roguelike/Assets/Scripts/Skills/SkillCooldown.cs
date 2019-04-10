@@ -64,6 +64,15 @@ public class SkillCooldown : MonoBehaviour
         AbilityReady();
     }
 
+    public void Initialize(Skill selectedSkill)
+    {
+        skill = selectedSkill;
+        buttonImage = GetComponent<Image>();
+
+        buttonImage.sprite = skill.skillSprite;
+        darkMask.sprite = skill.skillSprite;
+    }
+
     public void DropSkill()
     {
         if(skill != null)

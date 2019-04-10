@@ -34,4 +34,9 @@ public class ItemInventory : MonoBehaviour
     {
         items.Remove(item);
     }
+
+    public void ClearAllItems()
+    {
+        items = new List<Item>();
+    }
 }

@@ -96,6 +96,7 @@ public class PlayerController : MonoBehaviour
     {
         state = State.Dead;
 
+        SaveSystem.SaveGame(this);
         UIManager.instance.DisplayDeathMenu();
         SaveSystem.SaveToGraveyard();
         Destroy(gameObject);
