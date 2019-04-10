@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player != null) { 
         //Check the enemies health
         if (health <= 0)
         {
@@ -58,6 +59,7 @@ public class Enemy : MonoBehaviour
         }
         particleStopper();
         ChangeDirection();
+        }
     }
     //Called by other gameobjects like the player accepts a damage amount of type float
     public void takeDamage(float damage)
