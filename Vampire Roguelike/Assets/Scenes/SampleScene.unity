@@ -3857,7 +3857,7 @@ MonoBehaviour:
   skillCost: {fileID: 1173806818}
   skillCD: {fileID: 1984458526}
   skillDesc: {fileID: 1398384340}
-  skillPrice: {fileID: 0}
+  skillPrice: {fileID: 1388116415}
   skillButtonPrompt: {fileID: 242577919}
   itemPopupBox: {fileID: 463535077}
   itemName: {fileID: 603693600}
@@ -11825,6 +11825,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3ea8f244423cee41b56457d936fa427, type: 3}
+--- !u!1 &1388116415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1764013231287186130, guid: f3ea8f244423cee41b56457d936fa427,
+    type: 3}
+  m_PrefabInstance: {fileID: 1388116414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1398384340 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3306200357096168444, guid: f3ea8f244423cee41b56457d936fa427,
