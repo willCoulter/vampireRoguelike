@@ -217,10 +217,12 @@ public class UIManager : MonoBehaviour
             if(pauseSlot.skill == null)
             {
                 pauseSlot.gameObject.SetActive(false);
+                pauseSlot.dropButton.SetActive(false);
             }
             else if (pauseSlot.skill != null && pauseSlot.gameObject.activeSelf == false)
             {
                 pauseSlot.gameObject.SetActive(true);
+                pauseSlot.dropButton.SetActive(true);
             }
         }
     }

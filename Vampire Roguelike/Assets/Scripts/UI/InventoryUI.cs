@@ -37,7 +37,7 @@ public class InventoryUI : MonoBehaviour
 
         if (skillPopupBox != null && Input.GetKeyDown("tab"))
         {
-            Destroy(itemPopupBox);
+            Destroy(skillPopupBox);
         }
     }
 

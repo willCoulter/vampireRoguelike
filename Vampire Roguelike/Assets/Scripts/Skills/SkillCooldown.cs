@@ -37,7 +37,7 @@ public class SkillCooldown : MonoBehaviour
             if (cooldownComplete)
             {
                 AbilityReady();
-                if (Input.GetButtonDown(abilityButtonAxisName))
+                if (Input.GetButtonDown(abilityButtonAxisName) && PlayerController.instance.blood >= skill.baseCost)
                 {
                     ButtonTriggered();
                 }
@@ -62,6 +62,15 @@ public class SkillCooldown : MonoBehaviour
 
         //Ability ready
         AbilityReady();
+    }
+
+    public void Initialize(Skill selectedSkill)
+    {
+        skill = selectedSkill;
+        buttonImage = GetComponent<Image>();
+
+        buttonImage.sprite = skill.skillSprite;
+        darkMask.sprite = skill.skillSprite;
     }
 
     public void DropSkill()

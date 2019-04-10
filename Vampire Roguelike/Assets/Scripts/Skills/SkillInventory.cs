@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SkillInventory : MonoBehaviour
 {
@@ -46,9 +47,13 @@ public class SkillInventory : MonoBehaviour
             skillSet = true;
         }
 
-        if (skillSet)
+        if (skillSet && SceneManager.GetActiveScene().name != "MainMenu")
         {
             UIManager.instance.UpdateSkillSlot(skill, indexLocation);
+            return true;
+        }else if (skillSet && SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            GraveyardManager.instance.UpdateSkillSlot(skill, indexLocation);
             return true;
         }
         else
@@ -76,7 +81,6 @@ public class SkillInventory : MonoBehaviour
 
     private bool SkillSlotAvailable()
     {
-        Debug.Log(skills.Length);
         //If all three slots full, return false
         if(skills[0] != null && skills[1] != null && skills[2] != null)
         {
