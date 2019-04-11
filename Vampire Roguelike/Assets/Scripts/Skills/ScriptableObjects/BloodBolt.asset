@@ -19,5 +19,6 @@ MonoBehaviour:
   skillSound: {fileID: 0}
   baseCD: 4
   baseCost: 0
+  skillPrice: 0
   damage: 10
   speed: 1

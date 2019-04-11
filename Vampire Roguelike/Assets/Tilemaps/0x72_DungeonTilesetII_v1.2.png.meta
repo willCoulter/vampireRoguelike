@@ -255,7 +255,7 @@ TextureImporter:
     21300500: 0x72_DungeonTilesetII_v1.2_250
     21300502: 0x72_DungeonTilesetII_v1.2_251
     21300504: 0x72_DungeonTilesetII_v1.2_252
-    21300506: 0x72_DungeonTilesetII_v1.2_253
+    21300506: stairs
     21300508: 0x72_DungeonTilesetII_v1.2_254
     21300510: 0x72_DungeonTilesetII_v1.2_255
     21300512: 0x72_DungeonTilesetII_v1.2_256
@@ -2079,7 +2079,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_253
+      name: stairs
       rect:
         serializedVersion: 2
         x: 80

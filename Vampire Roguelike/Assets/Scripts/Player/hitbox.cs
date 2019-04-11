@@ -32,7 +32,7 @@ public class hitbox : MonoBehaviour
         //Sets the sword to it's normal sprite
         spriteRenderer.sprite = normal;
         //Calls the attack facing method to make sure the sowrd is following the mouse, if pause menu not open
-        if (!UIManager.instance.pauseMenuOpen)
+        if (UIManager.instance != null && !UIManager.instance.pauseMenuOpen)
         {
             attackFacing();
         }
