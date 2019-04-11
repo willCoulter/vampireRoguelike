@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class swordHit : MonoBehaviour
+public class SwordHit : MonoBehaviour
 {
     public float damage;
 

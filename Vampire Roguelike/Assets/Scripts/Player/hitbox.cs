@@ -44,7 +44,7 @@ public class hitbox : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 playerInfo = PlayerController.instance;
-
+                PlayerController.instance.playerSounds.PlayOneShot(PlayerController.instance.swordHit);
                 //Sets the attack lag preventing spam attacks
                 attackLag = startLag;
                 playerInfo.anim.SetTrigger("Attack");

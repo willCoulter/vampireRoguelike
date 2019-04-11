@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float attackDamage;
     public float magicDamage;
     public float soakRadius;
+    public float damageDelay;
+    public float damageTimer;
     
     
     public int gold = 0;
@@ -31,6 +33,9 @@ public class PlayerController : MonoBehaviour
     public Image healthBar;
     public Image bloodBar;
     public Text goldText;
+    public AudioSource playerSounds;
+    public AudioClip swordHit;
+    public AudioClip playerHurt;
     public Controls controls1 = new Controls();
     public Dictionary<string, KeyCode> playerControls = new Dictionary<string, KeyCode>();
 
@@ -98,7 +103,9 @@ public class PlayerController : MonoBehaviour
         {
             Die();
         }
-        
+
+        damageTimer -= Time.deltaTime;
+
     }
 
     private void Die()
@@ -258,8 +265,18 @@ public class PlayerController : MonoBehaviour
 
     public void takeDamage(float damage)
     {
-        health -= damage;
-        healthBar.fillAmount = health / maxHealth;
+        if (damageTimer <= 0)
+        {
+            health -= damage;
+            healthBar.fillAmount = health / maxHealth;
+            playerSounds.PlayOneShot(playerHurt);
+            damageTimer = damageDelay;
+        }
+        else
+        {
+            
+        }
+
     }
 
     public void gainBlood(float bloodGained)
