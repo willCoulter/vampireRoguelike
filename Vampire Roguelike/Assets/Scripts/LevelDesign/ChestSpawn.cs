@@ -18,7 +18,7 @@ public class ChestSpawn : MonoBehaviour
         }
 
         //Also spawn chest if 2 rooms left and no items gathered
-        if(GameManager.instance.roomsRemaining.Count < 3 && GameManager.instance.itemsGathered == 0)
+        if(GameManager.instance.roomsRemaining.Count < 3 && GameManager.instance.itemsGathered < 3)
         {
             Instantiate(chest, transform.position, transform.rotation);
         }

@@ -6,7 +6,9 @@ public class SpawnPoint : MonoBehaviour
 {
     public List<GameObject> enemies;
     public List<GameObject> bossEnemies;
-    
+
+    public bool isBossSpawner;
+
     public void spawnEnemy(int enemyID){
 
     }

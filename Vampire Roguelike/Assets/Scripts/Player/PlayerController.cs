@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     public float magicDamage;
     public float soakRadius;
     
-    
     public int gold = 0;
 
     public float interactRadius = 3f;
@@ -39,6 +38,8 @@ public class PlayerController : MonoBehaviour
     private State state;
     private Vector3 lastMoveDirection;
     private float slideSpeed;
+
+    public bool inCombat;
 
     private enum State
     {

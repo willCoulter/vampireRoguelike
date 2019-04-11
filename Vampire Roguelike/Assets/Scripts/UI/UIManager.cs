@@ -107,7 +107,7 @@ public class UIManager : MonoBehaviour
         UpdateSlotsEnabled();
 
         //If player presses tab, open or close pause menu
-        if (Input.GetKeyDown("tab") && PlayerController.instance.health > 0)
+        if (Input.GetKeyDown("tab") && PlayerController.instance.health > 0 && !PlayerController.instance.inCombat)
         {
             if (!pauseMenuOpen)
             {

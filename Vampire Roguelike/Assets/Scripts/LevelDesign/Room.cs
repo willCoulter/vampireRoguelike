@@ -51,13 +51,12 @@ public class Room : MonoBehaviour
         //If enemies are spawned and room is not cleared
         if(isCleared == false && enemiesSpawned == true){
 
-            //Keep track of enemy count
-            //Debug.Log(enemies.Count);
-
             //If all enemies dead
             if (enemies.Count == 0)
             {
-                Debug.Log("Doors actually unlocked");
+                //Player not in combat
+                PlayerController.instance.inCombat = false;
+
                 //Unlock doors
                 UnLockDoors();
 
@@ -66,6 +65,11 @@ public class Room : MonoBehaviour
 
                 //Spawn chest by chance or if last room and no chests found
                 SpawnChest();
+
+                if (isBossRoom)
+                {
+                    SpawnStairs();
+                }
             }
         }
     }
@@ -80,6 +84,7 @@ public class Room : MonoBehaviour
 
             //Spawn enemies
             SpawnEnemies();
+            PlayerController.instance.inCombat = true;
         }
     }
 
@@ -87,17 +92,24 @@ public class Room : MonoBehaviour
         if (isBossRoom)
         {
             GameObject boss = bossSpawnPoint.GetComponent<SpawnPoint>().spawnBoss(GameManager.instance.currentLevelNum);
+            Enemy bossScript = boss.GetComponent<Enemy>();
+            bossScript.OnDestroy.AddListener(delegate { EnemySlain(bossScript.gameObject); });
+            enemies.Add(boss);
         }
         foreach(GameObject spawnPoint in spawnPoints){
-            //Spawn random enemy at spawn point
-            GameObject enemy = spawnPoint.GetComponent<SpawnPoint>().spawnRandomEnemy();
-            Enemy enemyScript = enemy.GetComponent<Enemy>();
+            //Spawn an enemy on point if not a boss spawner
+            if (!spawnPoint.GetComponent<SpawnPoint>().isBossSpawner)
+            {
+                //Spawn random enemy at spawn point
+                GameObject enemy = spawnPoint.GetComponent<SpawnPoint>().spawnRandomEnemy();
+                Enemy enemyScript = enemy.GetComponent<Enemy>();
 
-            //Add listener to call enemyslain method when gameobject destroyed
-            enemyScript.OnDestroy.AddListener(delegate{EnemySlain(enemyScript.gameObject);});
+                //Add listener to call enemyslain method when gameobject destroyed
+                enemyScript.OnDestroy.AddListener(delegate { EnemySlain(enemyScript.gameObject); });
 
-            //Add to enemy list
-            enemies.Add(enemy);
+                //Add to enemy list
+                enemies.Add(enemy);
+            }
         }
 
         enemiesSpawned = true;
