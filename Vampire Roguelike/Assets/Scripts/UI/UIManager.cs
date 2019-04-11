@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
-
     public static UIManager instance;
 
     private List<SkillCooldown> cooldownScriptList = new List<SkillCooldown>();
@@ -20,8 +19,6 @@ public class UIManager : MonoBehaviour
     private SkillCooldown skill1Script;
     private SkillCooldown skill2Script;
     private SkillCooldown skill3Script;
-
-    public GameObject canvas;
 
     //Skill popup UI items
     public GameObject skillPopupBox;
@@ -71,9 +68,9 @@ public class UIManager : MonoBehaviour
     private PauseSkillSlot pauseSkill2Script;
     private PauseSkillSlot pauseSkill3Script;
 
+    public GameObject confirmPopup;
+
     private List<PauseSkillSlot> pauseSkillScriptList = new List<PauseSkillSlot>();
-    
-    public AudioSource gameAudioManager;
 
     public Sprite deathSpriteBG;
     public Sprite deathSpriteTop;
@@ -97,6 +94,12 @@ public class UIManager : MonoBehaviour
         pauseSkillScriptList.Add(pauseSkill1Script);
         pauseSkillScriptList.Add(pauseSkill2Script);
         pauseSkillScriptList.Add(pauseSkill3Script);
+        
+    }
+
+    void Start()
+    {
+        RefreshSkillSlots();
     }
 
     void Update()
@@ -152,9 +155,9 @@ public class UIManager : MonoBehaviour
         pauseButtonsWrapper.SetActive(false);
         deathButtonsWrapper.SetActive(true);
 
-        if(gameAudioManager != null)
+        if(AudioManager.instance != null)
         {
-            gameAudioManager.Stop();
+            AudioManager.instance.audioSource.Stop();
         }
     }
 
@@ -198,7 +201,17 @@ public class UIManager : MonoBehaviour
             default:
                 return;
         }
-    
+    }
+
+    public void RefreshSkillSlots()
+    {
+        int index = 0;
+
+        foreach(Skill skill in SkillInventory.instance.skills)
+        {
+            UpdateSkillSlot(skill, index);
+            index++;
+        }
     }
 
     public void UpdateSlotsEnabled()
@@ -274,5 +287,44 @@ public class UIManager : MonoBehaviour
     public void hideChestPopup()
     {
         chestPopupBox.SetActive(false);
+    }
+
+    public void ShowConfirmPopup(Vector3 popupPosition)
+    {
+        confirmPopup.SetActive(true);
+        confirmPopup.GetComponentInChildren<Text>().text = "Press " + PlayerController.instance.playerControls["Interact"].ToString() + " to continue";
+        UtilityMethods.MoveUiElementToWorldPosition(confirmPopup.GetComponent<RectTransform>(), popupPosition);
+    }
+
+    public void HideConfirmPopup()
+    {
+        confirmPopup.SetActive(false);
+    }
+
+    public void DropSkill(int skillSlot)
+    {
+        SkillInventory.instance.Remove(skillSlot);
+    }
+
+    //Gamemanager functions - These are needed for button presses, as there is no instance of GameManager in level scenes until being passed by the main menu with DontDestroyOnLoad
+    public void BackToMain()
+    {
+        GameManager.instance.ReturnToMainMenu();
+    }
+
+    public void SaveAndExit()
+    {
+        SaveManager.instance.SaveGame();
+        GameManager.instance.ExitGame();
+    }
+
+    public void BackToMainNoSave()
+    {
+        GameManager.instance.ReturnToMainMenuNoSave();
+    }
+
+    public void Restart()
+    {
+        GameManager.instance.Restart();
     }
 }

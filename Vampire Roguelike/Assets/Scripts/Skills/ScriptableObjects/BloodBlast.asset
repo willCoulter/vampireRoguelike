@@ -19,6 +19,7 @@ MonoBehaviour:
   skillSound: {fileID: 0}
   baseCD: 3
   baseCost: 0
+  skillPrice: 0
   damage: 20
   enemiesMask:
     serializedVersion: 2

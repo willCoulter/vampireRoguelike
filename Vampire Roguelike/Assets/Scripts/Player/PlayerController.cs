@@ -50,8 +50,12 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
-
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        
         state = State.Normal;
 
         rb = GetComponent<Rigidbody2D>();
@@ -65,7 +69,12 @@ public class PlayerController : MonoBehaviour
     {
         
         health = maxHealth;
-        goldText.text = "Gold: " + gold;
+
+        if(goldText != null)
+        {
+            goldText.text = "Gold: " + gold;
+        }
+        
 
     }
 
@@ -78,7 +87,7 @@ public class PlayerController : MonoBehaviour
             case State.Normal:
                 anim.SetBool("Rolling", false);
                 //If pause menu not open, allow control of player
-                if (!UIManager.instance.pauseMenuOpen) { 
+                if (UIManager.instance != null && !UIManager.instance.pauseMenuOpen) { 
                 
                 Move();
                 ChangeDirection();

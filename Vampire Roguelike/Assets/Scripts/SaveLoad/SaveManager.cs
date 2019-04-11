@@ -43,7 +43,23 @@ public class SaveManager : MonoBehaviour
         switch (saveData.levelData.levelNumber)
         {
             case 1:
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("Level1");
+                SceneManager.sceneLoaded += OnSceneLoaded;
+                break;
+            case 2:
+                SceneManager.LoadScene("Level2");
+                SceneManager.sceneLoaded += OnSceneLoaded;
+                break;
+            case 3:
+                SceneManager.LoadScene("Level3");
+                SceneManager.sceneLoaded += OnSceneLoaded;
+                break;
+            case 4:
+                SceneManager.LoadScene("Level4");
+                SceneManager.sceneLoaded += OnSceneLoaded;
+                break;
+            case 5:
+                SceneManager.LoadScene("Level5");
                 SceneManager.sceneLoaded += OnSceneLoaded;
                 break;
             default:
@@ -62,7 +78,7 @@ public class SaveManager : MonoBehaviour
             PlayerController.instance.health = saveData.playerData.currentHealth;
             PlayerController.instance.blood = saveData.playerData.currentBlood;
             PlayerController.instance.gold = saveData.playerData.currentGold;
-            PlayerController.instance.gameObject.transform.position = new Vector3(saveData.playerData.position[0], saveData.playerData.position[1], saveData.playerData.position[2]);
+            PlayerSpawn.instance.gameObject.transform.position = new Vector3(saveData.playerData.position[0], saveData.playerData.position[1], saveData.playerData.position[2]);
 
             //Set player skills
 

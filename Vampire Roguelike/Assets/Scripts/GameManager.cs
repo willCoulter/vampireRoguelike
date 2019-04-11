@@ -6,13 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject managerRoot;
     public static GameManager instance;
     public GameObject player;
 
     private Dictionary<string, KeyCode> Controls = new Dictionary<string, KeyCode>();
-
-    public Text up, left,down,right,dodge, interact, bloodSuck, slot1,slot2,slot3;
 
     //Keep track of enemies slain
     public int enemiesSlain;
@@ -27,21 +24,50 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
-
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        
         Time.timeScale = 1;
 
         currentLevelNum = 1;
     }
 
+    public void NextFloor()
+    {
+        switch (currentLevelNum)
+        {
+            case 1:
+                SceneManager.LoadScene("Level2");
+                break;
+            case 2:
+                SceneManager.LoadScene("Level3");
+                break;
+            case 3:
+                SceneManager.LoadScene("Level4");
+                break;
+            case 4:
+                SceneManager.LoadScene("Level5");
+                break;
+            default:
+                break;
+        }
+
+        UIManager.instance.RefreshSkillSlots();
+    }
+
     public void ReturnToMainMenu()
     {
         SaveManager.instance.SaveGame();
+        Destroy(AudioManager.instance.gameObject);
         SceneManager.LoadScene("MainMenu");
     }
 
     public void ReturnToMainMenuNoSave()
     {
+        Destroy(AudioManager.instance.gameObject);
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -55,10 +81,21 @@ public class GameManager : MonoBehaviour
         switch (currentLevelNum)
         {
             case 1:
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("Level1");
+                break;
+            case 2:
+                SceneManager.LoadScene("Level2");
+                break;
+            case 3:
+                SceneManager.LoadScene("Level3");
+                break;
+            case 4:
+                SceneManager.LoadScene("Level4");
+                break;
+            case 5:
+                SceneManager.LoadScene("Level5");
                 break;
             default:
-                Debug.Log("Invalid level number");
                 break;
         }
     }

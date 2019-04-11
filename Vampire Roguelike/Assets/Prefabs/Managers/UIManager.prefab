@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5424008627139930025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5424008627139930026}
+  - component: {fileID: 5424008627139930027}
+  - component: {fileID: 5424008627139930028}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5424008627139930026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5424008627139930025}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5424008627139930027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5424008627139930025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac8cc13f8e839f4b9fd9818f652f734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill1Slot: {fileID: 0}
+  skill2Slot: {fileID: 0}
+  skill3Slot: {fileID: 0}
+  canvas: {fileID: 0}
+  skillPopupBox: {fileID: 0}
+  skillName: {fileID: 0}
+  skillCost: {fileID: 0}
+  skillCD: {fileID: 0}
+  skillDesc: {fileID: 0}
+  skillPrice: {fileID: 0}
+  skillButtonPrompt: {fileID: 0}
+  itemPopupBox: {fileID: 0}
+  itemName: {fileID: 0}
+  itemDesc: {fileID: 0}
+  itemButtonPrompt: {fileID: 0}
+  chestPopupBox: {fileID: 0}
+  pauseBG: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  topBoxText: {fileID: 0}
+  level: {fileID: 0}
+  enemiesSlain: {fileID: 0}
+  time: {fileID: 0}
+  pauseMenuOpen: 0
+  pauseTopBox: {fileID: 0}
+  pauseButtonsWrapper: {fileID: 0}
+  deathButtonsWrapper: {fileID: 0}
+  pauseSkill1Slot: {fileID: 0}
+  pauseSkill2Slot: {fileID: 0}
+  pauseSkill3Slot: {fileID: 0}
+  gameAudioManager: {fileID: 0}
+  deathSpriteBG: {fileID: 21300000, guid: edff4840b06f08749bc779abf0db8230, type: 3}
+  deathSpriteTop: {fileID: 21300000, guid: 1abcb1d2f50a9e84988404d772660519, type: 3}
+--- !u!114 &5424008627139930028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5424008627139930025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d623f8672017641b8413b82e5c2aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsParent: {fileID: 0}
+  itemPopupBox: {fileID: 0}
+  skillPopupBox: {fileID: 0}

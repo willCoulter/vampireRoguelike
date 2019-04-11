@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour
     public void NewGameConfirm()
     {
         SaveManager.instance.isLoading = false;
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level1");
     }
 
     public void NewGameDecline()
