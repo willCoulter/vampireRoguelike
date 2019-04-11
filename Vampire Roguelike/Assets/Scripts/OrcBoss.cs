@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class OrcBoss : Enemy
 {
-    public Transform weapon;
     private float attackLag;
     public float startLag;
     private bool attacking = false;

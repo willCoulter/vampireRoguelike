@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1837138540740850212}
-  - component: {fileID: 3208185754608016566}
   m_Layer: 0
   m_Name: SwordSwing
   m_TagString: Untagged
@@ -32,19 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3208185754608016566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3208185754608016565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20ec8b748c5ed2e43b2cc5f4f55af77c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 70
 --- !u!1 &7967261386695363543
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +45,7 @@ GameObject:
   - component: {fileID: 3217935655036239353}
   - component: {fileID: 7022929396253714521}
   - component: {fileID: 7967261386695363544}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +167,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7967261386695363543}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -203,6 +189,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7967261386695363543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19e69622e564eea4d9bd70ee05ab4e8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 20ec8b748c5ed2e43b2cc5f4f55af77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5

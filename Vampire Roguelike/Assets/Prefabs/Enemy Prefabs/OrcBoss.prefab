@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 2
+  maxHealth: 50
   damage: 5
-  speed: 2.86
+  speed: 3
   currentSpeed: 0
   sprite: {fileID: 5299929272026614552}
   player: {fileID: 0}
@@ -112,8 +112,8 @@ MonoBehaviour:
     type: 3}
   bloodPool: {fileID: 2798487634913739649, guid: 700a34e59bcc0e641a21b09b7a7b67e9,
     type: 3}
-  agroRadius: 4.84
-  miniumRange: 2.55
+  agroRadius: 7.71
+  miniumRange: 1.71
   OnDestroy:
     m_PersistentCalls:
       m_Calls: []
@@ -289,12 +289,12 @@ PrefabInstance:
     - target: {fileID: 1837138540740850212, guid: 3baa79911280efa41b814232895957c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 1837138540740850212, guid: 3baa79911280efa41b814232895957c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.19
       objectReference: {fileID: 0}
     - target: {fileID: 1837138540740850212, guid: 3baa79911280efa41b814232895957c1,
         type: 3}
@@ -340,16 +340,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7964745202542374273, guid: 3baa79911280efa41b814232895957c1,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7022929396253714521, guid: 3baa79911280efa41b814232895957c1,
-        type: 3}
-      propertyPath: m_BodyType
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3baa79911280efa41b814232895957c1, type: 3}
