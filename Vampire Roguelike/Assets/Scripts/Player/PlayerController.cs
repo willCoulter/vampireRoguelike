@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -106,6 +107,21 @@ public class PlayerController : MonoBehaviour
         if(health <= 0)
         {
             Die();
+        }
+
+        if(healthBar == null && SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
+        }
+
+        if(bloodBar == null && SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            bloodBar = GameObject.Find("BloodBar").GetComponent<Image>();
+        }
+
+        if(goldText == null && SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            goldText = GameObject.Find("GoldCount").GetComponent<Text>();
         }
         
     }

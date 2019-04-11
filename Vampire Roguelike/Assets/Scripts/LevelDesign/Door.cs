@@ -11,6 +11,8 @@ public class Door : MonoBehaviour
 
     public Sprite horizontalClosed;
     public Sprite horizontalOpen;
+    
+    SpriteRenderer[] srArray;
 
     private void Start()
     {
@@ -19,7 +21,14 @@ public class Door : MonoBehaviour
         //If there is an attached door, grab box collider
         if(gameObject != null){
             doorCollider = gameObject.GetComponent<BoxCollider2D>();
-            sr = gameObject.GetComponent<SpriteRenderer>();
+
+            if (isHorizontal)
+            {
+                sr = gameObject.GetComponent<SpriteRenderer>();
+            }else if (!isHorizontal)
+            {
+                srArray = gameObject.GetComponentsInChildren<SpriteRenderer>();
+            }
         }
     }
 
@@ -34,6 +43,13 @@ public class Door : MonoBehaviour
             {
                 sr.sprite = horizontalClosed;
             }
+            else
+            {
+                for(int i = 0; i < srArray.Length; i++)
+                {
+                    srArray[i].enabled = true;
+                }
+            }
 
         //If not locked and enabled, disable collider
         }else if(doorCollider.enabled == true && isLocked == false){
@@ -44,7 +60,13 @@ public class Door : MonoBehaviour
             {
                 sr.sprite = horizontalOpen;
             }
-
+            else
+            {
+                for (int i = 0; i < srArray.Length; i++)
+                {
+                    srArray[i].enabled = false;
+                }
+            }
         }
     }
 

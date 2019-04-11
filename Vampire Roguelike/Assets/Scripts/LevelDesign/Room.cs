@@ -10,19 +10,39 @@ public class Room : MonoBehaviour
 
     public int roomID;
 
-    public List<GameObject> doors;
-    public List<GameObject> spawnPoints;
+    public List<GameObject> doors = new List<GameObject>();
+    public List<GameObject> spawnPoints = new List<GameObject>();
     public List<GameObject> enemies = new List<GameObject>();
 
+    public GameObject doorWrapper;
+    public GameObject spawnWrapper;
     public GameObject chestSpawn;
 
+    public GameObject bossSpawnPoint;
+    public GameObject stairSpawn;
+    public GameObject stairPrefab;
+
     public bool isCleared;
+    public bool isBossRoom;
     bool enemiesSpawned;
 
     // Start is called before the first frame update
     void Start()
     {
         enemiesSpawned = false;
+
+        //Set doors
+        foreach(Transform child in doorWrapper.transform)
+        {
+            doors.Add(child.gameObject);
+        }
+
+        //Set spawns
+        foreach(Transform child in spawnWrapper.transform)
+        {
+            spawnPoints.Add(child.gameObject);
+        }
+
     }
 
     // Update is called once per frame
@@ -64,6 +84,10 @@ public class Room : MonoBehaviour
     }
 
     private void SpawnEnemies(){
+        if (isBossRoom)
+        {
+            GameObject boss = bossSpawnPoint.GetComponent<SpawnPoint>().spawnBoss(GameManager.instance.currentLevelNum);
+        }
         foreach(GameObject spawnPoint in spawnPoints){
             //Spawn random enemy at spawn point
             GameObject enemy = spawnPoint.GetComponent<SpawnPoint>().spawnRandomEnemy();
@@ -102,5 +126,10 @@ public class Room : MonoBehaviour
 
     void SpawnChest(){
         chestSpawn.GetComponent<ChestSpawn>().SpawnChest();
+    }
+
+    void SpawnStairs()
+    {
+        Instantiate(stairPrefab, stairSpawn.transform.position, stairSpawn.transform.rotation);
     }
 }

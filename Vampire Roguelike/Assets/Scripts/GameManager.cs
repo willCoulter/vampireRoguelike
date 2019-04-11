@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameObject player;
+    public List<GameObject> roomsRemaining;
 
     private Dictionary<string, KeyCode> Controls = new Dictionary<string, KeyCode>();
 
@@ -33,6 +34,29 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
 
         currentLevelNum = 1;
+    }
+
+    void Update()
+    {
+        CountRooms();
+    }
+
+    public void CountRooms()
+    {
+        //Grab all room objects and reset rooms remaining
+        GameObject[] rooms = GameObject.FindGameObjectsWithTag("Room");
+        roomsRemaining = new List<GameObject>();
+
+        //Loop through rooms
+        foreach(GameObject room in rooms)
+        {
+            //If room is not cleared, add to rooms remaining
+            if (!room.GetComponent<Room>().isCleared)
+            {
+                roomsRemaining.Add(room);
+            }
+        }
+
     }
 
     public void NextFloor()

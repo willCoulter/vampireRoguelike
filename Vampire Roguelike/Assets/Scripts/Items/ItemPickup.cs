@@ -50,7 +50,7 @@ public class ItemPickup : MonoBehaviour
         {
             UIManager.instance.hideItemPopup();
             playerInPickupRange = false;
-
+            GameManager.instance.itemsGathered++;
             Destroy(gameObject);
         }
     }

@@ -146,10 +146,7 @@ public class UIManager : MonoBehaviour
 
     public void DisplayDeathMenu()
     {
-        //pauseBG.sprite = deathSpriteBG;
-        //pauseTopBox.sprite = deathSpriteTop;
-
-        //topBoxText.text = "You died";
+        topBoxText.text = "You died";
 
         DisplayPauseMenu();
         pauseButtonsWrapper.SetActive(false);
@@ -209,7 +206,10 @@ public class UIManager : MonoBehaviour
 
         foreach(Skill skill in SkillInventory.instance.skills)
         {
-            UpdateSkillSlot(skill, index);
+            if(skill != null)
+            {
+                UpdateSkillSlot(skill, index);
+            }
             index++;
         }
     }

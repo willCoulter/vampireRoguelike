@@ -79,6 +79,7 @@ public class SaveManager : MonoBehaviour
             PlayerController.instance.blood = saveData.playerData.currentBlood;
             PlayerController.instance.gold = saveData.playerData.currentGold;
             PlayerSpawn.instance.gameObject.transform.position = new Vector3(saveData.playerData.position[0], saveData.playerData.position[1], saveData.playerData.position[2]);
+            PlayerSpawn.instance.MovePlayerToSpawn();
 
             //Set player skills
 
