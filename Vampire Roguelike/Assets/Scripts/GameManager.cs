@@ -12,8 +12,6 @@ public class GameManager : MonoBehaviour
 
     private Dictionary<string, KeyCode> Controls = new Dictionary<string, KeyCode>();
 
-    public Text up, left,down,right,dodge, interact, bloodSuck, slot1,slot2,slot3;
-
     //Keep track of enemies slain
     public int enemiesSlain;
 
