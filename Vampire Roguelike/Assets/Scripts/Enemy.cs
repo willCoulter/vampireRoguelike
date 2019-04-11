@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
         //Init hp from maxHp
         health = maxHealth;
         //Grab an active player from the scene
-        player = GameObject.Find("Player");
+        player = PlayerController.instance.gameObject;
         target = player.transform;
         this.GetComponent<Pathfinding.AIDestinationSetter>().target = target;
         //target = PlayerController.instance.transform;
@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour
         }
         if (canFollow() == true)
         {
+                Debug.Log("yum-yum");
             followPlayer();
         }
         particleStopper();
@@ -92,12 +93,15 @@ public class Enemy : MonoBehaviour
     {
         
         float distance = Vector3.Distance(target.position, transform.position);
+        Debug.Log(distance);
         if(distance <= miniumRange)
         {
+            Debug.Log("fasle");
             return false;
         }
         else
         {
+            Debug.Log("true");
             return true;
         }
     }
@@ -106,9 +110,10 @@ public class Enemy : MonoBehaviour
     {
         //Movement
         float distance = Vector3.Distance(target.position, transform.position);
-
+        Debug.Log("distance " + distance );
         if (distance <= agroRadius)
         {
+            //Debug.Log("litty");
             gameObject.GetComponent<Pathfinding.AIPath>().canMove = true;
             gameObject.GetComponent<Pathfinding.AIPath>().canSearch = true;
             //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
@@ -116,6 +121,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            //Debug.Log("city");
             gameObject.GetComponent<Pathfinding.AIPath>().canMove = false;
             gameObject.GetComponent<Pathfinding.AIPath>().canSearch = false;
             anim.SetBool("Moving", false);
