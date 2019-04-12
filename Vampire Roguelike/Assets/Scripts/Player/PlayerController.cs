@@ -142,7 +142,22 @@ public class PlayerController : MonoBehaviour
         SaveSystem.SaveGame(this);
         UIManager.instance.DisplayDeathMenu();
         SaveSystem.SaveToGraveyard();
-        Destroy(gameObject);
+    }
+
+    public void ResetToDefaults()
+    {
+        maxBlood = 100;
+        maxHealth = 100;
+
+        health = maxHealth;
+        blood = 0;
+
+        attackDamage = 5;
+        magicDamage = 5;
+
+        state = State.Normal;
+        inCombat = false;
+            
     }
 
     private void ChangeDirection()

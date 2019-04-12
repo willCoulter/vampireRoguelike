@@ -10,7 +10,7 @@ public class CameraMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if(PlayerController.instance!= null)
+        if(PlayerController.instance != null)
         {
             followTarget = PlayerController.instance.gameObject;
         }

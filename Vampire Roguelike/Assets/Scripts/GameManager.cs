@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class GameManager : MonoBehaviour
     public int enemiesSlain;
 
     //Keep track of time played
-    public int timePlayed;
+    public float timePlayed = 0.0f;
+    public TimeSpan timePlayedFormatted;
 
     //Keep track of level
     public int currentLevelNum;
@@ -39,6 +41,19 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         CountRooms();
+
+        //If not on main menu, start timer
+        if (SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            timePlayed += Time.deltaTime;
+            int seconds = Convert.ToInt32(timePlayed % 60);
+            timePlayedFormatted = TimeSpan.FromSeconds(seconds);
+        }
+    }
+
+    public string GetTimerString()
+    {
+        return string.Format("{0:D2}:{1:D2}:{2:D2}", timePlayedFormatted.Hours, timePlayedFormatted.Minutes, timePlayedFormatted.Seconds);
     }
 
     public void CountRooms()
@@ -79,6 +94,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        GameManager.instance.itemsGathered = 0;
         UIManager.instance.RefreshSkillSlots();
     }
 
@@ -86,12 +102,16 @@ public class GameManager : MonoBehaviour
     {
         SaveManager.instance.SaveGame();
         Destroy(AudioManager.instance.gameObject);
+        Destroy(PlayerController.instance.gameObject);
+        Destroy(gameObject);
         SceneManager.LoadScene("MainMenu");
     }
 
     public void ReturnToMainMenuNoSave()
     {
         Destroy(AudioManager.instance.gameObject);
+        Destroy(PlayerController.instance.gameObject);
+        Destroy(gameObject);
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -102,6 +122,23 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        enemiesSlain = 0;
+        itemsGathered = 0;
+
+        SkillInventory.instance.skills[0] = null;
+        SkillInventory.instance.skills[1] = null;
+        SkillInventory.instance.skills[2] = null;
+
+        ItemInventory.instance.ClearAllItems();
+
+        PlayerController.instance.ResetToDefaults();
+
+        timePlayed = 0.0f;
+
+        Time.timeScale = 1;
+
+        AudioManager.instance.audioSource.Play();
+
         switch (currentLevelNum)
         {
             case 1:
@@ -122,5 +159,10 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
+
+        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+        CameraMovement cameraScript = camera.GetComponent<CameraMovement>();
+
+        cameraScript.followTarget = PlayerController.instance.gameObject;
     }
 }

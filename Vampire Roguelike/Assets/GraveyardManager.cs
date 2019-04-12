@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class GraveyardManager : MonoBehaviour
 {
@@ -132,7 +133,11 @@ public class GraveyardManager : MonoBehaviour
         //Set text elements
         levelNum.text = "Level: " + saveData.levelData.levelNumber;
         enemiesSlain.text = "Enemies Slain: " + saveData.levelData.enemiesSlain;
-        timeSurvived.text = "Time: " + saveData.levelData.timeSurvived;
+
+        //Calculate and show time
+        int seconds = Convert.ToInt32(saveData.levelData.timeSurvived % 60);
+        TimeSpan timePlayedFormatted = TimeSpan.FromSeconds(seconds);
+        timeSurvived.text = "Time: " + string.Format("{0:D2}:{1:D2}:{2:D2}", timePlayedFormatted.Hours, timePlayedFormatted.Minutes, timePlayedFormatted.Seconds);
 
     }
 
