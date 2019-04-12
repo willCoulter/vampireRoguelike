@@ -163,6 +163,7 @@ public class UIManager : MonoBehaviour
         //Set values
         enemiesSlain.text = "Enemies Slain: " + GameManager.instance.enemiesSlain;
         level.text = "Level: " + GameManager.instance.currentLevelNum;
+        time.text = "Time: " + GameManager.instance.GetTimerString();
 
         //Refresh inventory
         InventoryUI.instance.UpdateInventory();
