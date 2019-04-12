@@ -22,6 +22,10 @@ public class Enemy : MonoBehaviour
     private GameObject healingEffect;
     public UnityEvent OnDestroy;
 
+    public AudioSource enemySounds;
+    public AudioClip hurtClip;
+    public AudioClip deathClip;
+
     public Animator anim;
     public Transform target;
     public Room room;
@@ -55,7 +59,6 @@ public class Enemy : MonoBehaviour
         }
         if (canFollow() == true)
         {
-                Debug.Log("yum-yum");
             followPlayer();
         }
         particleStopper();
@@ -65,12 +68,16 @@ public class Enemy : MonoBehaviour
     //Called by other gameobjects like the player accepts a damage amount of type float
     public void takeDamage(float damage)
     {
+
+        enemySounds.PlayOneShot(hurtClip);
         //Spawn a bloodparticle
-        healingEffect = Instantiate(bloodParticle, transform.position, Quaternion.identity);
+        GameObject healingEffect = Instantiate(bloodParticle, transform.position, Quaternion.identity);
         //Decrease the health of the enemy by the players damage
         health -= damage;
         sprite.color = Color.red;
         player.GetComponent<PlayerController>().gainBlood(2);
+        StartCoroutine(DestroyParticle(healingEffect));
+        Destroy(healingEffect);
     }
 
     void OnDrawGizmosSelected()
@@ -82,6 +89,8 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+
+        AudioManager.instance.audioSource.PlayOneShot(deathClip);
         OnDestroy.Invoke();
         OnDestroy.RemoveAllListeners();
         GameObject bloodpool = Instantiate(bloodPool, transform.position, Quaternion.identity);
@@ -161,5 +170,11 @@ public class Enemy : MonoBehaviour
         {
             sprite.flipX = false;
         }
+    }
+
+    public IEnumerator DestroyParticle(GameObject particle)
+    {
+        yield return new WaitForSeconds(1.0f);
+        Destroy(particle);
     }
 }

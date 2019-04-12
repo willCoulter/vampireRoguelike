@@ -352,7 +352,10 @@ MonoBehaviour:
   goldText: {fileID: 0}
   playerSounds: {fileID: 277389987}
   swordHit: {fileID: 8300000, guid: e02a51191f6ce614ca2dd890b05daa6a, type: 3}
+  swordMiss: {fileID: 8300000, guid: dc3829362ebd51741a94533dc0723aab, type: 3}
   playerHurt: {fileID: 8300000, guid: c82d48df9e20845419d8308990ca3127, type: 3}
+  suckFx: {fileID: 8300000, guid: 5e9c3315031e6b543949003f620d9472, type: 3}
+  inCombat: 0
 --- !u!50 &4782444987536739161
 Rigidbody2D:
   serializedVersion: 4

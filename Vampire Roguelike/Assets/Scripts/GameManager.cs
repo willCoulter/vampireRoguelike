@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
-
+        
         GameManager.instance.itemsGathered = 0;
         UIManager.instance.RefreshSkillSlots();
     }

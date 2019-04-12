@@ -29,13 +29,15 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public GameObject sword;
     public GameObject bloodSoakFx;
-
+    private bool canBloodSuck = true;
     public Image healthBar;
     public Image bloodBar;
     public Text goldText;
     public AudioSource playerSounds;
     public AudioClip swordHit;
+    public AudioClip swordMiss;
     public AudioClip playerHurt;
+    public AudioClip suckFx;
     public Controls controls1 = new Controls();
     public Dictionary<string, KeyCode> playerControls = new Dictionary<string, KeyCode>();
 
@@ -132,7 +134,7 @@ public class PlayerController : MonoBehaviour
         
 
         damageTimer -= Time.deltaTime;
-
+        healthBar.fillAmount = health / maxHealth;
     }
 
     private void Die()
@@ -335,18 +337,35 @@ public class PlayerController : MonoBehaviour
 
     public void bloodSoak()
     {
-        if (Input.GetKey(playerControls["Bloodsuck"])) {
-            Instantiate(bloodSoakFx, transform.position, Quaternion.identity);
-            Collider2D[] bloodPools = Physics2D.OverlapCircleAll(transform.position, soakRadius);
-            for (int i = 0; i < bloodPools.Length; i++)
+        if (canBloodSuck == true)
+        {
+            if (Input.GetKey(playerControls["Bloodsuck"]))
             {
-                Debug.Log("Checked");
-                if (bloodPools[i].CompareTag("Bloodpool"))
+
+                playerSounds.PlayOneShot(suckFx);
+                Instantiate(bloodSoakFx, transform.position, Quaternion.identity);
+                Collider2D[] bloodPools = Physics2D.OverlapCircleAll(transform.position, soakRadius);
+                for (int i = 0; i < bloodPools.Length; i++)
                 {
-                    Debug.Log("Bloods");
-                    bloodPools[i].GetComponent<bloodPool>().sendBlood(this.gameObject);
+                    Debug.Log("Checked");
+                    if (bloodPools[i].CompareTag("Bloodpool"))
+                    {
+                        Debug.Log("Bloods");
+                        bloodPools[i].GetComponent<bloodPool>().sendBlood(this.gameObject);
+                    }
                 }
+                StartCoroutine(suckCooldown());
             }
+            
         }
+    }
+
+    public IEnumerator suckCooldown()
+    {
+
+        canBloodSuck = false;
+        yield return new WaitForSeconds(1f);
+        canBloodSuck = true;
+
     }
 }

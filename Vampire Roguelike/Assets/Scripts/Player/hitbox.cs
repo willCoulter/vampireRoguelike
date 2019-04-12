@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class hitbox : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class hitbox : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 playerInfo = PlayerController.instance;
-                PlayerController.instance.playerSounds.PlayOneShot(PlayerController.instance.swordHit);
+                
                 //Sets the attack lag preventing spam attacks
                 attackLag = startLag;
                 playerInfo.anim.SetTrigger("Attack");
@@ -53,7 +54,7 @@ public class hitbox : MonoBehaviour
                 if (trigger == true)
                 {
                     //grabs a copy of the playerController
-                    
+                    PlayerController.instance.playerSounds.PlayOneShot(PlayerController.instance.swordHit);
                     for (int i = 0; i < enemyToHit.Count; i++) { 
                         //Grabs the script from the current enemy and calls the damage function which accepts a float for the damage amount
                         enemyToHit[i].GetComponent<Enemy>().takeDamage(playerInfo.attackDamage);
@@ -69,7 +70,10 @@ public class hitbox : MonoBehaviour
                     fireBallHit = null;
                     trigger = false;
                 }
-
+                if (SceneManager.GetActiveScene().name != "MainMenu")
+                {
+                    PlayerController.instance.playerSounds.PlayOneShot(PlayerController.instance.swordMiss);
+                }
 
 
             }
