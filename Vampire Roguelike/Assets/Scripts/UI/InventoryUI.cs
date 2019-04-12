@@ -30,7 +30,15 @@ public class InventoryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown("tab") && UIManager.instance.pauseMenuOpen && itemPopupBox != null)
+        {
+            Destroy(itemPopupBox);
+        }
+
+        if (Input.GetKeyDown("tab") && UIManager.instance.pauseMenuOpen && skillPopupBox != null)
+        {
+            Destroy(skillPopupBox);
+        }
     }
 
     public void UpdateInventory() {

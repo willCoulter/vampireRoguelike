@@ -140,7 +140,7 @@ public class Room : MonoBehaviour
         chestSpawn.GetComponent<ChestSpawn>().SpawnChest();
     }
 
-    void SpawnStairs()
+    public void SpawnStairs()
     {
         Instantiate(stairPrefab, stairSpawn.transform.position, stairSpawn.transform.rotation);
     }

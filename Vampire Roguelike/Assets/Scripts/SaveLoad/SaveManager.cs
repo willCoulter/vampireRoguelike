@@ -81,6 +81,23 @@ public class SaveManager : MonoBehaviour
             PlayerSpawn.instance.gameObject.transform.position = new Vector3(saveData.playerData.position[0], saveData.playerData.position[1], saveData.playerData.position[2]);
             PlayerSpawn.instance.MovePlayerToSpawn();
 
+            //Set store skills to null if already purchased
+            Debug.Log(saveData.levelData.storeSkillsPurchased[0]);
+            if (saveData.levelData.storeSkillsPurchased[0] == true)
+            {
+                Destroy(Store.instance.storeSkill1);
+            }
+
+            if (saveData.levelData.storeSkillsPurchased[1] == true)
+            {
+                Destroy(Store.instance.storeSkill2);
+            }
+
+            if (saveData.levelData.storeSkillsPurchased[2] == true)
+            {
+                Destroy(Store.instance.storeSkill3);
+            }
+
             //Set player skills
 
             //Loop through saved skill id's
@@ -122,6 +139,11 @@ public class SaveManager : MonoBehaviour
                         if(entry.Key == room.roomID)
                         {
                             room.isCleared = entry.Value;
+
+                            if(saveData.levelData.bossDefeated && room.isBossRoom)
+                            {
+                                room.SpawnStairs();
+                            }
                         }
                     }
                 }
