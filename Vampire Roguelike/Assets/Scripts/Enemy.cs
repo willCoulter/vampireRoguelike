@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour
         //Decrease the health of the enemy by the players damage
         health -= damage;
         sprite.color = Color.red;
-        player.GetComponent<PlayerController>().gainBlood(2);
+        player.GetComponent<PlayerController>().gainBlood(5);
         StartCoroutine(DestroyParticle(healingEffect));
         Destroy(healingEffect);
     }

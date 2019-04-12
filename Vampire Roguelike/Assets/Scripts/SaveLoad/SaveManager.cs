@@ -157,6 +157,7 @@ public class SaveManager : MonoBehaviour
 
             //Loading done
             isLoading = false;
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }
 }

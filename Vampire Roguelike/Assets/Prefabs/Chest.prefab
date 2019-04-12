@@ -47,9 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupPrefab: {fileID: 2671987006812946137, guid: 07ae1983a365e46c8b4b4c27cd77fd0c,
     type: 3}
-  allItems:
-  - {fileID: 11400000, guid: 3ed1318ebb25ff047b177dd906678507, type: 2}
-  - {fileID: 11400000, guid: 9ebabdba1d6874c0f97156e1b815ffdf, type: 2}
+  openSprite: {fileID: 21300572, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
 --- !u!61 &6113591937650743558
 BoxCollider2D:
   m_ObjectHideFlags: 0

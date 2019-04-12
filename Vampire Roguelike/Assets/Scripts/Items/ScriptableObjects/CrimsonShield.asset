@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2379917ad9a74a4595796e6f1c11c64, type: 3}
-  m_Name: HealthPercent
+  m_Script: {fileID: 11500000, guid: 4cf5cb6f3129d4275b5934ff4e38dfa9, type: 3}
+  m_Name: CrimsonShield
   m_EditorClassIdentifier: 
-  itemID: 2
-  itemName: New Item
-  desc: Increases max health by 25%
-  itemSprite: {fileID: 21300610, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
-  buffPercent: 25
+  itemID: 3
+  itemName: Crimson Shield
+  desc: Increases max health by 20
+  itemSprite: {fileID: 21300506, guid: 3a0c1011c1400aa4e857d84527167b92, type: 3}
+  buffAmount: 20
   buff: 0

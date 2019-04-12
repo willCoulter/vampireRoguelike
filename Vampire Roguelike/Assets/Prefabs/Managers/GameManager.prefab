@@ -63,8 +63,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allItems:
-  - {fileID: 11400000, guid: 9ebabdba1d6874c0f97156e1b815ffdf, type: 2}
+  - {fileID: 11400000, guid: 98bb8df010a805b45bc5b345db07b502, type: 2}
+  - {fileID: 11400000, guid: e49b317938ef2bd49ab0411ab2412153, type: 2}
   - {fileID: 11400000, guid: 3ed1318ebb25ff047b177dd906678507, type: 2}
+  - {fileID: 11400000, guid: 2ef446cf72ad888419546a1e64f34551, type: 2}
+  - {fileID: 11400000, guid: 0646a9a660811c140b572dca1e169646, type: 2}
+  - {fileID: 11400000, guid: 17d47d86e458e18498dacb7938b99a43, type: 2}
+  - {fileID: 11400000, guid: b0dfc0765e1f26746b8add3582f706ac, type: 2}
+  - {fileID: 11400000, guid: 7c8cc779876b3be4cb30d0b2be80e2de, type: 2}
+  - {fileID: 11400000, guid: df7b84e028a29de488a03df1aa0d2ce2, type: 2}
   slots: 15
   items: []
 --- !u!114 &8211326767871328616
@@ -80,6 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  roomsRemaining: []
   enemiesSlain: 0
   timePlayed: 0
   currentLevelNum: 0

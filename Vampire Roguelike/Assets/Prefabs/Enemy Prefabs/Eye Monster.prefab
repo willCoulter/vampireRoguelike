@@ -123,6 +123,7 @@ MonoBehaviour:
   damage: 1
   speed: 2
   currentSpeed: 0
+  goldValue: 0
   sprite: {fileID: 4674723749684006162}
   player: {fileID: 0}
   bloodParticle: {fileID: 78693775177663599, guid: fac58f2e99407224583b2884fae93699,
@@ -131,8 +132,8 @@ MonoBehaviour:
     type: 3}
   bloodPool: {fileID: 2798487634913739649, guid: 700a34e59bcc0e641a21b09b7a7b67e9,
     type: 3}
-  agroRadius: 5.58
-  miniumRange: 1.67
+  agroRadius: 6.4
+  miniumRange: 1.1
   OnDestroy:
     m_PersistentCalls:
       m_Calls: []

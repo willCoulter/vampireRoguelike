@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask layerMask;
 
     public float speed = 7f;
-    public float maxHealth = 100;
+    public float maxHealth;
     public float health;
     public float maxBlood;
     public float blood;
@@ -70,7 +70,11 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         playerControls = controls1.playerControls();
+
+        maxHealth = 100f;
         health = maxHealth;
+        maxBlood = 100f;
+        blood = 0f;
     }
 
     // Start is called before the first frame update
@@ -128,10 +132,18 @@ public class PlayerController : MonoBehaviour
         {
             goldText.text = "Gold: " + gold;
         }
-        
+
+        if(bloodBar != null)
+        {
+            bloodBar.fillAmount = blood / maxBlood;
+        }
+
+        if(healthBar != null)
+        {
+            healthBar.fillAmount = health / maxHealth;
+        }
 
         damageTimer -= Time.deltaTime;
-        //healthBar.fillAmount = health / maxHealth;
     }
 
     private void Die()
@@ -145,8 +157,8 @@ public class PlayerController : MonoBehaviour
 
     public void ResetToDefaults()
     {
-        maxBlood = 100;
-        maxHealth = 100;
+        maxBlood = 100f;
+        maxHealth = 100f;
         gold = 0;
 
         health = maxHealth;
@@ -314,17 +326,14 @@ public class PlayerController : MonoBehaviour
             playerSounds.PlayOneShot(playerHurt);
             damageTimer = damageDelay;
         }
-        else
-        {
-            
-        }
-
     }
 
     public void gainBlood(float bloodGained)
     {
-        blood += bloodGained;
-        bloodBar.fillAmount = blood / 100f;
+        if(blood + bloodGained <= maxBlood)
+        {
+            blood += bloodGained;
+        }
     }
 
     public void gainGold(int goldGained)

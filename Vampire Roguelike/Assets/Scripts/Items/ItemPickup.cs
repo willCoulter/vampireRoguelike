@@ -21,6 +21,11 @@ public class ItemPickup : MonoBehaviour
         {
             PickUp();
         }
+
+        if (item != null)
+        {
+            GetComponent<SpriteRenderer>().sprite = item.itemSprite;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)

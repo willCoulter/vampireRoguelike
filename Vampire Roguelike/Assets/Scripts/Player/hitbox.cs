@@ -53,8 +53,11 @@ public class hitbox : MonoBehaviour
                 //Checks to make sure the collider has an active trigger
                 if (trigger == true)
                 {
-                    //grabs a copy of the playerController
-                    PlayerController.instance.playerSounds.PlayOneShot(PlayerController.instance.swordHit);
+                    if(UIManager.instance != null && !UIManager.instance.pauseMenuOpen)
+                    {
+                        //grabs a copy of the playerController
+                        PlayerController.instance.playerSounds.PlayOneShot(PlayerController.instance.swordHit);
+                    }
                     for (int i = 0; i < enemyToHit.Count; i++) { 
                         //Grabs the script from the current enemy and calls the damage function which accepts a float for the damage amount
                         enemyToHit[i].GetComponent<Enemy>().takeDamage(playerInfo.attackDamage);
@@ -70,7 +73,7 @@ public class hitbox : MonoBehaviour
                     fireBallHit = null;
                     trigger = false;
                 }
-                if (SceneManager.GetActiveScene().name != "MainMenu")
+                if (SceneManager.GetActiveScene().name != "MainMenu" && UIManager.instance != null && !UIManager.instance.pauseMenuOpen)
                 {
                     PlayerController.instance.playerSounds.PlayOneShot(PlayerController.instance.swordMiss);
                 }

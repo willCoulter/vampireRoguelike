@@ -140,26 +140,7 @@ public class GameManager : MonoBehaviour
 
         AudioManager.instance.audioSource.Play();
 
-        switch (currentLevelNum)
-        {
-            case 1:
-                SceneManager.LoadScene("Level1");
-                break;
-            case 2:
-                SceneManager.LoadScene("Level2");
-                break;
-            case 3:
-                SceneManager.LoadScene("Level3");
-                break;
-            case 4:
-                SceneManager.LoadScene("Level4");
-                break;
-            case 5:
-                SceneManager.LoadScene("Level5");
-                break;
-            default:
-                break;
-        }
+        SceneManager.LoadScene("Level1");
 
         GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
         CameraMovement cameraScript = camera.GetComponent<CameraMovement>();
