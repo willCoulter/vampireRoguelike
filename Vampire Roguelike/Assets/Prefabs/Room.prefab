@@ -97,7 +97,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.019062042, y: -4.434107}
+  m_Offset: {x: 0.019062042, y: -4.3467064}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -108,7 +108,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.997286, y: 6.141861}
+  m_Size: {x: 12.997286, y: 5.96706}
   m_EdgeRadius: 0
 --- !u!114 &3907885704751482843
 MonoBehaviour:
@@ -122,11 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97eb16c2fd2064c209d0d47269345c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomID: 1
-  doors:
-  - {fileID: 0}
-  spawnPoints:
-  - {fileID: 5604765735725626156}
+  roomID: 6
+  doors: []
+  spawnPoints: []
   enemies: []
   doorWrapper: {fileID: 7244668956585673206}
   spawnWrapper: {fileID: 8669883274917312515}
@@ -310,12 +308,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b2cac1cfda999d48b486446ddd2a86d, type: 3}
---- !u!1 &5604765735725626156 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6543558049334979700, guid: 3b2cac1cfda999d48b486446ddd2a86d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1659369607111548760}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3602424508506899312 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2808313074258385960, guid: 3b2cac1cfda999d48b486446ddd2a86d,
