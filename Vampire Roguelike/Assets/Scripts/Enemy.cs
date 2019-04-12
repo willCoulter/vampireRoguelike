@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public int damage;
     public float speed;
     public float currentSpeed;
+    public int goldValue;
     public SpriteRenderer sprite;
     public GameObject player;
     public GameObject bloodParticle;
@@ -53,7 +54,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             //If they have less than or equal to 0 health kill the enemy with the die function and reward the player with gold
-            player.GetComponent<PlayerController>().gainGold(2);
+            player.GetComponent<PlayerController>().gainGold(goldValue);
             GameManager.instance.enemiesSlain++;
             Die();
         }

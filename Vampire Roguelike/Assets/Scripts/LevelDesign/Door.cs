@@ -11,7 +11,9 @@ public class Door : MonoBehaviour
 
     public Sprite horizontalClosed;
     public Sprite horizontalOpen;
-    
+    public AudioClip doorLockClip;
+
+
     SpriteRenderer[] srArray;
 
     private void Start()
@@ -71,6 +73,7 @@ public class Door : MonoBehaviour
     }
 
     public void LockDoor(){
+        AudioManager.instance.audioSource.PlayOneShot(doorLockClip);
         isLocked = true;
     }
 

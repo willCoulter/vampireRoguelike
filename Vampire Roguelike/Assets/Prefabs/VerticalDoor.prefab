@@ -129,6 +129,7 @@ MonoBehaviour:
   isHorizontal: 0
   horizontalClosed: {fileID: 0}
   horizontalOpen: {fileID: 0}
+  doorLockClip: {fileID: 8300000, guid: a1759c81ec491c94392e654705a2e4c2, type: 3}
 --- !u!61 &376862222021645110
 BoxCollider2D:
   m_ObjectHideFlags: 0
