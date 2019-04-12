@@ -86,12 +86,16 @@ public class GameManager : MonoBehaviour
     {
         SaveManager.instance.SaveGame();
         Destroy(AudioManager.instance.gameObject);
+        Destroy(PlayerController.instance.gameObject);
+        Destroy(gameObject);
         SceneManager.LoadScene("MainMenu");
     }
 
     public void ReturnToMainMenuNoSave()
     {
         Destroy(AudioManager.instance.gameObject);
+        Destroy(PlayerController.instance.gameObject);
+        Destroy(gameObject);
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -102,6 +106,21 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        enemiesSlain = 0;
+        itemsGathered = 0;
+
+        SkillInventory.instance.skills[0] = null;
+        SkillInventory.instance.skills[1] = null;
+        SkillInventory.instance.skills[2] = null;
+
+        ItemInventory.instance.ClearAllItems();
+
+        PlayerController.instance.ResetToDefaults();
+
+        Time.timeScale = 1;
+
+        AudioManager.instance.audioSource.Play();
+
         switch (currentLevelNum)
         {
             case 1:
@@ -122,5 +141,10 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
+
+        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+        CameraMovement cameraScript = camera.GetComponent<CameraMovement>();
+
+        cameraScript.followTarget = PlayerController.instance.gameObject;
     }
 }
