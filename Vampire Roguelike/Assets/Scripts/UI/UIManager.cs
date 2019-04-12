@@ -252,12 +252,16 @@ public class UIManager : MonoBehaviour
         skillCost.GetComponent<Text>().text = "Cost: " + skill.baseCost;
         skillCD.GetComponent<Text>().text = "CD: " + skill.baseCD + "s";
         skillDesc.GetComponent<Text>().text = skill.desc;
-        skillButtonPrompt.GetComponent<Text>().text = "Press " + PlayerController.instance.playerControls["Interact"].ToString() + " to pick up."; 
+
         if (skill.skillPrice > 0) {
             skillPrice.GetComponent<Text>().text = "Gold Price: " + skill.skillPrice.ToString();
             skillButtonPrompt.GetComponent<Text>().text = "Press " + PlayerController.instance.playerControls["Interact"].ToString() + " to buy.";
         }
-        
+        else
+        {
+            skillPrice.GetComponent<Text>().text = "";
+            skillButtonPrompt.GetComponent<Text>().text = "Press " + PlayerController.instance.playerControls["Interact"].ToString() + " to pick up.";
+        }
 
         skillPopupBox.SetActive(true);
         UtilityMethods.MoveUiElementToWorldPosition(skillPopupBox.GetComponent<RectTransform>(), popupPosition);

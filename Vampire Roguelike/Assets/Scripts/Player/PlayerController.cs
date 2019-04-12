@@ -69,15 +69,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         health = maxHealth;
-
-        if(goldText != null)
-        {
-            goldText.text = "Gold: " + gold;
-        }
-        
-
     }
 
     // Update is called once per frame
@@ -124,7 +116,11 @@ public class PlayerController : MonoBehaviour
         {
             goldText = GameObject.Find("GoldCount").GetComponent<Text>();
         }
-        
+
+        if (goldText != null)
+        {
+            goldText.text = "Gold: " + gold;
+        }
     }
 
     private void Die()
@@ -140,6 +136,7 @@ public class PlayerController : MonoBehaviour
     {
         maxBlood = 100;
         maxHealth = 100;
+        gold = 0;
 
         health = maxHealth;
         blood = 0;

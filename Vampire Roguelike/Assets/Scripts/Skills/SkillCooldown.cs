@@ -85,6 +85,7 @@ public class SkillCooldown : MonoBehaviour
 
             //Set skill of skillpickup
             droppedSkillScript.skill = skill;
+            droppedSkillScript.skill.skillPrice = 0;
 
             //Clear properties
             skill = null;

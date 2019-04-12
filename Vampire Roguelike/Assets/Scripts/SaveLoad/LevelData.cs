@@ -10,6 +10,7 @@ public class LevelData
     public int enemiesSlain;
     public float timeSurvived;
     public bool bossDefeated;
+    public bool[] storeSkillsPurchased;
     public Dictionary<int, bool> roomData;
 
     public LevelData(GameManager instance)
@@ -21,6 +22,8 @@ public class LevelData
         enemiesSlain = instance.enemiesSlain;
         timeSurvived = instance.timePlayed;
         bossDefeated = false;
+
+        storeSkillsPurchased = Store.instance.storeSkillsPurchased;
 
         foreach (GameObject roomObject in GameObject.FindGameObjectsWithTag("Room"))
         {
