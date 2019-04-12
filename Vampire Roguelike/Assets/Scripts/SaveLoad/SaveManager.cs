@@ -122,6 +122,11 @@ public class SaveManager : MonoBehaviour
                         if(entry.Key == room.roomID)
                         {
                             room.isCleared = entry.Value;
+
+                            if(saveData.levelData.bossDefeated && room.isBossRoom)
+                            {
+                                room.SpawnStairs();
+                            }
                         }
                     }
                 }
