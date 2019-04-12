@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,7 +19,6 @@ public class PlayerController : MonoBehaviour
     public float damageDelay;
     public float damageTimer;
     
-    
     public int gold = 0;
 
     public float interactRadius = 3f;
@@ -29,13 +29,15 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public GameObject sword;
     public GameObject bloodSoakFx;
-
+    private bool canBloodSuck = true;
     public Image healthBar;
     public Image bloodBar;
     public Text goldText;
     public AudioSource playerSounds;
     public AudioClip swordHit;
+    public AudioClip swordMiss;
     public AudioClip playerHurt;
+    public AudioClip suckFx;
     public Controls controls1 = new Controls();
     public Dictionary<string, KeyCode> playerControls = new Dictionary<string, KeyCode>();
 
@@ -43,6 +45,8 @@ public class PlayerController : MonoBehaviour
     private State state;
     private Vector3 lastMoveDirection;
     private float slideSpeed;
+
+    public bool inCombat;
 
     private enum State
     {
@@ -55,8 +59,12 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
-
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        
         state = State.Normal;
 
         rb = GetComponent<Rigidbody2D>();
@@ -70,7 +78,12 @@ public class PlayerController : MonoBehaviour
     {
         
         health = maxHealth;
-        goldText.text = "Gold: " + gold;
+
+        if(goldText != null)
+        {
+            goldText.text = "Gold: " + gold;
+        }
+        
 
     }
 
@@ -83,7 +96,7 @@ public class PlayerController : MonoBehaviour
             case State.Normal:
                 anim.SetBool("Rolling", false);
                 //If pause menu not open, allow control of player
-                if (!UIManager.instance.pauseMenuOpen) { 
+                if (UIManager.instance != null && !UIManager.instance.pauseMenuOpen) { 
                 
                 Move();
                 ChangeDirection();
@@ -104,8 +117,24 @@ public class PlayerController : MonoBehaviour
             Die();
         }
 
-        damageTimer -= Time.deltaTime;
+        if(healthBar == null && SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
+        }
 
+        if(bloodBar == null && SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            bloodBar = GameObject.Find("BloodBar").GetComponent<Image>();
+        }
+
+        if(goldText == null && SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            goldText = GameObject.Find("GoldCount").GetComponent<Text>();
+        }
+        
+
+        damageTimer -= Time.deltaTime;
+        healthBar.fillAmount = health / maxHealth;
     }
 
     private void Die()
@@ -115,7 +144,22 @@ public class PlayerController : MonoBehaviour
         SaveSystem.SaveGame(this);
         UIManager.instance.DisplayDeathMenu();
         SaveSystem.SaveToGraveyard();
-        Destroy(gameObject);
+    }
+
+    public void ResetToDefaults()
+    {
+        maxBlood = 100;
+        maxHealth = 100;
+
+        health = maxHealth;
+        blood = 0;
+
+        attackDamage = 5;
+        magicDamage = 5;
+
+        state = State.Normal;
+        inCombat = false;
+            
     }
 
     private void ChangeDirection()
@@ -293,18 +337,35 @@ public class PlayerController : MonoBehaviour
 
     public void bloodSoak()
     {
-        if (Input.GetKey(playerControls["Bloodsuck"])) {
-            Instantiate(bloodSoakFx, transform.position, Quaternion.identity);
-            Collider2D[] bloodPools = Physics2D.OverlapCircleAll(transform.position, soakRadius);
-            for (int i = 0; i < bloodPools.Length; i++)
+        if (canBloodSuck == true)
+        {
+            if (Input.GetKey(playerControls["Bloodsuck"]))
             {
-                Debug.Log("Checked");
-                if (bloodPools[i].CompareTag("Bloodpool"))
+
+                playerSounds.PlayOneShot(suckFx);
+                Instantiate(bloodSoakFx, transform.position, Quaternion.identity);
+                Collider2D[] bloodPools = Physics2D.OverlapCircleAll(transform.position, soakRadius);
+                for (int i = 0; i < bloodPools.Length; i++)
                 {
-                    Debug.Log("Bloods");
-                    bloodPools[i].GetComponent<bloodPool>().sendBlood(this.gameObject);
+                    Debug.Log("Checked");
+                    if (bloodPools[i].CompareTag("Bloodpool"))
+                    {
+                        Debug.Log("Bloods");
+                        bloodPools[i].GetComponent<bloodPool>().sendBlood(this.gameObject);
+                    }
                 }
+                StartCoroutine(suckCooldown());
             }
+            
         }
+    }
+
+    public IEnumerator suckCooldown()
+    {
+
+        canBloodSuck = false;
+        yield return new WaitForSeconds(1f);
+        canBloodSuck = true;
+
     }
 }

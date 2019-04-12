@@ -8,7 +8,7 @@ public class LevelData
     public int levelNumber;
     public int itemsGathered;
     public int enemiesSlain;
-    public int timeSurvived;
+    public float timeSurvived;
     public Dictionary<int, bool> roomData;
 
     public LevelData(GameManager instance)

@@ -10,6 +10,8 @@ TagManager:
   - Bloodpool
   - WizardFireball
   - Room
+  - BloodBar
+  - HealthBar
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - Rooms
   - Sword
   - Projectiles
-  - 
+  - Minimap
   - 
   - 
   - 

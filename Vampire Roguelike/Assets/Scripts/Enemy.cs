@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public int damage;
     public float speed;
     public float currentSpeed;
+    public int goldValue;
     public SpriteRenderer sprite;
     public GameObject player;
     public GameObject bloodParticle;
@@ -21,6 +22,10 @@ public class Enemy : MonoBehaviour
     public float miniumRange;
     private GameObject healingEffect;
     public UnityEvent OnDestroy;
+
+    public AudioSource enemySounds;
+    public AudioClip hurtClip;
+    public AudioClip deathClip;
 
     public Animator anim;
     public Transform target;
@@ -35,7 +40,7 @@ public class Enemy : MonoBehaviour
         //Init hp from maxHp
         health = maxHealth;
         //Grab an active player from the scene
-        player = GameObject.Find("Player");
+        player = PlayerController.instance.gameObject;
         target = player.transform;
         this.GetComponent<Pathfinding.AIDestinationSetter>().target = target;
         //target = PlayerController.instance.transform;
@@ -49,27 +54,31 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             //If they have less than or equal to 0 health kill the enemy with the die function and reward the player with gold
-            player.GetComponent<PlayerController>().gainGold(2);
+            player.GetComponent<PlayerController>().gainGold(goldValue);
             GameManager.instance.enemiesSlain++;
             Die();
         }
-        if (canFollow() == true)
+        if (CanFollow() == true)
         {
-            followPlayer();
+            FollowPlayer();
         }
-        particleStopper();
+        ParticleStopper();
         ChangeDirection();
         }
     }
     //Called by other gameobjects like the player accepts a damage amount of type float
     public void takeDamage(float damage)
     {
+
+        enemySounds.PlayOneShot(hurtClip);
         //Spawn a bloodparticle
-        healingEffect = Instantiate(bloodParticle, transform.position, Quaternion.identity);
+        GameObject healingEffect = Instantiate(bloodParticle, transform.position, Quaternion.identity);
         //Decrease the health of the enemy by the players damage
         health -= damage;
         sprite.color = Color.red;
         player.GetComponent<PlayerController>().gainBlood(2);
+        StartCoroutine(DestroyParticle(healingEffect));
+        Destroy(healingEffect);
     }
 
     void OnDrawGizmosSelected()
@@ -81,16 +90,19 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        //play the death sound effect
+        AudioManager.instance.audioSource.PlayOneShot(deathClip);
         OnDestroy.Invoke();
         OnDestroy.RemoveAllListeners();
+        //Drops a blood pool and give it blood equal to half the enemies hp
         GameObject bloodpool = Instantiate(bloodPool, transform.position, Quaternion.identity);
         bloodpool.GetComponent<bloodPool>().bloodAmount = maxHealth/2;
+        //Finally kill the enemy
         Destroy(gameObject);
     }
-
-    public bool canFollow()
-    {
-        
+    //Checks if the enemy is able to follow the player
+    public bool CanFollow()
+    {      
         float distance = Vector3.Distance(target.position, transform.position);
         if(distance <= miniumRange)
         {
@@ -101,17 +113,17 @@ public class Enemy : MonoBehaviour
             return true;
         }
     }
-
-    public void followPlayer()
+    //updates the A* scripts with information if the player is within agro range
+    public void FollowPlayer()
     {
         //Movement
         float distance = Vector3.Distance(target.position, transform.position);
-
         if (distance <= agroRadius)
         {
+            //Grabs and updates the aipath script 
             gameObject.GetComponent<Pathfinding.AIPath>().canMove = true;
             gameObject.GetComponent<Pathfinding.AIPath>().canSearch = true;
-            //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            gameObject.GetComponent<Pathfinding.AIPath>().maxSpeed = speed;
             anim.SetBool("Moving", true);
         }
         else
@@ -121,8 +133,8 @@ public class Enemy : MonoBehaviour
             anim.SetBool("Moving", false);
         }
     }
-
-    public void heal(float healAmount)
+    //Heals the enemy by a given amount if they are missing health
+    public void Heal(float healAmount)
     {
         if (health < maxHealth)
         {
@@ -136,14 +148,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void particleStopper()
+    public void ParticleStopper()
     {
         if (healingEffect != null && healingEffect.GetComponent<ParticleSystem>().isStopped)
         {
             Destroy(healingEffect);
         }
     }
-
+    //Flips the enemy spirite so they always face the player
     private void ChangeDirection()
     {
 
@@ -155,5 +167,11 @@ public class Enemy : MonoBehaviour
         {
             sprite.flipX = false;
         }
+    }
+
+    public IEnumerator DestroyParticle(GameObject particle)
+    {
+        yield return new WaitForSeconds(3.0f);
+        Destroy(particle);
     }
 }
