@@ -21,16 +21,16 @@ public class OrcWarrior : Enemy
     {
         if (attacking == false)
         {
-            //grabs the differnce in the swords positions and the mouses
+            //grabs the differnce in the objects positions and the target
             Vector2 direction = new Vector2(
              target.transform.position.x - transform.position.x,
              target.transform.position.y - transform.position.y
              );
-            //updates the swords transfrom from the right
+            //updates the objects transfrom from the right
             spearPrefab.transform.right = direction;
         }
     }
-
+    //Checks if the enemy can make an attack based on a delay
     private void NormalAttack()
     {
         if (attacking == false)
@@ -53,11 +53,16 @@ public class OrcWarrior : Enemy
 
     public IEnumerator AttackCo()
     {
-        spearPrefab.SetActive(true);
+        //Tells the script an attack is going on
         attacking = true;
+        //Actiave the object and set it's damage
+        spearPrefab.SetActive(true);
+        spearPrefab.GetComponent<SwordHit>().damage = damage;
+        //Start an animation and then wait to disable it
         spearAnim.SetBool("swing", true);
         yield return new WaitForSeconds(0.5f);
         spearAnim.SetBool("swing", false);
+        //Reset to defaults
         attacking = false;
         spearPrefab.SetActive(false);
         attackLag = startLag;

@@ -57,11 +57,11 @@ public class Enemy : MonoBehaviour
             GameManager.instance.enemiesSlain++;
             Die();
         }
-        if (canFollow() == true)
+        if (CanFollow() == true)
         {
-            followPlayer();
+            FollowPlayer();
         }
-        particleStopper();
+        ParticleStopper();
         ChangeDirection();
         }
     }
@@ -89,55 +89,51 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-
+        //play the death sound effect
         AudioManager.instance.audioSource.PlayOneShot(deathClip);
         OnDestroy.Invoke();
         OnDestroy.RemoveAllListeners();
+        //Drops a blood pool and give it blood equal to half the enemies hp
         GameObject bloodpool = Instantiate(bloodPool, transform.position, Quaternion.identity);
         bloodpool.GetComponent<bloodPool>().bloodAmount = maxHealth/2;
+        //Finally kill the enemy
         Destroy(gameObject);
     }
-
-    public bool canFollow()
-    {
-        
+    //Checks if the enemy is able to follow the player
+    public bool CanFollow()
+    {      
         float distance = Vector3.Distance(target.position, transform.position);
-        Debug.Log(distance);
         if(distance <= miniumRange)
         {
-            Debug.Log("fasle");
             return false;
         }
         else
         {
-            Debug.Log("true");
             return true;
         }
     }
-
-    public void followPlayer()
+    //updates the A* scripts with information if the player is within agro range
+    public void FollowPlayer()
     {
         //Movement
         float distance = Vector3.Distance(target.position, transform.position);
-        Debug.Log("distance " + distance );
         if (distance <= agroRadius)
         {
-            //Debug.Log("litty");
+            //Grabs and updates the aipath script 
             gameObject.GetComponent<Pathfinding.AIPath>().canMove = true;
             gameObject.GetComponent<Pathfinding.AIPath>().canSearch = true;
-            //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            gameObject.GetComponent<Pathfinding.AIPath>().maxSpeed = speed;
             anim.SetBool("Moving", true);
         }
         else
         {
-            //Debug.Log("city");
             gameObject.GetComponent<Pathfinding.AIPath>().canMove = false;
             gameObject.GetComponent<Pathfinding.AIPath>().canSearch = false;
             anim.SetBool("Moving", false);
         }
     }
-
-    public void heal(float healAmount)
+    //Heals the enemy by a given amount if they are missing health
+    public void Heal(float healAmount)
     {
         if (health < maxHealth)
         {
@@ -151,14 +147,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void particleStopper()
+    public void ParticleStopper()
     {
         if (healingEffect != null && healingEffect.GetComponent<ParticleSystem>().isStopped)
         {
             Destroy(healingEffect);
         }
     }
-
+    //Flips the enemy spirite so they always face the player
     private void ChangeDirection()
     {
 
@@ -174,7 +170,7 @@ public class Enemy : MonoBehaviour
 
     public IEnumerator DestroyParticle(GameObject particle)
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(3.0f);
         Destroy(particle);
     }
 }
