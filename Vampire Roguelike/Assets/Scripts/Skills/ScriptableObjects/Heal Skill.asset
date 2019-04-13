@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillID: 4
   skillName: Blood Conversion
-  desc: Convert 10 blood into 10 health
+  desc: Convert 25 blood into 25 health
   skillSprite: {fileID: 21300668, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
   skillSound: {fileID: 0}
-  baseCD: 2
-  baseCost: 10
-  skillPrice: 5
+  baseCD: 5
+  baseCost: 25
+  skillPrice: 25

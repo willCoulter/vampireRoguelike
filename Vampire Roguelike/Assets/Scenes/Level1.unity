@@ -1814,12 +1814,12 @@ PrefabInstance:
         type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: 169eb78a7ee8141e5bd33d99e33c6edc,
+      objectReference: {fileID: 11400000, guid: f569c5f3411d61b4b87fb6a75112c470,
         type: 2}
     - target: {fileID: 6710064407932344076, guid: 30e3673fa3dbdad418593cdea2cf651c,
         type: 3}
       propertyPath: price
-      value: 11
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6354359837524825846, guid: 30e3673fa3dbdad418593cdea2cf651c,
         type: 3}
@@ -1836,12 +1836,12 @@ PrefabInstance:
         type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: faff92f6cee4244c5b9ffabf26431b9d,
+      objectReference: {fileID: 11400000, guid: f1d2e72a4ff586340bd3707cd05fe0ee,
         type: 2}
     - target: {fileID: 7111095795426704531, guid: 30e3673fa3dbdad418593cdea2cf651c,
         type: 3}
       propertyPath: price
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30e3673fa3dbdad418593cdea2cf651c, type: 3}

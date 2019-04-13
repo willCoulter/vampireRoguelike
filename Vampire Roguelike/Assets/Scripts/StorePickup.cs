@@ -8,7 +8,7 @@ public class StorePickup : SkillPickup
 
     public override void PickUp()
     {
-        if(PlayerController.instance.gold > price)
+        if(PlayerController.instance.gold >= price)
         {
             bool wasPickedUp = SkillInventory.instance.Add(skill);
 
