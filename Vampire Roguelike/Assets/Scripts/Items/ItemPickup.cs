@@ -6,13 +6,25 @@ public class ItemPickup : MonoBehaviour
 {
     public Item item;
     private bool playerInPickupRange;
+    private Controls controls1 = new Controls();
+    public KeyCode interactKey;
+
+    private void Start()
+    {
+       interactKey = PlayerController.instance.playerControls["Interact"];
+    }
 
     private void Update()
     {
         //If in range, and player presses e, pick up skill
-        if (playerInPickupRange && Input.GetKeyDown(KeyCode.E))
+        if (playerInPickupRange && Input.GetKeyDown(interactKey))
         {
             PickUp();
+        }
+
+        if (item != null)
+        {
+            GetComponent<SpriteRenderer>().sprite = item.itemSprite;
         }
     }
 
@@ -43,7 +55,7 @@ public class ItemPickup : MonoBehaviour
         {
             UIManager.instance.hideItemPopup();
             playerInPickupRange = false;
-
+            GameManager.instance.itemsGathered++;
             Destroy(gameObject);
         }
     }

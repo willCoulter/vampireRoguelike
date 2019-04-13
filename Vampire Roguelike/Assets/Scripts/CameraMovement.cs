@@ -10,7 +10,10 @@ public class CameraMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        if(PlayerController.instance != null)
+        {
+            followTarget = PlayerController.instance.gameObject;
+        }
     }
 
     // Update is called once per frame

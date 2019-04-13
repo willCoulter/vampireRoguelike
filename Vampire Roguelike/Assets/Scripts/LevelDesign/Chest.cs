@@ -8,7 +8,7 @@ public class Chest : MonoBehaviour
     bool playerInPickupRange;
 
     public GameObject pickupPrefab;
-    public List<Item> allItems;
+    public Sprite openSprite;
 
     private void Update()
     {
@@ -44,8 +44,9 @@ public class Chest : MonoBehaviour
         ItemPickup itemScript = itemDrop.GetComponent<ItemPickup>();
 
         //Generate random number and set itempickup item
-        int rand = Random.Range(0, allItems.Count - 1);
-        itemScript.item = allItems[rand];
+        int rand = Random.Range(0, ItemInventory.instance.allItems.Count);
+        itemScript.item = ItemInventory.instance.allItems[rand];
 
+        GetComponent<SpriteRenderer>().sprite = openSprite;
     }
 }

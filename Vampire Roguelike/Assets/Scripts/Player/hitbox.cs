@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class hitbox : MonoBehaviour
 {
@@ -10,26 +11,34 @@ public class hitbox : MonoBehaviour
     public GameObject sword;
     public LayerMask enemiesMask;
     private List<GameObject> enemyToHit = new List<GameObject>();
+    private GameObject fireBallHit;
+    public bool stunMode = false;
     public Sprite normal;
     public Sprite stab;
     private SpriteRenderer spriteRenderer;
     public bool trigger = false;
     PlayerController playerInfo;
+    private Controls controls1 = new Controls();
+    private Dictionary<string, KeyCode> playerControls = new Dictionary<string, KeyCode>();
 
     void Awake()
     {
         //Grabs the swords active sprite renderer
         spriteRenderer = GetComponent<SpriteRenderer>();
         //playerInfo = PlayerController.instance;
+        playerControls = controls1.playerControls();
     }
 
     void Update()
     {
-        //Debug.Log(enemyToHit.Count);
         //Sets the sword to it's normal sprite
         spriteRenderer.sprite = normal;
-        //Calls the attack facing method to make sure the sowrd is following the mouse
-        attackFacing();
+        //Calls the attack facing method to make sure the sowrd is following the mouse, if pause menu not open
+        if (UIManager.instance != null && !UIManager.instance.pauseMenuOpen)
+        {
+            attackFacing();
+        }
+            
         //Checks to make sure the player can attack
         if (attackLag <= 0)
         {
@@ -37,7 +46,7 @@ public class hitbox : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 playerInfo = PlayerController.instance;
-
+                
                 //Sets the attack lag preventing spam attacks
                 attackLag = startLag;
                 playerInfo.anim.SetTrigger("Attack");
@@ -46,17 +55,35 @@ public class hitbox : MonoBehaviour
                 if (trigger == true)
                 {
                     //grabs a copy of the playerController
-                    
-                    for (int i = 0; i < enemyToHit.Count; i++) { 
-                        //Grabs the script from the current enemy and calls the damage function which accepts a float for the damage amount
-                        enemyToHit[i].GetComponent<Enemy>().takeDamage(playerInfo.attackDamage);
+                    PlayerController.instance.playerSounds.PlayOneShot(PlayerController.instance.swordHit);
+                    for (int i = 0; i < enemyToHit.Count; i++) {
+                        //checks if the player is using the stun skill
+                        if (stunMode == false) {
+                            //Grabs the script from the current enemy and calls the damage function which accepts a float for the damage amount
+                            enemyToHit[i].GetComponent<Enemy>().takeDamage(playerInfo.attackDamage);
+                        }
+                        else
+                        {
+                            enemyToHit[i].GetComponent<Enemy>().takeDamage(playerInfo.attackDamage);
+                            enemyToHit[i].GetComponent<Enemy>().GetStunned();
+                            stunMode = false;
+                        }
                         
+                    }
+
+                    if (fireBallHit != null)
+                    {
+                        fireBallHit.GetComponent<FollowingFireBall>().ChangeTarget();
                     }
                     //Resets the triggers to defaults
                     enemyToHit.Clear();
+                    fireBallHit = null;
                     trigger = false;
                 }
-
+                if (SceneManager.GetActiveScene().name != "MainMenu" && UIManager.instance != null && !UIManager.instance.pauseMenuOpen)
+                {
+                    PlayerController.instance.playerSounds.PlayOneShot(PlayerController.instance.swordMiss);
+                }
 
 
             }
@@ -90,6 +117,7 @@ public class hitbox : MonoBehaviour
     {
         //Resets the trigger
         enemyToHit.Clear();
+        fireBallHit = null;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -102,6 +130,14 @@ public class hitbox : MonoBehaviour
                 //Grab the enemy that caused the trigger
                 enemyToHit.Add(collision.gameObject);
             }
+        } else if (collision.gameObject.tag == "WizardFireball")
+        {
+            trigger = true;
+            fireBallHit = collision.gameObject;
+
         }
+
     }
+
+
 }

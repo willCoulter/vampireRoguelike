@@ -33,11 +33,9 @@ public class Mage : Enemy
                 if (enemies[i].CompareTag("Enemy"))
                 {
                     //Run the buff here
-                    enemies[i].GetComponent<Enemy>().heal(2);
+                    enemies[i].GetComponent<Enemy>().Heal(2);
                 }
-            }
-            Debug.Log(circleTime);
-            
+            }        
             attackLag = startLag;
         }
         else

@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class SkillPickup : MonoBehaviour
 {
-
     public Skill skill;
-    private bool playerInPickupRange;
+    public bool playerInPickupRange;
+    public KeyCode interactKey;
+
+    private void Start()
+    {
+        interactKey = PlayerController.instance.playerControls["Interact"];
+    }
 
     private void Update()
     {
-        //If in range, and player presses e, pick up skill
-        if (playerInPickupRange && Input.GetKeyDown(KeyCode.E))
+        if (playerInPickupRange && Input.GetKeyDown(interactKey))
         {
             PickUp();
+        }
+
+        if(skill != null)
+        {
+            GetComponent<SpriteRenderer>().sprite = skill.skillSprite;
         }
     }
 
@@ -35,7 +44,7 @@ public class SkillPickup : MonoBehaviour
         }
     }
 
-    void PickUp()
+    virtual public void PickUp()
     {
         Debug.Log("Picked up " + skill.name);
         bool wasPickedUp = SkillInventory.instance.Add(skill);

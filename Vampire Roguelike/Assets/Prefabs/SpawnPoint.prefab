@@ -13,7 +13,7 @@ GameObject:
   m_Layer: 12
   m_Name: SpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -48,3 +48,7 @@ MonoBehaviour:
   - {fileID: 4674723749684006167, guid: d06d28423a5f5b64183aef0386e1feb5, type: 3}
   - {fileID: 2785528915872566283, guid: 0964ae9c76acd4440a8ae9cb2338421d, type: 3}
   - {fileID: 7715509181301355910, guid: 6c835d711937c264e9937146b522d096, type: 3}
+  bossEnemies:
+  - {fileID: 7195809643611878441, guid: 8a1d628d5b6fd0448b09d129e59186ef, type: 3}
+  - {fileID: 5299929272026614554, guid: 39cc073f9eab3ef4498343a013d6c836, type: 3}
+  - {fileID: 7715101419333310252, guid: 50818bd35399dfe4eb7d7dce0ed8b680, type: 3}

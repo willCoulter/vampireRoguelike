@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public LayerMask layerMask;
 
     public float speed = 7f;
-    public float maxHealth = 100;
+    public float maxHealth;
     public float health;
     public float maxBlood;
     public float blood;
     public float attackDamage;
     public float magicDamage;
-    
+    public float soakRadius;
+    public float damageDelay;
+    public float damageTimer;
     
     public int gold = 0;
 
@@ -25,40 +28,59 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sr;
     public Animator anim;
     public GameObject sword;
-
+    public GameObject bloodSoakFx;
+    private bool canBloodSuck = true;
     public Image healthBar;
     public Image bloodBar;
     public Text goldText;
+    public AudioSource playerSounds;
+    public AudioClip swordHit;
+    public AudioClip swordMiss;
+    public AudioClip playerHurt;
+    public AudioClip suckFx;
+    public Controls controls1 = new Controls();
+    public Dictionary<string, KeyCode> playerControls = new Dictionary<string, KeyCode>();
+
 
     private State state;
     private Vector3 lastMoveDirection;
     private float slideSpeed;
 
+    public bool inCombat;
+
     private enum State
     {
         Normal,
         Dashing,
+        Dead
     }
 
     public static PlayerController instance;
 
     void Awake()
     {
-        if(instance == null){
+        if(instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(this);
         }
+        
+        state = State.Normal;
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        playerControls = controls1.playerControls();
+
+        maxHealth = 100f;
         health = maxHealth;
+        maxBlood = 100f;
+        blood = 0f;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
-        goldText.text = "Gold: " + gold;
-
     }
 
     // Update is called once per frame
@@ -69,15 +91,94 @@ public class PlayerController : MonoBehaviour
         {
             case State.Normal:
                 anim.SetBool("Rolling", false);
+                //If pause menu not open, allow control of player
+                if (UIManager.instance != null && !UIManager.instance.pauseMenuOpen) { 
+                
                 Move();
                 ChangeDirection();
                 HandleDash();
+                bloodSoak();
+                }
+                
                 break;
             case State.Dashing:
                 Dash();
                 break;
+            case State.Dead:
+                break;
+        }
+
+        if(health <= 0 && state != State.Dead)
+        {
+            Die();
+        }
+
+        if(healthBar == null && SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
+        }
+
+        if(bloodBar == null && SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            bloodBar = GameObject.Find("BloodBar").GetComponent<Image>();
+        }
+
+        if(goldText == null && SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            goldText = GameObject.Find("GoldCount").GetComponent<Text>();
+        }
+
+        if (goldText != null)
+        {
+            goldText.text = "Gold: " + gold;
+        }
+
+        if(SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            UpdateAndCheckHealth();
         }
         
+        damageTimer -= Time.deltaTime;
+    }
+
+    private void Die()
+    {
+        state = State.Dead;
+
+        SaveSystem.SaveGame(this);
+        UIManager.instance.DisplayDeathMenu();
+        SaveSystem.SaveToGraveyard();
+    }
+
+    public void ResetToDefaults()
+    {
+        maxBlood = 100f;
+        maxHealth = 100f;
+        gold = 0;
+
+        health = maxHealth;
+        blood = 0;
+
+        attackDamage = 5;
+        magicDamage = 5;
+
+        state = State.Normal;
+        inCombat = false;
+            
+    }
+
+
+    private void UpdateAndCheckHealth()
+    {
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }else if (blood > maxBlood)
+        {
+            blood = maxBlood;
+        }
+        healthBar.fillAmount = health / maxHealth;
+        bloodBar.fillAmount = blood / maxBlood;
     }
 
     private void ChangeDirection()
@@ -119,19 +220,19 @@ public class PlayerController : MonoBehaviour
         float moveY = 0f;
         
         //Handle based on key
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(playerControls["Up"]))
         {
             moveY = +1f;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(playerControls["Down"]))
         {
             moveY = -1f;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(playerControls["Left"]))
         {
             moveX = -1f;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(playerControls["Right"]))
         {
             moveX = 1f;
         }
@@ -189,7 +290,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleDash()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(playerControls["Dodge"]))
         {
             state = State.Dashing;
             slideSpeed = 17f;
@@ -227,14 +328,21 @@ public class PlayerController : MonoBehaviour
 
     public void takeDamage(float damage)
     {
-        health -= damage;
-        healthBar.fillAmount = health / maxHealth;
+        if (damageTimer <= 0)
+        {
+            health -= damage;
+            healthBar.fillAmount = health / maxHealth;
+            playerSounds.PlayOneShot(playerHurt);
+            damageTimer = damageDelay;
+        }
     }
 
     public void gainBlood(float bloodGained)
     {
-        blood += bloodGained;
-        bloodBar.fillAmount = blood / 100f;
+        if(blood + bloodGained <= maxBlood)
+        {
+            blood += bloodGained;
+        }
     }
 
     public void gainGold(int goldGained)
@@ -242,15 +350,38 @@ public class PlayerController : MonoBehaviour
         gold += goldGained;
         goldText.text = "Gold: " + gold;
     }
-    //public void checkInteract()
-    //{
-    //    if (Input.GetKey(KeyCode.E))
-    //    {
-    //        Collider2D[] things = Physics2D.OverlapCircleAll(transform.position, interactRadius);
-    //        if (things != null)
-    //        {
-    //            things[0].GetComponent<skillShop>().openShop();
-    //        }      
-    //    }
-    //}
+
+    public void bloodSoak()
+    {
+        if (canBloodSuck == true)
+        {
+            if (Input.GetKey(playerControls["Bloodsuck"]))
+            {
+
+                playerSounds.PlayOneShot(suckFx);
+                Instantiate(bloodSoakFx, transform.position, Quaternion.identity);
+                Collider2D[] bloodPools = Physics2D.OverlapCircleAll(transform.position, soakRadius);
+                for (int i = 0; i < bloodPools.Length; i++)
+                {
+                    Debug.Log("Checked");
+                    if (bloodPools[i].CompareTag("Bloodpool"))
+                    {
+                        Debug.Log("Bloods");
+                        bloodPools[i].GetComponent<bloodPool>().sendBlood(this.gameObject);
+                    }
+                }
+                StartCoroutine(suckCooldown());
+            }
+            
+        }
+    }
+
+    public IEnumerator suckCooldown()
+    {
+
+        canBloodSuck = false;
+        yield return new WaitForSeconds(1f);
+        canBloodSuck = true;
+
+    }
 }

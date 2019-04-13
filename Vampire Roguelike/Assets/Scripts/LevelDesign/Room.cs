@@ -10,20 +10,39 @@ public class Room : MonoBehaviour
 
     public int roomID;
 
-    public List<GameObject> doors;
-    public List<GameObject> spawnPoints;
+    public List<GameObject> doors = new List<GameObject>();
+    public List<GameObject> spawnPoints = new List<GameObject>();
     public List<GameObject> enemies = new List<GameObject>();
 
+    public GameObject doorWrapper;
+    public GameObject spawnWrapper;
     public GameObject chestSpawn;
 
-    bool isCleared;
+    public GameObject bossSpawnPoint;
+    public GameObject stairSpawn;
+    public GameObject stairPrefab;
+
+    public bool isCleared;
+    public bool isBossRoom;
     bool enemiesSpawned;
 
     // Start is called before the first frame update
     void Start()
     {
-        isCleared = false;
         enemiesSpawned = false;
+
+        //Set doors
+        foreach(Transform child in doorWrapper.transform)
+        {
+            doors.Add(child.gameObject);
+        }
+
+        //Set spawns
+        foreach(Transform child in spawnWrapper.transform)
+        {
+            spawnPoints.Add(child.gameObject);
+        }
+
     }
 
     // Update is called once per frame
@@ -32,13 +51,12 @@ public class Room : MonoBehaviour
         //If enemies are spawned and room is not cleared
         if(isCleared == false && enemiesSpawned == true){
 
-            //Keep track of enemy count
-            //Debug.Log(enemies.Count);
-
             //If all enemies dead
             if (enemies.Count == 0)
             {
-                Debug.Log("Doors actually unlocked");
+                //Player not in combat
+                PlayerController.instance.inCombat = false;
+
                 //Unlock doors
                 UnLockDoors();
 
@@ -47,6 +65,11 @@ public class Room : MonoBehaviour
 
                 //Spawn chest by chance or if last room and no chests found
                 SpawnChest();
+
+                if (isBossRoom)
+                {
+                    SpawnStairs();
+                }
             }
         }
     }
@@ -54,27 +77,39 @@ public class Room : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         //If player enters room, lock doors and spawn enemies
-        if(collision.tag == "Player" && enemiesSpawned == false){
+        if(collision.tag == "Player" && enemiesSpawned == false && isCleared == false){
             //Lock doors
             Invoke("LockDoors", 0.2f);
             Debug.Log("Room " + roomID + " doors locked");
 
             //Spawn enemies
             SpawnEnemies();
+            PlayerController.instance.inCombat = true;
         }
     }
 
     private void SpawnEnemies(){
+        if (isBossRoom)
+        {
+            GameObject boss = bossSpawnPoint.GetComponent<SpawnPoint>().spawnBoss(GameManager.instance.currentLevelNum);
+            Enemy bossScript = boss.GetComponent<Enemy>();
+            bossScript.OnDestroy.AddListener(delegate { EnemySlain(bossScript.gameObject); });
+            enemies.Add(boss);
+        }
         foreach(GameObject spawnPoint in spawnPoints){
-            //Spawn random enemy at spawn point
-            GameObject enemy = spawnPoint.GetComponent<SpawnPoint>().spawnRandomEnemy();
-            Enemy enemyScript = enemy.GetComponent<Enemy>();
+            //Spawn an enemy on point if not a boss spawner
+            if (!spawnPoint.GetComponent<SpawnPoint>().isBossSpawner)
+            {
+                //Spawn random enemy at spawn point
+                GameObject enemy = spawnPoint.GetComponent<SpawnPoint>().spawnRandomEnemy();
+                Enemy enemyScript = enemy.GetComponent<Enemy>();
 
-            //Add listener to call enemyslain method when gameobject destroyed
-            enemyScript.OnDestroy.AddListener(delegate{EnemySlain(enemyScript.gameObject);});
+                //Add listener to call enemyslain method when gameobject destroyed
+                enemyScript.OnDestroy.AddListener(delegate { EnemySlain(enemyScript.gameObject); });
 
-            //Add to enemy list
-            enemies.Add(enemy);
+                //Add to enemy list
+                enemies.Add(enemy);
+            }
         }
 
         enemiesSpawned = true;
@@ -103,5 +138,10 @@ public class Room : MonoBehaviour
 
     void SpawnChest(){
         chestSpawn.GetComponent<ChestSpawn>().SpawnChest();
+    }
+
+    public void SpawnStairs()
+    {
+        Instantiate(stairPrefab, stairSpawn.transform.position, stairSpawn.transform.rotation);
     }
 }

@@ -255,7 +255,7 @@ TextureImporter:
     21300500: 0x72_DungeonTilesetII_v1.2_250
     21300502: 0x72_DungeonTilesetII_v1.2_251
     21300504: 0x72_DungeonTilesetII_v1.2_252
-    21300506: 0x72_DungeonTilesetII_v1.2_253
+    21300506: stairs
     21300508: 0x72_DungeonTilesetII_v1.2_254
     21300510: 0x72_DungeonTilesetII_v1.2_255
     21300512: 0x72_DungeonTilesetII_v1.2_256
@@ -303,7 +303,7 @@ TextureImporter:
     21300596: door_archway_4
     21300598: door_open_1
     21300600: door_open_2
-    21300602: 0x72_DungeonTilesetII_v1.2_301
+    21300602: skull
     21300604: chest_loot_1
     21300606: chest_loot_2
     21300608: chest_loot_3
@@ -512,6 +512,11 @@ TextureImporter:
     21301014: zombieWalk1
     21301016: zombieWalk2
     21301018: zombieWalk3
+    21301020: shopKeeperIdle_0
+    21301022: shopKeeperIdle_1
+    21301024: shopKeeperIdle_2
+    21301026: shopKeeperIdle_3
+    21301028: orcMace
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -2074,7 +2079,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_253
+      name: stairs
       rect:
         serializedVersion: 2
         x: 80
@@ -2394,7 +2399,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_301
+      name: skull
       rect:
         serializedVersion: 2
         x: 224
@@ -3809,6 +3814,106 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 02f4ebd43f0425e4aa0ab762286b19e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shopKeeperIdle_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6bc988cb56c9874e8ea8214de848cbf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shopKeeperIdle_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 320
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 587d21e70244f584ca1545a0c3d682c2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shopKeeperIdle_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5937d6ee60c034a4eb57ad272b0c2554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shopKeeperIdle_3
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 320
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d09df57be877214d9240d0033e3409f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcMace
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 433
+        width: 10
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5345825, y: 0.044201937}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd5f939c066c52044ad724ce4c55868a
       vertices: []
       indices: 
       edges: []
