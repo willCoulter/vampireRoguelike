@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
                 break;
         }
 
-        if(health <= 0)
+        if(health <= 0 && state != State.Dead)
         {
             Die();
         }

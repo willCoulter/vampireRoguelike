@@ -82,7 +82,6 @@ public class SaveManager : MonoBehaviour
             PlayerSpawn.instance.MovePlayerToSpawn();
 
             //Set store skills to null if already purchased
-            Debug.Log(saveData.levelData.storeSkillsPurchased[0]);
             if (saveData.levelData.storeSkillsPurchased[0] == true)
             {
                 Destroy(Store.instance.storeSkill1);
@@ -91,11 +90,6 @@ public class SaveManager : MonoBehaviour
             if (saveData.levelData.storeSkillsPurchased[1] == true)
             {
                 Destroy(Store.instance.storeSkill2);
-            }
-
-            if (saveData.levelData.storeSkillsPurchased[2] == true)
-            {
-                Destroy(Store.instance.storeSkill3);
             }
 
             //Set player skills

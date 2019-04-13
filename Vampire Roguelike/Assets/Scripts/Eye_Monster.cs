@@ -23,7 +23,7 @@ public class Eye_Monster : Enemy
             if (player[i].CompareTag("Player"))
             {
                 
-                player[i].GetComponent<PlayerController>().takeDamage(90);
+                player[i].GetComponent<PlayerController>().takeDamage(damage);
                 
             }
         }

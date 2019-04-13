@@ -106,5 +106,10 @@ public class MainMenu : MonoBehaviour
         buttonsWrapper.SetActive(true);
     }
 
+    public void ReturnToMain()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 
 }

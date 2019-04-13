@@ -131,9 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c4fc5ad857ce5419e2e1d3aab83407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   rb: {fileID: 7245580329922956076}
   fireBall: {fileID: 7764775219759322894}
   playerTarget: {fileID: 0}
   wizardShield: {fileID: 0}
-  damage: 99
+  damage: 15

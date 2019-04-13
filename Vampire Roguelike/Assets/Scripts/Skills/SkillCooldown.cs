@@ -9,7 +9,7 @@ public class SkillCooldown : MonoBehaviour
     public SkillCooldown instance;
     public GameObject pickupPrefab;
 
-    public string abilityButtonAxisName = "Fire1";
+    public string abilityButtonAxisName;
     public Image darkMask;
     public Text cooldownTextDisplay;
 

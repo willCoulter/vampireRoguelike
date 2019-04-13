@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour
         //Decrease the health of the enemy by the players damage
         health -= damage;
         sprite.color = Color.red;
-        player.GetComponent<PlayerController>().gainBlood(5);
+        player.GetComponent<PlayerController>().gainBlood(3);
         StartCoroutine(DestroyParticle(healingEffect));
         Destroy(healingEffect);
     }
@@ -96,7 +96,7 @@ public class Enemy : MonoBehaviour
         OnDestroy.RemoveAllListeners();
         //Drops a blood pool and give it blood equal to half the enemies hp
         GameObject bloodpool = Instantiate(bloodPool, transform.position, Quaternion.identity);
-        bloodpool.GetComponent<bloodPool>().bloodAmount = maxHealth/2;
+        bloodpool.GetComponent<bloodPool>().bloodAmount = maxHealth/10;
         //Finally kill the enemy
         Destroy(gameObject);
     }

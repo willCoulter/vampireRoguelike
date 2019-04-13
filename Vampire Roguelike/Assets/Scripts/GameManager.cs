@@ -90,6 +90,9 @@ public class GameManager : MonoBehaviour
             case 4:
                 SceneManager.LoadScene("Level5");
                 break;
+            case 5:
+                SceneManager.LoadScene("VictoryScene");
+                break;
             default:
                 break;
         }

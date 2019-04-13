@@ -17,7 +17,7 @@ public class SpawnPoint : MonoBehaviour
         GameObject randomEnemy;
 
         //Generate random enemy
-        randomEnemy = enemies[Random.Range(0, enemies.Count - 1)];
+        randomEnemy = enemies[Random.Range(0, enemies.Count)];
 
         //Instantiate random enemy at spawn position
         GameObject returnEnemy = Instantiate(randomEnemy, transform.position, transform.rotation);

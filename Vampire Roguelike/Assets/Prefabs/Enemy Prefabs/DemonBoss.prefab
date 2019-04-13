@@ -4865,10 +4865,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 5
-  damage: 5
+  maxHealth: 300
+  damage: 15
   speed: 1
   currentSpeed: 0
+  goldValue: 30
   sprite: {fileID: 7715101419333310250}
   player: {fileID: 0}
   bloodParticle: {fileID: 78693775177663599, guid: fac58f2e99407224583b2884fae93699,
@@ -4893,12 +4894,12 @@ MonoBehaviour:
   launchPosition: {fileID: 2751245522325210805}
   startLag: 1
   cooldownCounter: 0
-  fireBallDamage: 5
-  fireBeamDamage: 0.2
-  fireBeamCooldown: 90
+  fireBallDamage: 15
+  fireBeamDamage: 1
+  fireBeamCooldown: 30
   smallFireBall: {fileID: 4621611552306442556, guid: d6ad0f86940151f41b5c702664c490a9,
     type: 3}
-  dur: 15
+  dur: 7
 --- !u!114 &1477422534
 MonoBehaviour:
   m_ObjectHideFlags: 0

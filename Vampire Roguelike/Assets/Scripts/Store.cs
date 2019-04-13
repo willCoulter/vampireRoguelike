@@ -8,9 +8,8 @@ public class Store : MonoBehaviour
 
     public GameObject storeSkill1;
     public GameObject storeSkill2;
-    public GameObject storeSkill3;
 
-    public bool[] storeSkillsPurchased = new bool[3];
+    public bool[] storeSkillsPurchased = new bool[2];
 
     // Start is called before the first frame update
     void Awake()
@@ -19,11 +18,9 @@ public class Store : MonoBehaviour
 
         StorePickup storeSkill1Script = storeSkill1.GetComponent<StorePickup>();
         StorePickup storeSkill2Script = storeSkill2.GetComponent<StorePickup>();
-        StorePickup storeSkill3Script = storeSkill3.GetComponent<StorePickup>();
 
         storeSkill1Script.skill.skillPrice = storeSkill1Script.price;
         storeSkill2Script.skill.skillPrice = storeSkill2Script.price;
-        storeSkill3Script.skill.skillPrice = storeSkill3Script.price;
     }
 
     // Update is called once per frame
@@ -45,15 +42,6 @@ public class Store : MonoBehaviour
         else
         {
             storeSkillsPurchased[1] = false;
-        }
-
-        if (storeSkill3 == null)
-        {
-            storeSkillsPurchased[2] = true;
-        }
-        else
-        {
-            storeSkillsPurchased[2] = false;
         }
     }
 }
