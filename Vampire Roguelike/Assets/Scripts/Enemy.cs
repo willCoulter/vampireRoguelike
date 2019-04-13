@@ -112,7 +112,6 @@ public class Enemy : MonoBehaviour
     public bool CanFollow()
     {      
         float distance = Vector3.Distance(target.position, transform.position);
-        Debug.Log(distance);
         if(distance <= miniumRange)
         {
             gameObject.GetComponent<Pathfinding.AIPath>().canMove = false;

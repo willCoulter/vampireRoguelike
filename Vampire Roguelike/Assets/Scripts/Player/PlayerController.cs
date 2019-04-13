@@ -133,8 +133,11 @@ public class PlayerController : MonoBehaviour
             goldText.text = "Gold: " + gold;
         }
 
-
-        UpdateAndCheckHealth();
+        if(SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            UpdateAndCheckHealth();
+        }
+        
         damageTimer -= Time.deltaTime;
     }
 
