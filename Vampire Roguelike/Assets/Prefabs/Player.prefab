@@ -205,6 +205,7 @@ MonoBehaviour:
   enemiesMask:
     serializedVersion: 2
     m_Bits: 2048
+  stunMode: 0
   normal: {fileID: 21300000, guid: 88fdd6d43055ee84894e874a999247eb, type: 3}
   stab: {fileID: 21300004, guid: 88fdd6d43055ee84894e874a999247eb, type: 3}
   trigger: 0
@@ -246,6 +247,8 @@ GameObject:
   - component: {fileID: 277389979}
   - component: {fileID: 277389986}
   - component: {fileID: 277389987}
+  - component: {fileID: 909683847}
+  - component: {fileID: 909683856}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -555,6 +558,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &909683847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782444987536739160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b308132ffaf1224c8a6dbdba1162f2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &909683856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782444987536739160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0db55870a9d5ab48864da4f0def0dcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6827691048705260619
 GameObject:
   m_ObjectHideFlags: 0

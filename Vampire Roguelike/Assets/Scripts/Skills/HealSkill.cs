@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Abilities/BloodSwordSkill")]
-public class BloodSwordSkill : Skill
+[CreateAssetMenu(menuName = "Abilities/HealSkill")]
+public class HealSkill : Skill
 {
-    public float multipler;
-    public float dur;
-
+    private Transform spawnLocation;
     public override void Initialize(GameObject obj)
     {
 
@@ -15,12 +13,15 @@ public class BloodSwordSkill : Skill
 
         if (obj != null)
         {
-
+            spawnLocation = obj.transform;
         }
     }
 
     public override void TriggerSkill()
     {
-        Bloodbladebuff.Instance.BuffDamage(multipler,dur);
+        Debug.Log("Worked");
+        PlayerHealSkill.HealPlayer(baseCost);
     }
+
+
 }

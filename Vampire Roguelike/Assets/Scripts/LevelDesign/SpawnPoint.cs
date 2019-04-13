@@ -35,16 +35,16 @@ public class SpawnPoint : MonoBehaviour
                 boss = bossEnemies[0];
                 break;
             case 2:
-                boss = bossEnemies[2];
+                boss = bossEnemies[1];
                 break;
             case 3:
-                boss = bossEnemies[3];
+                boss = bossEnemies[2];
                 break;
             case 4:
-                boss = bossEnemies[4];
+                boss = bossEnemies[3];
                 break;
             case 5:
-                boss = bossEnemies[5];
+                boss = bossEnemies[4];
                 break;
             default:
                 boss = bossEnemies[0];

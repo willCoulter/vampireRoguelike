@@ -142,6 +142,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
 
         AudioManager.instance.audioSource.Play();
+        SceneManager.LoadScene("Level1");
+        currentLevelNum = 1;
+        
 
         SceneManager.LoadScene("Level1");
 

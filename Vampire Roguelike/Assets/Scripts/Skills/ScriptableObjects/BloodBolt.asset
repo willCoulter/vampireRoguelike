@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillID: 2
   skillName: BloodBolt
-  desc: New Desc
+  desc: Fires a bolt of condensed blood
   skillSprite: {fileID: 21300668, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
   skillSound: {fileID: 0}
   baseCD: 4
   baseCost: 0
-  skillPrice: 0
+  skillPrice: 11
   damage: 10
   speed: 1

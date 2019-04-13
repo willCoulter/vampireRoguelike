@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bloodblast : MonoBehaviour
 {
-    public float damage = 10;
+
     public LayerMask enemiesMask;
     public float radius = 1f;
     public Transform playerPos;
@@ -28,7 +28,7 @@ public class Bloodblast : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             //Debug.Log("Enemy hit");
-            enemies[i].GetComponent<Enemy>().takeDamage(damage);
+            enemies[i].GetComponent<Enemy>().takeDamage(PlayerController.instance.magicDamage);
         }
     }
 }

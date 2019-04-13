@@ -21,6 +21,7 @@ public class Archer : Enemy
         {
             Debug.Log("Arrow Shot");
             GameObject bullet = Instantiate(bulletPrefab, launchPosition.position, launchPosition.rotation);
+            bullet.GetComponent<arrow>().damage = damage;
             attackLag = startLag;          
         }
         else

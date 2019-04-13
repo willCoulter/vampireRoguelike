@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float currentSpeed;
     public int goldValue;
+    public bool stunned = false;
     public SpriteRenderer sprite;
     public GameObject player;
     public GameObject bloodParticle;
@@ -49,21 +50,28 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player != null) { 
-        //Check the enemies health
-        if (health <= 0)
-        {
-            //If they have less than or equal to 0 health kill the enemy with the die function and reward the player with gold
-            player.GetComponent<PlayerController>().gainGold(goldValue);
-            GameManager.instance.enemiesSlain++;
-            Die();
-        }
-        if (CanFollow() == true)
-        {
-            FollowPlayer();
-        }
-        ParticleStopper();
-        ChangeDirection();
+        if (player != null) {
+            //Check the enemies health
+            if (health <= 0)
+            {
+                //If they have less than or equal to 0 health kill the enemy with the die function and reward the player with gold
+                player.GetComponent<PlayerController>().gainGold(goldValue);
+                GameManager.instance.enemiesSlain++;
+                Die();
+            }
+            if (stunned == false) { 
+            if (CanFollow() == true)
+            {
+                FollowPlayer();
+            }
+            //ParticleStopper();
+            ChangeDirection();
+            }
+            else
+            {
+                gameObject.GetComponent<Pathfinding.AIPath>().canMove = false;
+                gameObject.GetComponent<Pathfinding.AIPath>().canSearch = false;
+            }
         }
     }
     //Called by other gameobjects like the player accepts a damage amount of type float
@@ -78,7 +86,7 @@ public class Enemy : MonoBehaviour
         sprite.color = Color.red;
         player.GetComponent<PlayerController>().gainBlood(3);
         StartCoroutine(DestroyParticle(healingEffect));
-        Destroy(healingEffect);
+        
     }
 
     void OnDrawGizmosSelected()
@@ -104,8 +112,11 @@ public class Enemy : MonoBehaviour
     public bool CanFollow()
     {      
         float distance = Vector3.Distance(target.position, transform.position);
+        Debug.Log(distance);
         if(distance <= miniumRange)
         {
+            gameObject.GetComponent<Pathfinding.AIPath>().canMove = false;
+            gameObject.GetComponent<Pathfinding.AIPath>().canSearch = false;
             return false;
         }
         else
@@ -148,13 +159,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void ParticleStopper()
-    {
-        if (healingEffect != null && healingEffect.GetComponent<ParticleSystem>().isStopped)
-        {
-            Destroy(healingEffect);
-        }
-    }
+    //public void ParticleStopper()
+    //{
+       // if (healingEffect != null && healingEffect.GetComponent<ParticleSystem>().isStopped)
+        //{
+            //Destroy(healingEffect);
+       // }
+    //}
     //Flips the enemy spirite so they always face the player
     private void ChangeDirection()
     {
@@ -169,9 +180,22 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void GetStunned()
+    {
+        stunned = true;
+        StartCoroutine(StunTime());
+    }
+
     public IEnumerator DestroyParticle(GameObject particle)
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(0.3f);
         Destroy(particle);
+    }
+
+    public IEnumerator StunTime()
+    {
+        yield return new WaitForSeconds(2.0F);
+        stunned = false;
+
     }
 }

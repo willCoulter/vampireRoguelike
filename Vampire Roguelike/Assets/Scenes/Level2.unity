@@ -2263,9 +2263,26 @@ PrefabInstance:
       objectReference: {fileID: 1075788037}
     - target: {fileID: 2248279035116899813, guid: 7b35c64ed7d434f67a74a3ab62cce076,
         type: 3}
+      propertyPath: bossEnemies.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248279035116899813, guid: 7b35c64ed7d434f67a74a3ab62cce076,
+        type: 3}
       propertyPath: isBossSpawner
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2248279035116899813, guid: 7b35c64ed7d434f67a74a3ab62cce076,
+        type: 3}
+      propertyPath: bossEnemies.Array.data[3]
+      value: 
+      objectReference: {fileID: 5289819647324937220, guid: 2090b661523e33c4db203dab61e25f91,
+        type: 3}
+    - target: {fileID: 2248279035116899813, guid: 7b35c64ed7d434f67a74a3ab62cce076,
+        type: 3}
+      propertyPath: bossEnemies.Array.data[4]
+      value: 
+      objectReference: {fileID: 8970997217587096322, guid: 63314b494dca0764d9ed88f8cc9ecbaa,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b35c64ed7d434f67a74a3ab62cce076, type: 3}
 --- !u!4 &942556160 stripped

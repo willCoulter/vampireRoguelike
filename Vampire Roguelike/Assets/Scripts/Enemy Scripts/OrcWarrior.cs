@@ -57,7 +57,7 @@ public class OrcWarrior : Enemy
         attacking = true;
         //Actiave the object and set it's damage
         spearPrefab.SetActive(true);
-        spearPrefab.GetComponent<SwordHit>().damage = damage;
+        spearPrefab.gameObject.transform.GetChild(0).GetComponent<SwordHit>().damage = damage;
         //Start an animation and then wait to disable it
         spearAnim.SetBool("swing", true);
         yield return new WaitForSeconds(0.5f);
