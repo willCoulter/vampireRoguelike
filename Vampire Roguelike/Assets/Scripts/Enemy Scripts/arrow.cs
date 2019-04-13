@@ -26,7 +26,7 @@ public class arrow : MonoBehaviour
 
 
         }
-        else if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Projectile"))
+        else if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Projectile") || collision.gameObject.CompareTag("Sword"))
         {
 
         }

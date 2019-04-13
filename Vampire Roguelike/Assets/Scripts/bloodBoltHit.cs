@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class bloodBoltHit : MonoBehaviour
 {
-    public float damage;
     public float speed = 20f;
     public Rigidbody2D rb;
     public GameObject arrowObject;
@@ -20,7 +19,7 @@ public class bloodBoltHit : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<Enemy>().takeDamage(damage);
+            collision.gameObject.GetComponent<Enemy>().takeDamage(PlayerController.instance.magicDamage);
             Destroy(arrowObject);
 
         }

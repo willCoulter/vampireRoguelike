@@ -18,8 +18,7 @@ public class FollowingFireBall : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         playerTarget = player.transform;
 
-        GameObject wizard = GameObject.Find("Wizard Boss");
-        wizardShield = wizard.transform;
+
 
     }
 

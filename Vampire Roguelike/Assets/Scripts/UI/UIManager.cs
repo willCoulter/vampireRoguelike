@@ -330,6 +330,7 @@ public class UIManager : MonoBehaviour
 
     public void Restart()
     {
+        Debug.Log("RESTARTED");
         GameManager.instance.Restart();
     }
 }

@@ -128,8 +128,9 @@ public class PlayerController : MonoBehaviour
         {
             goldText.text = "Gold: " + gold;
         }
-        
 
+
+        UpdateAndCheckHealth();
         damageTimer -= Time.deltaTime;
         //healthBar.fillAmount = health / maxHealth;
     }
@@ -158,6 +159,20 @@ public class PlayerController : MonoBehaviour
         state = State.Normal;
         inCombat = false;
             
+    }
+
+
+    private void UpdateAndCheckHealth()
+    {
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }else if (blood > maxBlood)
+        {
+            blood = maxBlood;
+        }
+        healthBar.fillAmount = health / maxHealth;
+        bloodBar.fillAmount = blood / maxBlood;
     }
 
     private void ChangeDirection()

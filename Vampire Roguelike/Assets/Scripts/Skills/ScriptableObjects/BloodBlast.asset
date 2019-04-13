@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillID: 1
   skillName: BloodBlast
-  desc: New Desc
+  desc: Creates a wave of blood centered on the caster.
   skillSprite: {fileID: 21300544, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
   skillSound: {fileID: 0}
   baseCD: 3
   baseCost: 0
-  skillPrice: 0
+  skillPrice: 10
   damage: 20
   enemiesMask:
     serializedVersion: 2

@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Abilities/BloodSwordSkill")]
-public class BloodSwordSkill : Skill
+[CreateAssetMenu(menuName = "Abilities/SpeedBuffSkill")]
+public class SpeedSkill : Skill
 {
     public float multipler;
     public float dur;
 
     public override void Initialize(GameObject obj)
     {
-
-        
-
         if (obj != null)
         {
 
@@ -21,6 +18,6 @@ public class BloodSwordSkill : Skill
 
     public override void TriggerSkill()
     {
-        Bloodbladebuff.Instance.BuffDamage(multipler,dur);
+        speedBuffScript.Instance.BuffSpeed(multipler, dur);
     }
 }

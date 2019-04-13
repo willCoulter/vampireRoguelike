@@ -37,7 +37,12 @@ public class SkillCooldown : MonoBehaviour
             if (cooldownComplete)
             {
                 AbilityReady();
-                if (Input.GetButtonDown(abilityButtonAxisName) && PlayerController.instance.blood >= skill.baseCost)
+
+
+
+                KeyCode skillKey = PlayerController.instance.playerControls[abilityButtonAxisName];
+
+                if (Input.GetKeyDown(skillKey) && PlayerController.instance.blood >= skill.baseCost)
                 {
                     ButtonTriggered();
                 }
@@ -115,7 +120,7 @@ public class SkillCooldown : MonoBehaviour
         if (!UIManager.instance.pauseMenuOpen)
         {
             PlayerController.instance.anim.SetTrigger("Casting");
-
+            PlayerController.instance.blood -= skill.baseCost;
             nextReadyTime = cooldownDuration + Time.time;
             cooldownTimeLeft = cooldownDuration;
             darkMask.enabled = true;

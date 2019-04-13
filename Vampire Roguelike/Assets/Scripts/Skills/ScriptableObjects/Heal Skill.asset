@@ -9,16 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cdcbc5b7274c034483432b7e4465d2d, type: 3}
-  m_Name: BloodSword
+  m_Script: {fileID: 11500000, guid: a0e47cf220535f348a36aea4ff4d9d9a, type: 3}
+  m_Name: Heal Skill
   m_EditorClassIdentifier: 
-  skillID: 3
-  skillName: Blood Drive
-  desc: Doubles Damage for 3 seconds
-  skillSprite: {fileID: 21300610, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
+  skillID: 4
+  skillName: Blood Conversion
+  desc: Convert 10 blood into 10 health
+  skillSprite: {fileID: 21300668, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
   skillSound: {fileID: 0}
-  baseCD: 10
+  baseCD: 2
   baseCost: 10
-  skillPrice: 13
-  multipler: 2
-  dur: 3
+  skillPrice: 5

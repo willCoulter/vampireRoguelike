@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Abilities/BloodSwordSkill")]
-public class BloodSwordSkill : Skill
-{
-    public float multipler;
-    public float dur;
 
+[CreateAssetMenu(menuName = "Abilities/StunSkill")]
+public class StunSkill : Skill
+{
     public override void Initialize(GameObject obj)
     {
-
-        
-
         if (obj != null)
         {
 
@@ -21,6 +16,8 @@ public class BloodSwordSkill : Skill
 
     public override void TriggerSkill()
     {
-        Bloodbladebuff.Instance.BuffDamage(multipler,dur);
+        PlayerController.instance.sword.GetComponent<hitbox>().stunMode = true;
     }
+
+
 }
