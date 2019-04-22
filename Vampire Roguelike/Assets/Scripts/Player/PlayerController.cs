@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public LayerMask layerMask;
+    public Sprite bloodPoolSprite;
 
     public float speed = 7f;
     public float maxHealth;
@@ -110,6 +111,7 @@ public class PlayerController : MonoBehaviour
 
         if(health <= 0 && state != State.Dead)
         {
+            sr.sprite = bloodPoolSprite;
             Die();
         }
 

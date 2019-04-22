@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1153136748071344648}
   - component: {fileID: 1153136748071344649}
   - component: {fileID: 1153136748071344646}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SkillPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,6 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
+  playerInPickupRange: 0
+  interactKey: 0
 --- !u!50 &1153136748071344649
 Rigidbody2D:
   serializedVersion: 4

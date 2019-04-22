@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlessedPotion
   m_EditorClassIdentifier: 
   itemID: 2
-  itemName: Potion of Blessed Health
+  itemName: Potion of Big Health
   desc: Increases max health by 10
   itemSprite: {fileID: 21300418, guid: 3a0c1011c1400aa4e857d84527167b92, type: 3}
   buffAmount: 10

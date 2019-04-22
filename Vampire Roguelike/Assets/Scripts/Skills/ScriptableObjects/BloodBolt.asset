@@ -15,10 +15,10 @@ MonoBehaviour:
   skillID: 2
   skillName: BloodBolt
   desc: Fires a bolt of condensed blood
-  skillSprite: {fileID: 21300668, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
+  skillSprite: {fileID: 21300002, guid: d59c7e2929457484fb7de8d988866354, type: 3}
   skillSound: {fileID: 0}
   baseCD: 6
   baseCost: 25
-  skillPrice: 11
+  skillPrice: 60
   damage: 15
   speed: 1

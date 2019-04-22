@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 9
   itemName: Super Sword
-  desc: A sword of superb power. Increase attack damage by 20
+  desc: A sword of superb power. Increase attack damage by 10
   itemSprite: {fileID: 21300578, guid: 3a0c1011c1400aa4e857d84527167b92, type: 3}
-  buffAmount: 20
+  buffAmount: 10
   buff: 2

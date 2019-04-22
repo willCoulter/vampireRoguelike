@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 4
   itemName: Dagger of Stabbing
-  desc: Super sharp, increase attack damage by 10
+  desc: Super sharp, increase attack damage by 5
   itemSprite: {fileID: 21300592, guid: 3a0c1011c1400aa4e857d84527167b92, type: 3}
-  buffAmount: 10
+  buffAmount: 5
   buff: 2

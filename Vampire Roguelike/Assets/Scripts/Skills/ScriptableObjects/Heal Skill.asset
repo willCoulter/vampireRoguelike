@@ -19,5 +19,5 @@ MonoBehaviour:
   skillSound: {fileID: 0}
   baseCD: 15
   baseCost: 40
-  skillPrice: 25
+  skillPrice: 0
   healAmount: 20

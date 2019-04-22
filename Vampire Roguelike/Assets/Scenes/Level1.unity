@@ -1839,7 +1839,7 @@ PrefabInstance:
     - target: {fileID: 6710064407932344076, guid: 30e3673fa3dbdad418593cdea2cf651c,
         type: 3}
       propertyPath: price
-      value: 25
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7111095795426704531, guid: 30e3673fa3dbdad418593cdea2cf651c,
         type: 3}
@@ -1850,7 +1850,7 @@ PrefabInstance:
     - target: {fileID: 7111095795426704531, guid: 30e3673fa3dbdad418593cdea2cf651c,
         type: 3}
       propertyPath: price
-      value: 25
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6354359837524825846, guid: 30e3673fa3dbdad418593cdea2cf651c,
         type: 3}
@@ -3420,7 +3420,7 @@ PrefabInstance:
     - target: {fileID: 3995911317646151969, guid: c4de461a3e710114e9d9198a34d98754,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 98103
+      value: 229175
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4de461a3e710114e9d9198a34d98754, type: 3}
@@ -3773,16 +3773,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 90215312547584525, guid: d3b9cc5b5b4c3408f925103e32ed0f0d,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.31268525
-      objectReference: {fileID: 0}
-    - target: {fileID: 90215312547584525, guid: d3b9cc5b5b4c3408f925103e32ed0f0d,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.3715863
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3b9cc5b5b4c3408f925103e32ed0f0d, type: 3}
 --- !u!1 &1528527667 stripped
@@ -3942,7 +3932,7 @@ PrefabInstance:
     - target: {fileID: 3307560781639916597, guid: 7b35c64ed7d434f67a74a3ab62cce076,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2742860989297597280, guid: 7b35c64ed7d434f67a74a3ab62cce076,
         type: 3}

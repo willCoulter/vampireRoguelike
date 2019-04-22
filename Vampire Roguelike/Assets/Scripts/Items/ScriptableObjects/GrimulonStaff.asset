@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 5
   itemName: Grimulon Staff
-  desc: Really cool staff, increase magic damage by 10
+  desc: Really cool staff, increase magic damage by 6
   itemSprite: {fileID: 21300566, guid: 3a0c1011c1400aa4e857d84527167b92, type: 3}
-  buffAmount: 10
+  buffAmount: 6
   buff: 3
