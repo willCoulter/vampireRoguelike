@@ -167,11 +167,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 120
-  damage: 15
+  maxHealth: 60
+  damage: 30
   speed: 1
   currentSpeed: 0
   goldValue: 7
+  stunned: 0
   sprite: {fileID: 7715509181301355908}
   player: {fileID: 0}
   bloodParticle: {fileID: 78693775177663599, guid: fac58f2e99407224583b2884fae93699,
@@ -451,6 +452,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7967261386695363544, guid: 3baa79911280efa41b814232895957c1,
+        type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4442452167720161207, guid: 3baa79911280efa41b814232895957c1,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -466,6 +472,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8744648412440338665, guid: 3baa79911280efa41b814232895957c1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21301028, guid: 0659c6a297db71643b1295f12ae22d2c,
+        type: 3}
     - target: {fileID: 3217935655036239353, guid: 3baa79911280efa41b814232895957c1,
         type: 3}
       propertyPath: m_Offset.y
@@ -506,17 +518,6 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.60042965
       objectReference: {fileID: 0}
-    - target: {fileID: 7967261386695363544, guid: 3baa79911280efa41b814232895957c1,
-        type: 3}
-      propertyPath: damage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8744648412440338665, guid: 3baa79911280efa41b814232895957c1,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21301028, guid: 0659c6a297db71643b1295f12ae22d2c,
-        type: 3}
     m_RemovedComponents:
     - {fileID: 7967261386695363544, guid: 3baa79911280efa41b814232895957c1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3baa79911280efa41b814232895957c1, type: 3}

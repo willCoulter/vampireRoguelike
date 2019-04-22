@@ -118,7 +118,7 @@ MonoBehaviour:
   speed: 10
   rb: {fileID: 5223598306167506140}
   arrowObject: {fileID: 3576491130118358102}
-  damage: 7
+  damage: 100
 --- !u!61 &7119350945885716438
 BoxCollider2D:
   m_ObjectHideFlags: 0

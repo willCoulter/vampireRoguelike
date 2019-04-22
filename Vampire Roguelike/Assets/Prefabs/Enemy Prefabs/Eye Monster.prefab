@@ -121,9 +121,10 @@ MonoBehaviour:
   health: 0
   maxHealth: 1
   damage: 40
-  speed: 2
+  speed: 3
   currentSpeed: 0
   goldValue: 4
+  stunned: 0
   sprite: {fileID: 4674723749684006162}
   player: {fileID: 0}
   bloodParticle: {fileID: 78693775177663599, guid: fac58f2e99407224583b2884fae93699,

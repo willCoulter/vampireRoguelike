@@ -21,10 +21,14 @@ public class arrow : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerController>().takeDamage(damage);
-            Destroy(arrowObject);
+            bool dealtDamage = collision.gameObject.GetComponent<PlayerController>().takeDamage(damage);
+            if (dealtDamage)
+            {
+                Destroy(arrowObject);
+            }
+            
         }
-        else if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Projectile") || collision.gameObject.CompareTag("Sword"))
+        else if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Projectile") || collision.gameObject.CompareTag("Sword") || collision.gameObject.CompareTag("Bloodpool"))
         {
 
         }

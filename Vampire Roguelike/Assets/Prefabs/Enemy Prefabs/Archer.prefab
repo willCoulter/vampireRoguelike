@@ -227,11 +227,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
-  damage: 2
+  maxHealth: 50
+  damage: 17
   speed: 1
   currentSpeed: 0
   goldValue: 5
+  stunned: 0
   sprite: {fileID: 7440419717192482398}
   player: {fileID: 0}
   bloodParticle: {fileID: 78693775177663599, guid: fac58f2e99407224583b2884fae93699,

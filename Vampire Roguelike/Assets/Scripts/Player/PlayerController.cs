@@ -326,14 +326,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void takeDamage(float damage)
+    public bool takeDamage(float damage)
     {
-        if (damageTimer <= 0)
+        if (damageTimer <= 0 && state != State.Dashing)
         {
             health -= damage;
             healthBar.fillAmount = health / maxHealth;
             playerSounds.PlayOneShot(playerHurt);
             damageTimer = damageDelay;
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

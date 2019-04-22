@@ -79,7 +79,7 @@ public class Room : MonoBehaviour
         //If player enters room, lock doors and spawn enemies
         if(collision.tag == "Player" && enemiesSpawned == false && isCleared == false){
             //Lock doors
-            Invoke("LockDoors", 0.2f);
+            Invoke("LockDoors", 0f);
             Debug.Log("Room " + roomID + " doors locked");
 
             //Spawn enemies

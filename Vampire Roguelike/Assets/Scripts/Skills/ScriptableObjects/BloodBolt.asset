@@ -17,8 +17,8 @@ MonoBehaviour:
   desc: Fires a bolt of condensed blood
   skillSprite: {fileID: 21300668, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
   skillSound: {fileID: 0}
-  baseCD: 4
-  baseCost: 0
+  baseCD: 6
+  baseCost: 25
   skillPrice: 11
-  damage: 10
+  damage: 15
   speed: 1
