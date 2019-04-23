@@ -15,7 +15,7 @@ MonoBehaviour:
   skillID: 5
   skillName: Stunning Strike
   desc: Your next attack will root the target in place.
-  skillSprite: {fileID: 21300014, guid: 62c47ccaef22e284ab0f5c549a76a3ac, type: 3}
+  skillSprite: {fileID: 21300012, guid: 62c47ccaef22e284ab0f5c549a76a3ac, type: 3}
   skillSound: {fileID: 0}
   baseCD: 15
   baseCost: 30

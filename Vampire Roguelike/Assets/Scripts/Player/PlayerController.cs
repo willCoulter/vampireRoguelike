@@ -161,8 +161,8 @@ public class PlayerController : MonoBehaviour
         health = maxHealth;
         blood = 0;
 
-        attackDamage = 5;
-        magicDamage = 5;
+        attackDamage = 20;
+        magicDamage = 10;
 
         state = State.Normal;
         inCombat = false;
