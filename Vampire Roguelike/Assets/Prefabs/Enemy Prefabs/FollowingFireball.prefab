@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7245580329922956076}
   - component: {fileID: 2965795250741701013}
   - component: {fileID: 2574518300806393201}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: FollowingFireball
   m_TagString: WizardFireball
   m_Icon: {fileID: 0}

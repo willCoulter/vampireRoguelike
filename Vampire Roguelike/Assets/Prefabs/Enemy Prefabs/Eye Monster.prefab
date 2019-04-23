@@ -133,8 +133,8 @@ MonoBehaviour:
     type: 3}
   bloodPool: {fileID: 2798487634913739649, guid: 700a34e59bcc0e641a21b09b7a7b67e9,
     type: 3}
-  agroRadius: 10
-  miniumRange: 1.1
+  agroRadius: 20
+  miniumRange: 1.31
   OnDestroy:
     m_PersistentCalls:
       m_Calls: []

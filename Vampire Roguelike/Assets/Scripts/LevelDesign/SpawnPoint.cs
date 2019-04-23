@@ -32,7 +32,7 @@ public class SpawnPoint : MonoBehaviour
         switch (bossID)
         {
             case 1:
-                boss = bossEnemies[0];
+                boss = bossEnemies[3];
                 break;
             case 2:
                 boss = bossEnemies[1];
