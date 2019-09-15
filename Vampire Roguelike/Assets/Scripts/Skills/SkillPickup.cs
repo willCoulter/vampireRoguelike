@@ -7,6 +7,7 @@ public class SkillPickup : MonoBehaviour
     public Skill skill;
     public bool playerInPickupRange;
     public KeyCode interactKey;
+    private bool wasPickedUp;
 
     private void Start()
     {
@@ -15,7 +16,7 @@ public class SkillPickup : MonoBehaviour
 
     private void Update()
     {
-        if (playerInPickupRange && Input.GetKeyDown(interactKey))
+        if (playerInPickupRange && Input.GetKeyDown(interactKey) && !wasPickedUp)
         {
             PickUp();
         }
@@ -47,7 +48,7 @@ public class SkillPickup : MonoBehaviour
     virtual public void PickUp()
     {
         Debug.Log("Picked up " + skill.name);
-        bool wasPickedUp = SkillInventory.instance.Add(skill);
+        wasPickedUp = SkillInventory.instance.Add(skill);
 
         if (wasPickedUp)
         {

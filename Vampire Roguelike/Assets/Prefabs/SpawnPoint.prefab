@@ -51,4 +51,7 @@ MonoBehaviour:
   bossEnemies:
   - {fileID: 7195809643611878441, guid: 8a1d628d5b6fd0448b09d129e59186ef, type: 3}
   - {fileID: 5299929272026614554, guid: 39cc073f9eab3ef4498343a013d6c836, type: 3}
+  - {fileID: 5289819647324937220, guid: 2090b661523e33c4db203dab61e25f91, type: 3}
   - {fileID: 7715101419333310252, guid: 50818bd35399dfe4eb7d7dce0ed8b680, type: 3}
+  - {fileID: 8970997217587096322, guid: 63314b494dca0764d9ed88f8cc9ecbaa, type: 3}
+  isBossSpawner: 0

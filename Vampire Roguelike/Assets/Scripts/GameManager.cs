@@ -144,9 +144,6 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.audioSource.Play();
         SceneManager.LoadScene("Level1");
         currentLevelNum = 1;
-        
-
-        SceneManager.LoadScene("Level1");
 
         GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
         CameraMovement cameraScript = camera.GetComponent<CameraMovement>();

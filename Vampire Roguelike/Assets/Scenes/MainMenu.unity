@@ -1555,7 +1555,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 32567
+    m_Bits: 229175
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3207,24 +3207,6 @@ PrefabInstance:
     - {fileID: 8273850786279028079, guid: 261d9e2547e7c3b4eb4d1e078b2b6082, type: 3}
     - {fileID: 5457902036545340788, guid: 261d9e2547e7c3b4eb4d1e078b2b6082, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 261d9e2547e7c3b4eb4d1e078b2b6082, type: 3}
---- !u!1 &909683846 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4782444987536739160, guid: d036e8a28654d3646b1d57618a56f978,
-    type: 3}
-  m_PrefabInstance: {fileID: 1187778937}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &909683858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909683846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62ceed8fb982e7d4d9ce0c33df98cf67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &927928464 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 191847138933955061, guid: 261d9e2547e7c3b4eb4d1e078b2b6082,
@@ -4264,25 +4246,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4782444987536739167, guid: d036e8a28654d3646b1d57618a56f978,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782444987536739166, guid: d036e8a28654d3646b1d57618a56f978,
-        type: 3}
-      propertyPath: attackDamage
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782444987536739166, guid: d036e8a28654d3646b1d57618a56f978,
-        type: 3}
-      propertyPath: magicDamage
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4782444987536739166, guid: d036e8a28654d3646b1d57618a56f978,
         type: 3}
       propertyPath: layerMask.m_Bits
-      value: 69175
+      value: 3639
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450141839, guid: d036e8a28654d3646b1d57618a56f978, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d036e8a28654d3646b1d57618a56f978, type: 3}

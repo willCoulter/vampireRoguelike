@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 6
   itemName: Pointy Stick
-  desc: A stick. Its pointy. Increase attack damage by 5.
+  desc: A stick. Its pointy. Increase attack damage by 2
   itemSprite: {fileID: 21300540, guid: 3a0c1011c1400aa4e857d84527167b92, type: 3}
-  buffAmount: 5
+  buffAmount: 2
   buff: 2

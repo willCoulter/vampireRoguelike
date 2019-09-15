@@ -15,10 +15,10 @@ MonoBehaviour:
   skillID: 6
   skillName: Blood Flow
   desc: Doubles your speed for 5 seconds
-  skillSprite: {fileID: 21300636, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
+  skillSprite: {fileID: 21300112, guid: 3a0c1011c1400aa4e857d84527167b92, type: 3}
   skillSound: {fileID: 0}
   baseCD: 10
   baseCost: 10
-  skillPrice: 0
+  skillPrice: 40
   multipler: 2
   dur: 2

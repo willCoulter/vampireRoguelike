@@ -34,6 +34,13 @@ public class MainMenu : MonoBehaviour
 
     public void NewGameConfirm()
     {
+        //Clear skills
+        SkillInventory.instance.skills[0] = null;
+        SkillInventory.instance.skills[1] = null;
+        SkillInventory.instance.skills[2] = null;
+
+        ItemInventory.instance.ClearAllItems();
+
         SaveManager.instance.isLoading = false;
         SceneManager.LoadScene("Level1");
     }

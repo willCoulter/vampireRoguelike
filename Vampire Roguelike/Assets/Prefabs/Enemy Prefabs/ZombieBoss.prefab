@@ -246,10 +246,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 20
-  damage: 5
+  maxHealth: 250
+  damage: 15
   speed: 2
   currentSpeed: 0
+  goldValue: 0
+  stunned: 0
   sprite: {fileID: 5289819647324937342}
   player: {fileID: 0}
   bloodParticle: {fileID: 78693775177663599, guid: fac58f2e99407224583b2884fae93699,
@@ -440,16 +442,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7964745202542374273, guid: 3baa79911280efa41b814232895957c1,
+    - target: {fileID: 7967261386695363544, guid: 3baa79911280efa41b814232895957c1,
         type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: c4d7f7edf4fa23a4d8cc1511c0650adf, type: 2}
+      propertyPath: damage
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7967261386695363543, guid: 3baa79911280efa41b814232895957c1,
         type: 3}
       propertyPath: m_Name
       value: fist
       objectReference: {fileID: 0}
+    - target: {fileID: 7964745202542374273, guid: 3baa79911280efa41b814232895957c1,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c4d7f7edf4fa23a4d8cc1511c0650adf, type: 2}
+    - target: {fileID: 8744648412440338665, guid: 3baa79911280efa41b814232895957c1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d3dd355404ee034bab490bd25d3cc9d,
+        type: 3}
     - target: {fileID: 3217935655036239353, guid: 3baa79911280efa41b814232895957c1,
         type: 3}
       propertyPath: m_Offset.x
@@ -490,12 +503,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.8344922
       objectReference: {fileID: 0}
-    - target: {fileID: 8744648412440338665, guid: 3baa79911280efa41b814232895957c1,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6d3dd355404ee034bab490bd25d3cc9d,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3baa79911280efa41b814232895957c1, type: 3}
 --- !u!1 &7344514487695519560 stripped
@@ -583,15 +590,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7967261386695363544, guid: 3baa79911280efa41b814232895957c1,
+        type: 3}
+      propertyPath: damage
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967261386695363543, guid: 3baa79911280efa41b814232895957c1,
+        type: 3}
+      propertyPath: m_Name
+      value: fist
+      objectReference: {fileID: 0}
     - target: {fileID: 7964745202542374273, guid: 3baa79911280efa41b814232895957c1,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c4d7f7edf4fa23a4d8cc1511c0650adf, type: 2}
-    - target: {fileID: 7967261386695363543, guid: 3baa79911280efa41b814232895957c1,
+    - target: {fileID: 8744648412440338665, guid: 3baa79911280efa41b814232895957c1,
         type: 3}
-      propertyPath: m_Name
-      value: fist
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d3dd355404ee034bab490bd25d3cc9d,
+        type: 3}
+    - target: {fileID: 8744648412440338665, guid: 3baa79911280efa41b814232895957c1,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3217935655036239353, guid: 3baa79911280efa41b814232895957c1,
         type: 3}
@@ -632,17 +655,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 0.8344922
-      objectReference: {fileID: 0}
-    - target: {fileID: 8744648412440338665, guid: 3baa79911280efa41b814232895957c1,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6d3dd355404ee034bab490bd25d3cc9d,
-        type: 3}
-    - target: {fileID: 8744648412440338665, guid: 3baa79911280efa41b814232895957c1,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3baa79911280efa41b814232895957c1, type: 3}

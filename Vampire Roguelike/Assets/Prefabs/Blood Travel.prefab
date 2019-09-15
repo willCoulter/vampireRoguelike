@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   bloodAmount: 0
-  speed: 5
+  speed: 7
 --- !u!198 &978361503
 ParticleSystem:
   m_ObjectHideFlags: 0

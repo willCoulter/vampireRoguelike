@@ -101,11 +101,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 250
-  damage: 5
+  maxHealth: 200
+  damage: 10
   speed: 3
   currentSpeed: 0
   goldValue: 25
+  stunned: 0
   sprite: {fileID: 5299929272026614552}
   player: {fileID: 0}
   bloodParticle: {fileID: 78693775177663599, guid: fac58f2e99407224583b2884fae93699,
@@ -128,7 +129,7 @@ MonoBehaviour:
   target: {fileID: 0}
   room: {fileID: 0}
   startLag: 1
-  slamDamage: 15
+  slamDamage: 40
   slamCooldown: 30
   slamRadius: 5
   slam: {fileID: 5848993273569416220, guid: aca656dfd16e70b408c684b18ac44d9a, type: 3}

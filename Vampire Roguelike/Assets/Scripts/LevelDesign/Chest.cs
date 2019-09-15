@@ -16,7 +16,6 @@ public class Chest : MonoBehaviour
         {
             UIManager.instance.hideChestPopup();
             OpenChest();
-            hasOpened = true;
         }
     }
 
@@ -48,5 +47,7 @@ public class Chest : MonoBehaviour
         itemScript.item = ItemInventory.instance.allItems[rand];
 
         GetComponent<SpriteRenderer>().sprite = openSprite;
+
+        hasOpened = true;
     }
 }

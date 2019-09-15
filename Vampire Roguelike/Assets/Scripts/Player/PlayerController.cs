@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public LayerMask layerMask;
+    public Sprite bloodPoolSprite;
 
     public float speed = 7f;
     public float maxHealth;
@@ -110,6 +111,7 @@ public class PlayerController : MonoBehaviour
 
         if(health <= 0 && state != State.Dead)
         {
+            sr.sprite = bloodPoolSprite;
             Die();
         }
 
@@ -159,8 +161,8 @@ public class PlayerController : MonoBehaviour
         health = maxHealth;
         blood = 0;
 
-        attackDamage = 5;
-        magicDamage = 5;
+        attackDamage = 20;
+        magicDamage = 10;
 
         state = State.Normal;
         inCombat = false;
@@ -326,14 +328,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void takeDamage(float damage)
+    public bool takeDamage(float damage)
     {
-        if (damageTimer <= 0)
+        if (damageTimer <= 0 && state != State.Dashing)
         {
             health -= damage;
             healthBar.fillAmount = health / maxHealth;
             playerSounds.PlayOneShot(playerHurt);
             damageTimer = damageDelay;
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

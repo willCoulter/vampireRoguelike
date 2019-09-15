@@ -15,10 +15,10 @@ MonoBehaviour:
   skillID: 3
   skillName: Blood Drive
   desc: Doubles Damage for 3 seconds
-  skillSprite: {fileID: 21300610, guid: 0659c6a297db71643b1295f12ae22d2c, type: 3}
+  skillSprite: {fileID: 21300598, guid: 3a0c1011c1400aa4e857d84527167b92, type: 3}
   skillSound: {fileID: 0}
   baseCD: 10
-  baseCost: 10
+  baseCost: 60
   skillPrice: 13
   multipler: 2
   dur: 3

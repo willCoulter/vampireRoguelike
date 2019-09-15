@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 1
   itemName: Big Brain Book
-  desc: Increase brain size and magic damage by 20
+  desc: Increase brain size and magic damage by 10
   itemSprite: {fileID: 21300530, guid: 3a0c1011c1400aa4e857d84527167b92, type: 3}
-  buffAmount: 20
+  buffAmount: 10
   buff: 3

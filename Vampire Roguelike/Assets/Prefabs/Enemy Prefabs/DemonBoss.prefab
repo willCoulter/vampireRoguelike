@@ -4870,6 +4870,7 @@ MonoBehaviour:
   speed: 1
   currentSpeed: 0
   goldValue: 30
+  stunned: 0
   sprite: {fileID: 7715101419333310250}
   player: {fileID: 0}
   bloodParticle: {fileID: 78693775177663599, guid: fac58f2e99407224583b2884fae93699,
@@ -4895,7 +4896,7 @@ MonoBehaviour:
   startLag: 1
   cooldownCounter: 0
   fireBallDamage: 15
-  fireBeamDamage: 1
+  fireBeamDamage: 2
   fireBeamCooldown: 30
   smallFireBall: {fileID: 4621611552306442556, guid: d6ad0f86940151f41b5c702664c490a9,
     type: 3}

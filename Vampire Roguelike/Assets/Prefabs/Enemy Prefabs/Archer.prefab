@@ -227,11 +227,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
-  damage: 2
+  maxHealth: 50
+  damage: 17
   speed: 1
   currentSpeed: 0
   goldValue: 5
+  stunned: 0
   sprite: {fileID: 7440419717192482398}
   player: {fileID: 0}
   bloodParticle: {fileID: 78693775177663599, guid: fac58f2e99407224583b2884fae93699,
@@ -240,8 +241,8 @@ MonoBehaviour:
     type: 3}
   bloodPool: {fileID: 2798487634913739649, guid: 700a34e59bcc0e641a21b09b7a7b67e9,
     type: 3}
-  agroRadius: 5.29
-  miniumRange: 3
+  agroRadius: 20
+  miniumRange: 7
   OnDestroy:
     m_PersistentCalls:
       m_Calls: []
@@ -256,7 +257,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3576491130118358102, guid: 134d3e17faa5d90459e649a9c335e20c,
     type: 3}
   launchPosition: {fileID: 1520623854}
-  startLag: 5
+  startLag: 3
 --- !u!95 &2777486565919277477
 Animator:
   serializedVersion: 3

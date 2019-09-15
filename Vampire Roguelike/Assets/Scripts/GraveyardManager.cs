@@ -84,6 +84,12 @@ public class GraveyardManager : MonoBehaviour
         SkillInventory.instance.skills[1] = null;
         SkillInventory.instance.skills[2] = null;
 
+        //Clear pause slots
+        foreach (PauseSkillSlot pauseSlot in pauseSkillScriptList)
+        {
+            pauseSlot.skill = null;
+        }
+
         //Loop through saved skill id's
         foreach (int playerSkill in saveData.playerData.skills)
         {

@@ -22,9 +22,9 @@ public class Controls
         controls.Add("Dodge", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Dodge", "Space")));
         controls.Add("Interact", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Interact", "E")));
         controls.Add("Bloodsuck", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("BloodSuck", "F")));
-        controls.Add("Skill1", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Skill1", "r")));
-        controls.Add("Skill2", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Skill2", "t")));
-        controls.Add("Skill3", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Skill3", "g")));
+        controls.Add("Skill1", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Skill1", "R")));
+        controls.Add("Skill2", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Skill2", "T")));
+        controls.Add("Skill3", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Skill3", "G")));
         return this.controls;
     }
 
