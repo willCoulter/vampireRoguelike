@@ -1,5 +1,18 @@
-# Project Startup Guide
+# Project Startup Guide - The Crimson Crypt
 ## WC Entertainment - Will Coulter and Colin Landry
+
+### What is the Crimson Crypt 
+-The Crimson Crypt is a top down rogue-like genre game for pc, mac and linux systems. The game was created in the unity engine as part of our capstone assignment. But now let's really talk about the game.
+
+- The Crimson crpyt is all about two things defeating enemies and getting better at it. The player is a vampire with a sword that will explore the dungeon and defeat it's bosses. Along the way you'll discover various blood powers that let you use a varity of ablites in exchange for the blood you gain from defeated enemies. 
+
+- You'll also discover chests that reweard you with more passive upgrades like more damage and health. 
+
+![](https://i.gyazo.com/c9a1ca29d768cac18a4ea2d53fbf8951.png)
+
+- Oh and you'll die again and again and again. 
+
+![](https://i.gyazo.com/02be5a9a27b4b19d79675bbe1b8f8deb.png)
 
 ### Playtesting
 
